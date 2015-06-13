@@ -24,62 +24,46 @@ abstract class ClAbstractVariable {
 
 	protected static $iVariableNumber = 0;
 
-	public static function __construct_string( $name ) {
-		$instance        = new static();
-		$instance->_name = $name;
-		$instance->iVariableNumber ++;
-
-		return $instance;
+	public function __construct_string( $name ) {
+		$this->_name = $name;
+		$this->iVariableNumber ++;
 	}
 
-	public static function __construct_default() {
-		$instance        = new static();
-		$instance->_name = "v" + $instance->iVariableNumber;
-		$instance->iVariableNumber ++;
-
-		return $instance;
+	public function __construct_default() {
+		$this->_name = "v" + $this->iVariableNumber;
+		$this->iVariableNumber ++;
 	}
 
-	public static function __construct_long_string( $varnumber, $prefix ) {
-		$instance        = new static();
-		$instance->_name = $prefix + $varnumber;
-		$instance->iVariableNumber ++;
-
-		return $instance;
+	public function __construct_long_string( $varnumber, $prefix ) {
+		$this->_name = $prefix + $varnumber;
+		$this->iVariableNumber ++;
 	}
 
 	/**
 	 * @return string
 	 */
-	public
-	function name() {
+	public function name() {
 		return (string) $this->_name;
 	}
 
 	/**
 	 * @param string $name
 	 */
-	public
-	function setName(
-		$name
-	) {
+	public function setName( $name ) {
 		$this->_name = (string) $name;
 	}
 
 	/**
 	 * @return bool
 	 */
-	public
-	function isDummy() {
+	public function isDummy() {
 		return false;
 	}
 
 	/**
 	 * @return bool
 	 */
-	public
-
-	abstract function isExternal();
+	public abstract function isExternal();
 
 	/**
 	 * @return bool

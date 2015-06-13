@@ -18,19 +18,16 @@ namespace DaveRoss\CasswaryConstraintSolver;
 
 class ClDouble extends CLNumber {
 
-	private $value; // double
+	use \DaveRoss\CasswaryConstraintSolver\OverloadedConstructor;
 
-	function __construct( $val = null ) {
-		$this->value = self::val_or_default( $val );
+	public $value; // double
+
+	public function __construct_double( $val ) {
+		$this->value = doubleval( $val );
 	}
 
-	/**
-	 * @param $val
-	 *
-	 * @return float
-	 */
-	protected static function val_or_default( $val ) {
-		return ! empty( $val ) ? doubleval( $val ) : 0.0;
+	public function __construct_default() {
+		$this->value = 0.0;
 	}
 
 	/**
@@ -44,28 +41,28 @@ class ClDouble extends CLNumber {
 	 * @return float
 	 */
 	public final function doubleValue() {
-		return $this->value;
+		return doubleval( $this->value );
 	}
 
 	/**
 	 * @return int
 	 */
 	public final function intValue() {
-		return (int) $this->value;
+		return intval( $this->value );
 	}
 
 	/**
 	 * @return int PHP doesn't have a long datatype. ints are 64-bit however
 	 */
 	public final function longValue() {
-		return ( int ) $this->value;
+		return $this->intValue();
 	}
 
 	/**
 	 * @return float
 	 */
 	public final function floatValue() {
-		return (float) $this->value;
+		return floatval( $this->value );
 	}
 
 //@Override

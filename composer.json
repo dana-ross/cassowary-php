@@ -13,6 +13,6 @@
     ],
     "require": {},
     "autoload": {
-      "files": ["src/OverloadedConstructor.php", "src/CastTarget.php"]
+      "files": ["src/OverloadedConstructor.php", "src/CastTarget.php", "src/CLNumber.php", "src/CLDouble.php"]
     }
 }

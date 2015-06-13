@@ -2,11 +2,6 @@
 
 class TestOverloadedConstructor extends PHPUnit_Framework_TestCase {
 
-	function test_constructor_override() {
-		$this->setExpectedException( 'RuntimeException' );
-		new TestOverloadedConstructorA();
-	}
-
 	function test_constructor_name() {
 
 		$this->assertEquals( '__construct_string', TestOverloadedConstructorA::_constructor_name( array( 'test' ) ) );
@@ -33,23 +28,23 @@ class TestOverloadedConstructor extends PHPUnit_Framework_TestCase {
 	}
 
 	function test_string_constructor() {
-		$instance = TestOverloadedConstructorA::__new( 'test' );
+		$instance = new TestOverloadedConstructorA( 'test' );
 		$this->assertEquals( 'test', $instance->string );
 	}
 
 	function test_integer_constructor() {
-		$instance = TestOverloadedConstructorA::__new( 5 );
+		$instance = new TestOverloadedConstructorA( 5 );
 		$this->assertEquals( 5, $instance->integer );
 	}
 
 	function test_double_constructor() {
-		$instance = TestOverloadedConstructorA::__new( 5.0 );
+		$instance = new TestOverloadedConstructorA( 5.0 );
 		$this->assertEquals( 5.0, $instance->double );
 	}
 
 	function test_invalid_constructor() {
 		$this->setExpectedException( 'RuntimeException' );
-		TestOverloadedConstructorA::__new( array() );
+		new TestOverloadedConstructorA( array() );
 	}
 
 }
@@ -66,28 +61,16 @@ class TestOverloadedConstructorA {
 	public $string;
 	public $integer;
 
-	public static function __construct_string( $string ) {
-
-		$instance         = new static();
-		$instance->string = $string;
-
-		return $instance;
+	public function __construct_string( $string ) {
+		$this->string = $string;
 	}
 
-	public static function __construct_integer( $integer ) {
-
-		$instance          = new static();
-		$instance->integer = $integer;
-
-		return $instance;
+	public function __construct_integer( $integer ) {
+		$this->integer = $integer;
 	}
 
-	public static function __construct_double( $double ) {
-
-		$instance         = new static();
-		$instance->double = $double;
-
-		return $instance;
+	public function __construct_double( $double ) {
+		$this->double = $double;
 	}
 
 }
