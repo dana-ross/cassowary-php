@@ -26,20 +26,14 @@ class ClVariable extends ClAbstractVariable {
 	private /* Object */
 		$_attachedObject;
 
-	public static function __construct_string_double( $name, $value ) {
-		$instance         = new static();
-		$instance->_name  = $name;
-		$instance->_value = $value;
-
-		return $instance;
+	public function __construct_string_double( $name, $value ) {
+		$this->_name  = $name;
+		$this->_value = $value;
 	}
 
-	public static function __construct_string( $name ) {
-		$instance         = new static();
-		$instance->_name  = $name;
-		$instance->_value = 0.0;
-
-		return $instance;
+	public function __construct_string( $name ) {
+		$this->_name  = $name;
+		$this->_value = 0.0;
 	}
 
 	/**
@@ -47,37 +41,25 @@ class ClVariable extends ClAbstractVariable {
 	 *
 	 * @return static
 	 */
-	public static function __construct_double( $value ) {
-		$instance         = new static();
-		$instance->_value = doubleval( $value );
-
-		return $instance;
+	public function __construct_double( $value ) {
+		$this->_value = doubleval( $value );
 	}
 
 	/**
 	 * @return static
 	 */
-	public static function __construct_default() {
-		$instance         = new static();
-		$instance->_value = 0.0;
-
-		return $instance;
+	public function __construct_default() {
+		$this->_value = 0.0;
 	}
 
 	public static function __construct_int_string_double( $number, $prefix, $value ) {
-		$instance         = new static();
-		$instance->_name  = $prefix . $number;
-		$instance->_value = $value;
-
-		return $instance;
+		$this->_name  = $prefix . $number;
+		$this->_value = $value;
 	}
 
-	public static function __construct_long_string( $number, $prefix ) {
-		$instance         = new static();
-		$instance->_name  = $prefix . $number;
-		$instance->_value = 0.0;
-
-		return $instance;
+	public function __construct_long_string( $number, $prefix ) {
+		$this->_name  = $prefix . $number;
+		$this->_value = 0.0;
 	}
 
 	/**

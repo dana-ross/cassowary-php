@@ -26,28 +26,19 @@ class ClPoint {
 	private /* ClVariable */
 		$y;
 
-	public static function __construct_double_double( $x, $y ) {
-		$instance    = new static();
-		$instance->x = new ClVariable( $x );
-		$instance->y = new ClVariable( $y );
-
-		return $instance;
+	public function __construct_double_double( $x, $y ) {
+		$this->x = new ClVariable( $x );
+		$this->y = new ClVariable( $y );
 	}
 
-	public static function __construct_double_double_int( $x, $y, $a ) {
-		$instance    = new static();
-		$instance->x = new ClVariable( "x" . $a, $x );
-		$instance->y = new ClVariable( "y" . $a, $y );
-
-		return $instance;
+	public function __construct_double_double_int( $x, $y, $a ) {
+		$this->x = new ClVariable( "x" . $a, $x );
+		$this->y = new ClVariable( "y" . $a, $y );
 	}
 
-	public static function __construct_object_object( ClVariable $clv_x, ClVariable $clv_y ) {
-		$instance    = new static();
-		$instance->x = $clv_x;
-		$instance->y = $clv_y;
-
-		return $instance;
+	public function __construct_object_object( ClVariable $clv_x, ClVariable $clv_y ) {
+		$this->x = $clv_x;
+		$this->y = $clv_y;
 	}
 
 	/**

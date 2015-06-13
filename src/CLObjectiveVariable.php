@@ -18,16 +18,7 @@ namespace DaveRoss\CasswaryConstraintSolver;
 
 class ClObjectiveVariable extends ClAbstractVariable {
 
-	use \DaveRoss\CasswaryConstraintSolver\OverloadedConstructor;
 	use \DaveRoss\CasswaryConstraintSolver\CastTarget;
-
-	public static function __construct_string( $name ) {
-		return self::__cast_to_self( parent::__construct_string( $name ) );
-	}
-
-	public static function __construct_long_string( $number, $prefix ) {
-		return self::__cast_to_self( parent::__construct_long_string( $number, $prefix ) );
-	}
 
 	public function __toString() {
 		return "[" . $this->name() . ":obj]";

@@ -18,32 +18,7 @@ namespace DaveRoss\CasswaryConstraintSolver;
 
 class ClDummyVariable extends ClAbstractVariable {
 
-	use \DaveRoss\CasswaryConstraintSolver\OverloadedConstructor;
 	use \DaveRoss\CasswaryConstraintSolver\CastTarget;
-
-	/**
-	 * @param string $name
-	 *
-	 * @return ClDummyVariable
-	 * @todo is this necessary or will constructor overloading just work here?
-	 */
-	public static function __construct_string( $name ) {
-		return self::__cast_to_self( parent::__construct_string( $name ) );
-	}
-
-	public static function __construct_default() {
-	}
-
-	/**
-	 * @param long   $number
-	 * @param string $prefix
-	 *
-	 * @return ClDummyVariable
-	 * @todo is this necessary or will constructor overloading just work here?
-	 */
-	public static function __construct_long_string( $number, $prefix ) {
-		return self::__cast_to_self( parent::__construct_long_string( $number, $prefix ) );
-	}
 
 	/**
 	 * @return string
