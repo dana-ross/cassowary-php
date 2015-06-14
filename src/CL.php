@@ -68,19 +68,6 @@ class CL {
 		echo "- " . $s;
 	}
 
-	public static function Plus() {
-
-		if ( method_exists( __CLASS__, self::overriden_impl_fn_name( __FUNCTION__, func_get_args() ) ) ) {
-			call_user_func_array( array(
-				__CLASS__,
-				self::overriden_impl_fn_name( __FUNCTION__, func_get_args() )
-			), func_get_args() );
-		} else {
-			throw new \RuntimeException( 'No applicable implementation for ' . self::approoverriden_impl_fn_namex_impl_fn_name( __FUNCTION__, func_get_args() ) . ' found in ' . __CLASS__ );
-		}
-
-	}
-
 	/**
 	 * @param ClLinearExpression $e1
 	 * @param ClLinearExpression $e2
@@ -151,19 +138,6 @@ class CL {
 		return ( new ClLinearExpression( doubleval( $e1 ) ) )->plus( new ClLinearExpression( $e2 ) );
 	}
 
-	public static function Minus() {
-
-		if ( method_exists( __CLASS__, self::overriden_impl_fn_name( __FUNCTION__, func_get_args() ) ) ) {
-			call_user_func_array( array(
-				__CLASS__,
-				self::overriden_impl_fn_name( __FUNCTION__, func_get_args() )
-			), func_get_args() );
-		} else {
-			throw new \RuntimeException( 'No applicable implementation for ' . self::approoverriden_impl_fn_namex_impl_fn_name( __FUNCTION__, func_get_args() ) . ' found in ' . __CLASS__ );
-		}
-
-	}
-
 	/**
 	 * @param ClLinearExpression $e1
 	 * @param ClLinearExpression $e2
@@ -192,19 +166,6 @@ class CL {
 	 */
 	public static function Minus_cllinearexpression_double( ClLinearExpression $e1, $e2 ) {
 		return $e1->minus( new ClLinearExpression( doubleval( $e2 ) ) );
-	}
-
-	public static function Times() {
-
-		if ( method_exists( __CLASS__, self::overriden_impl_fn_name( __FUNCTION__, func_get_args() ) ) ) {
-			call_user_func_array( array(
-				__CLASS__,
-				self::overriden_impl_fn_name( __FUNCTION__, func_get_args() )
-			), func_get_args() );
-		} else {
-			throw new \RuntimeException( 'No applicable implementation for ' . self::approoverriden_impl_fn_namex_impl_fn_name( __FUNCTION__, func_get_args() ) . ' found in ' . __CLASS__ );
-		}
-
 	}
 
 	/**
@@ -293,25 +254,6 @@ class CL {
 	 */
 	public static function Divide( ClLinearExpression $e1, ClLinearExpression $e2 ) {
 		return $e1->divide( $e2 );
-	}
-
-	public static function approx() {
-
-		if ( method_exists( __CLASS__, self::overriden_impl_fn_name( __FUNCTION__, func_get_args() ) ) ) {
-			call_user_func_array( array(
-				__CLASS__,
-				self::overriden_impl_fn_name( __FUNCTION__, func_get_args() )
-			), func_get_args() );
-		} else {
-			throw new \RuntimeException( 'No applicable implementation for ' . self::approoverriden_impl_fn_namex_impl_fn_name( __FUNCTION__, func_get_args() ) . ' found in ' . __CLASS__ );
-		}
-
-	}
-
-	protected static function overriden_impl_fn_name( $fn, $args ) {
-		return $fn . '_' . implode( '_', array_map( 'strtolower', array_map( function ( $arg ) {
-			return strtolower( is_object( $arg ) ? get_class( $arg ) : gettype( $arg ) );
-		}, $args ) ) );
 	}
 
 	/**

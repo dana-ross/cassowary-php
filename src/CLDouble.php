@@ -18,7 +18,7 @@ namespace DaveRoss\CasswaryConstraintSolver;
 
 class ClDouble extends CLNumber {
 
-	use \DaveRoss\CasswaryConstraintSolver\OverloadedConstructor;
+	use \DaveRoss\CasswaryConstraintSolver\OverloadedMethods;
 
 	public $value; // double
 

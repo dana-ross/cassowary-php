@@ -1,26 +1,26 @@
 <?php
 
-class TestOverloadedConstructor extends PHPUnit_Framework_TestCase {
+class TestOverloadedMethods extends PHPUnit_Framework_TestCase {
 
 	function test_constructor_name() {
 
-		$this->assertEquals( '__construct_string', TestOverloadedConstructorA::_constructor_name( array( 'test' ) ) );
-		$this->assertEquals( '__construct_integer', TestOverloadedConstructorA::_constructor_name( array( 1 ) ) );
-		$this->assertEquals( '__construct_double', TestOverloadedConstructorA::_constructor_name( array( 1.0 ) ) );
-		$this->assertEquals( '__construct_array', TestOverloadedConstructorA::_constructor_name( array(
+		$this->assertEquals( '__construct_string', TestOverloadedMethodsA::_constructor_name( array( 'test' ) ) );
+		$this->assertEquals( '__construct_integer', TestOverloadedMethodsA::_constructor_name( array( 1 ) ) );
+		$this->assertEquals( '__construct_double', TestOverloadedMethodsA::_constructor_name( array( 1.0 ) ) );
+		$this->assertEquals( '__construct_array', TestOverloadedMethodsA::_constructor_name( array(
 			array(
 				1,
 				2,
 				3
 			)
 		) ) );
-		$this->assertEquals( '__construct_object', TestOverloadedConstructorA::_constructor_name( array( new stdClass() ) ) );
+		$this->assertEquals( '__construct_object', TestOverloadedMethodsA::_constructor_name( array( new stdClass() ) ) );
 
-		$this->assertEquals( '__construct_string_integer', TestOverloadedConstructorA::_constructor_name( array(
+		$this->assertEquals( '__construct_string_integer', TestOverloadedMethodsA::_constructor_name( array(
 			'test',
 			5
 		) ) );
-		$this->assertEquals( '__construct_string_object', TestOverloadedConstructorA::_constructor_name( array(
+		$this->assertEquals( '__construct_string_object', TestOverloadedMethodsA::_constructor_name( array(
 			'test',
 			new stdClass()
 		) ) );
@@ -28,34 +28,39 @@ class TestOverloadedConstructor extends PHPUnit_Framework_TestCase {
 	}
 
 	function test_string_constructor() {
-		$instance = new TestOverloadedConstructorA( 'test' );
+		$instance = new TestOverloadedMethodsA( 'test' );
 		$this->assertEquals( 'test', $instance->string );
 	}
 
 	function test_integer_constructor() {
-		$instance = new TestOverloadedConstructorA( 5 );
+		$instance = new TestOverloadedMethodsA( 5 );
 		$this->assertEquals( 5, $instance->integer );
 	}
 
 	function test_double_constructor() {
-		$instance = new TestOverloadedConstructorA( 5.0 );
+		$instance = new TestOverloadedMethodsA( 5.0 );
 		$this->assertEquals( 5.0, $instance->double );
 	}
 
 	function test_invalid_constructor() {
 		$this->setExpectedException( 'RuntimeException' );
-		new TestOverloadedConstructorA( array() );
+		new TestOverloadedMethodsA( array() );
+	}
+
+	function test_overriden_impl_fn_name() {
+		$this->assertEquals('example_double_integer', TestOverloadedMethodsA::_overriden_impl_fn_name('example', array(5.5, 5)));
+		$this->assertEquals('example_testoverloadedmethodsa_integer', TestOverloadedMethodsA::_overriden_impl_fn_name('example', array(new TestOverloadedMethodsA('test'), 5)));
 	}
 
 }
 
 /**
- * Class TestOverloadedConstructorA
- * Test rig for TestOverloadedConstructor
+ * Class TestOverloadedMethodsA
+ * Test rig for TestOverloadedMethods
  */
-class TestOverloadedConstructorA {
+class TestOverloadedMethodsA {
 
-	use \DaveRoss\CasswaryConstraintSolver\OverloadedConstructor;
+	use \DaveRoss\CasswaryConstraintSolver\OverloadedMethods;
 
 	public $double;
 	public $string;

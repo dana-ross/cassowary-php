@@ -18,7 +18,7 @@ namespace DaveRoss\CasswaryConstraintSolver;
 
 class ClPoint {
 
-	use \DaveRoss\CasswaryConstraintSolver\OverloadedConstructor;
+	use \DaveRoss\CasswaryConstraintSolver\OverloadedMethods;
 
 	private /* ClVariable */
 		$x;

@@ -18,7 +18,7 @@ namespace DaveRoss\CasswaryConstraintSolver;
 
 class ClStrength {
 
-	use \DaveRoss\CasswaryConstraintSolver\OverloadedConstructor;
+	use \DaveRoss\CasswaryConstraintSolver\OverloadedMethods;
 
 	public static /* ClStrength */
 		$required;
@@ -44,7 +44,7 @@ class ClStrength {
 	}
 
 	public function __construct_string_double_double_double( $name, $w1, $w2, $w3 ) {
-		$this->__construc_string_object( $name, new ClSymbolicWeight( $w1, $w2, $w3 ) );
+		$this->__construct_string_object( $name, new ClSymbolicWeight( $w1, $w2, $w3 ) );
 	}
 
 	/**

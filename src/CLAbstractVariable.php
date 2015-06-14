@@ -18,7 +18,7 @@ namespace DaveRoss\CasswaryConstraintSolver;
 
 abstract class ClAbstractVariable {
 
-	use \DaveRoss\CasswaryConstraintSolver\OverloadedConstructor;
+	use \DaveRoss\CasswaryConstraintSolver\OverloadedMethods;
 
 	protected $_name;
 

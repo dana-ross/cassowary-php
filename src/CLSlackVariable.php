@@ -18,7 +18,7 @@ namespace DaveRoss\CasswaryConstraintSolver;
 
 class ClSlackVariable extends ClAbstractVariable {
 
-	use \DaveRoss\CasswaryConstraintSolver\OverloadedConstructor;
+	use \DaveRoss\CasswaryConstraintSolver\OverloadedMethods;
 
 	public function __construct_string( $name ) {
 		parent::__construct_string( name );
