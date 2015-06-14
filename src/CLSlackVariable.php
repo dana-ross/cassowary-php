@@ -19,37 +19,42 @@ namespace DaveRoss\CasswaryConstraintSolver;
 class ClSlackVariable extends ClAbstractVariable {
 
 	use \DaveRoss\CasswaryConstraintSolver\OverloadedConstructor;
-	use \DaveRoss\CasswaryConstraintSolver\CastTarget;
 
-	public static function __construct_string($name) {
-		return self::__cast_to_self( parent::__construct_string( $name ) );
+	public function __construct_string( $name ) {
+		parent::__construct_string( name );
 	}
 
-    public static function __construct_default() {
+	public function __construct_default() {
 	}
 
-    public ClSlackVariable(long number, String prefix) {
-	super(number, prefix);
-}
+	public function __construct_long_string( $number, $prefix ) {
+		parent::__construct_long_string( $number, $prefix );
+	}
 
-    @Override
-    public String toString() {
-        return "[" + name() + ":slack]";
-    }
 
-    @Override
-    public boolean isExternal() {
-        return false;
-    }
+	public function __toString() {
+		return "[" . $this->name() . ":slack]";
+	}
 
-    @Override
-    public boolean isPivotable() {
-        return true;
-    }
+	/**
+	 * @return bool
+	 */
+	public function isExternal() {
+		return false;
+	}
 
-    @Override
-    public boolean isRestricted() {
-        return true;
-    }
+	/**
+	 * @return bool
+	 */
+	public function isPivotable() {
+		return true;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function isRestricted() {
+		return true;
+	}
 
 }

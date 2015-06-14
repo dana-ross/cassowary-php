@@ -52,7 +52,7 @@ class ClVariable extends ClAbstractVariable {
 		$this->_value = 0.0;
 	}
 
-	public static function __construct_int_string_double( $number, $prefix, $value ) {
+	public function __construct_int_string_double( $number, $prefix, $value ) {
 		$this->_name  = $prefix . $number;
 		$this->_value = $value;
 	}
