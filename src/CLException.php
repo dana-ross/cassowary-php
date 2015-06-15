@@ -16,7 +16,7 @@
 
 namespace DaveRoss\CasswaryConstraintSolver;
 
-class CLException extends RuntimeException {
+class CLException extends \RuntimeException {
 
 	function __construct( $message = null ) {
 		super( self::message_or_default( $message ) );
