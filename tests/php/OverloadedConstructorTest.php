@@ -48,8 +48,8 @@ class TestOverloadedMethods extends PHPUnit_Framework_TestCase {
 	}
 
 	function test_overriden_impl_fn_name() {
-		$this->assertEquals('example_double_integer', TestOverloadedMethodsA::_overriden_impl_fn_name('example', array(5.5, 5)));
-		$this->assertEquals('example_testoverloadedmethodsa_integer', TestOverloadedMethodsA::_overriden_impl_fn_name('example', array(new TestOverloadedMethodsA('test'), 5)));
+		$this->assertEquals('example_double_integer', TestOverloadedMethodsA::_overridden_impl_fn_name('example', array(5.5, 5)));
+		$this->assertEquals('example_testoverloadedmethodsa_integer', TestOverloadedMethodsA::_overridden_impl_fn_name('example', array(new TestOverloadedMethodsA('test'), 5)));
 	}
 
 }
