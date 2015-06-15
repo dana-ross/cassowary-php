@@ -36,7 +36,7 @@ class ClPoint {
 		$this->y = new ClVariable( "y" . $a, $y );
 	}
 
-	public function __construct_object_object( ClVariable $clv_x, ClVariable $clv_y ) {
+	public function __construct_clvariable_clvariable( ClVariable $clv_x, ClVariable $clv_y ) {
 		$this->x = $clv_x;
 		$this->y = $clv_y;
 	}

@@ -38,13 +38,13 @@ class ClStrength {
 	private /* ClSymbolicWeight */
 		$_symbolicWeight;
 
-	public function __construct_string_object( $name, ClSymbolicWeight $symbolicWeight ) {
+	public function __construct_string_clsymbolicweight( $name, ClSymbolicWeight $symbolicWeight ) {
 		$this->_name           = $name;
 		$this->_symbolicWeight = $symbolicWeight;
 	}
 
 	public function __construct_string_double_double_double( $name, $w1, $w2, $w3 ) {
-		$this->__construct_string_object( $name, new ClSymbolicWeight( $w1, $w2, $w3 ) );
+		$this->__construct_string_clsymbolicweight( $name, new ClSymbolicWeight( $w1, $w2, $w3 ) );
 	}
 
 	/**
