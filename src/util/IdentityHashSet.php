@@ -2,67 +2,76 @@
 
 namespace DaveRoss\CasswaryConstraintSolver;
 
-class UnsupportedOperationException extends \Exception {};
+class UnsupportedOperationException extends \Exception {
+}
+
+;
 
 class IdentityHashSet {
 
-		private /* IdentityHashMap */ $map;
+	private /* IdentityHashMap */
+		$map;
 
-		function __construct() {
-			$this->map = new IdentityHashMap();
-		}
-
-		/**
-		 * @return boolean
-		 */
-		public function add(stdClass $element) {
-			if ($this->map->containsKey($element)) {
-				return false;
-			} else {
-				$this->map->put($element, null);
-				return true;
-			}
-		}
-
-		/**
-		 * @param array $elements
-		 * @return boolean
-		 */
-		public function addAll(array $elements) {
-			$anyChanges = false;
-	        foreach ($elements as $element) {
-		        if (!$this->map->containsKey($element)) {
-			        $anyChanges = true;
-			        $this->map->put($element, null);
-		        }
-	        }
-	        return $anyChanges;
-        }
-
-    /**
-     * @return void
-     */
-    public function clear() {
-		$this->map->clear();
-    }
-
-    /**
-     * @param \stdClass $element
-     * @return boolean
-     */
-	public function contains( \stdClass $element) {
-			return $this->map->containsKey($element);
+	function __construct() {
+		$this->map = new IdentityHashMap();
 	}
 
 	/**
 	 * @return boolean
 	 */
-    public function containsAll(array $elements) {
-		foreach ($elements as $element) {
-			if (!$this->map->containsKey($element)) {
+	public function add( stdClass $element ) {
+		if ( $this->map->containsKey( $element ) ) {
+			return false;
+		} else {
+			$this->map->put( $element, null );
+
+			return true;
+		}
+	}
+
+	/**
+	 * @param array $elements
+	 *
+	 * @return boolean
+	 */
+	public function addAll( array $elements ) {
+		$anyChanges = false;
+		foreach ( $elements as $element ) {
+			if ( ! $this->map->containsKey( $element ) ) {
+				$anyChanges = true;
+				$this->map->put( $element, null );
+			}
+		}
+
+		return $anyChanges;
+	}
+
+	/**
+	 * @return void
+	 */
+	public function clear() {
+		$this->map->clear();
+	}
+
+	/**
+	 * @param \stdClass $element
+	 *
+	 * @return boolean
+	 */
+	public function contains( \stdClass $element ) {
+		return $this->map->containsKey( $element );
+	}
+
+	/**
+	 * @return boolean
+	 */
+	public function containsAll( array $elements ) {
+		foreach ( $elements as $element ) {
+			if ( ! $this->map->containsKey( $element ) ) {
 				return false;
 			}
 		}
+
 		return true;
 	}
 
@@ -100,12 +109,13 @@ class IdentityHashSet {
 	 *
 	 * @return bool
 	 */
-	public function removeAll(array $elements) {
-		foreach($elements as $element) {
-            $this->map->remove($element);
+	public function removeAll( array $elements ) {
+		foreach ( $elements as $element ) {
+			$this->map->remove( $element );
 		}
-        return true;
-    }
+
+		return true;
+	}
 
 	/**
 	 * @param array $elements
@@ -121,7 +131,7 @@ class IdentityHashSet {
 			}
 		}
 
-		$anyChanges = $newMap->size() != $map->size();
+		$anyChanges = $newMap->size() != $this->map->size();
 
 		$this->map = $newMap;
 
@@ -136,7 +146,7 @@ class IdentityHashSet {
 	}
 
 	public function toArray() {
-		throw new UnsupportedOperationException("Unsupported operation on IdentityHashSet.");
+		throw new UnsupportedOperationException( "Unsupported operation on IdentityHashSet." );
 	}
 
 //	public <T> T[] toArray(T[] dummy) {
@@ -145,21 +155,14 @@ class IdentityHashSet {
 
 
 	public function __toString() {
-				$buf = "{";
+		$buf = "{";
 
-				Iterator<Entry<E, Object>> i = map.entrySet().iterator();
-				boolean hasNext = i.hasNext();
-				while (hasNext) {
-				Entry<E, Object> e = i.next();
-				E key = e.getKey();
-				buf.append(key);
-				hasNext = i.hasNext();
-				if (hasNext)
-				buf.append(", ");
-				}
+		$i = $this->map->entrySet_iterator();
+		$buf .= implode( ', ', $i->toArray() );
 
-				buf.append("}");
-				return $buf;
+		$buf .= "}";
+
+		return $buf;
 	}
 
 }

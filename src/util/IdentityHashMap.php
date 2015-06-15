@@ -17,7 +17,7 @@ class IdentityHashMap extends SplObjectStorage {
 	 * @return bool
 	 */
 	public function containsKey( \stdClass $key ) {
-		return isset( $this[ $key ] );
+		return $this->offsetExists( $key );
 	}
 
 	/**
@@ -25,7 +25,7 @@ class IdentityHashMap extends SplObjectStorage {
 	 * @param  mixed    $object
 	 */
 	public function put( \stdClass $key, $object ) {
-		$this[ $key ] = $object;
+		$this->attach( $key, $object );
 	}
 
 	/**
@@ -33,7 +33,7 @@ class IdentityHashMap extends SplObjectStorage {
 	 */
 	public function clear() {
 		foreach ( $this as $key ) {
-			unset( $this[ $key ] );
+			$this->detach( $key );
 		}
 	}
 
@@ -41,7 +41,7 @@ class IdentityHashMap extends SplObjectStorage {
 	 * @return bool
 	 */
 	public function isEmpty() {
-		return empty( $this );
+		return ( 0 === $this->count() );
 	}
 
 	/**
@@ -53,14 +53,23 @@ class IdentityHashMap extends SplObjectStorage {
 			$keys[] = $key;
 		}
 
-		return \SplFixedArray::fromArray($keys);
+		return \SplFixedArray::fromArray( $keys );
+	}
+
+	public function entrySet_iterator() {
+		$entries = array();
+		foreach ( $this as $key => $value ) {
+			$entries[] = $value;
+		}
+
+		return \SplFixedArray::fromArray( $entries );
 	}
 
 	/**
 	 * @param \stdClass $key
 	 */
 	public function remove( \stdClass $key ) {
-		unset( $this[ $key ] );
+		$this->detach( $key );
 	}
 
 	/**
