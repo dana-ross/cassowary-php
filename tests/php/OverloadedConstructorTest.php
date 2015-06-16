@@ -1,6 +1,6 @@
 <?php
 
-class TestOverloadedMethods extends PHPUnit_Framework_TestCase {
+class TestOverloadedMethods extends \PHPUnit_Framework_TestCase {
 
 	function test_constructor_name() {
 

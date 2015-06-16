@@ -1,6 +1,6 @@
 <?php
 
-class CLDoubleTest extends PHPUnit_Framework_TestCase {
+class CLDoubleTest extends \PHPUnit_Framework_TestCase {
 
 	function test_default_constructor() {
 
