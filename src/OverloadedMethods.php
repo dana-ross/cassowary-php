@@ -25,7 +25,7 @@ trait OverloadedMethods {
 	 *
 	 * @todo iterate through argument class names with increasing genericness to allow passing a subclass to a method expecting its parent
 	 */
-	function __call( $name, array $args ) {
+	public function __call( $name, array $args ) {
 
 		if ( method_exists( __CLASS__, self::_overridden_impl_fn_name( $name, $args ) ) ) {
 			call_user_func_array( array(
@@ -38,14 +38,14 @@ trait OverloadedMethods {
 
 	}
 
-	static function _overridden_impl_fn_name( $fn, $args ) {
+	public static function _overridden_impl_fn_name( $fn, $args ) {
 		return $fn . '_' . implode( '_', array_map( 'strtolower', array_map( array(
 			__CLASS__,
 			'_overridden_impl_fn_part'
 		), $args ) ) );
 	}
 
-	static function _overridden_impl_fn_part( $arg ) {
+	public static function _overridden_impl_fn_part( $arg ) {
 		return strtolower( is_object( $arg ) ? get_class( $arg ) : gettype( $arg ) );
 	}
 
