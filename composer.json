@@ -13,6 +13,6 @@
     ],
     "require": {},
     "autoload": {
-      "files": ["src/OverloadedConstructor.php", "src/CLNumber.php", "src/CLDouble.php"]
+      "files": ["src/OverloadedMethods.php", "src/Timer.php", "src/CLAbstractVariable.php", "src/CLVariable.php", "src/CLNumber.php", "src/CLDouble.php"]
     }
 }
