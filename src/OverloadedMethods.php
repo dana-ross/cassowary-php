@@ -40,8 +40,8 @@ trait OverloadedMethods {
 
 	static function _overridden_impl_fn_name( $fn, $args ) {
 		return $fn . '_' . implode( '_', array_map( 'strtolower', array_map( array(
-			self,
-			_overridden_impl_fn_part
+			__CLASS__,
+			'_overridden_impl_fn_part'
 		), $args ) ) );
 	}
 
