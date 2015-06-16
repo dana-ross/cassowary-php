@@ -47,6 +47,18 @@ class TestOverloadedMethods extends PHPUnit_Framework_TestCase {
 		new TestOverloadedMethodsA( array() );
 	}
 
+	function test_invalid_method() {
+		$this->setExpectedException('RuntimeException');
+		$testOverloadedMethodsA = new TestOverloadedMethodsA();
+		$testOverloadedMethodsA->example(5.0);
+	}
+
+	function test_array_method() {
+		$testOverloadedMethodsA = new TestOverloadedMethodsA(5.0);
+		$testOverloadedMethodsA->example(array(5.0));
+		$this->assertInternalType ('array', $testOverloadedMethodsA->array);
+	}
+
 	function test_overriden_impl_fn_name() {
 		$this->assertEquals( 'example_double_integer', TestOverloadedMethodsA::_overridden_impl_fn_name( 'example', array(
 			5.5,
@@ -71,6 +83,8 @@ class TestOverloadedMethodsA {
 	public $double;
 	public $string;
 	public $integer;
+	public $array;
+	public $stdclass;
 
 	public function __construct_string( $string ) {
 		$this->string = $string;
@@ -82,6 +96,14 @@ class TestOverloadedMethodsA {
 
 	public function __construct_double( $double ) {
 		$this->double = $double;
+	}
+
+	public function example_array($array) {
+		$this->array = $array;
+	}
+
+	public function example_stdclass(stdClass $stdclass) {
+		$this->stdclass = $stdclass;
 	}
 
 }
