@@ -2,7 +2,7 @@ language: php
 
 php:
 #  - "5.3" # no support for traits
-  - "5.4"
+#  - "5.4" # has problems with constructors in traits
   - "5.5"
   - "hhvm"
 
