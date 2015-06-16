@@ -31,7 +31,7 @@ trait OverloadedMethods {
 			call_user_func_array( array(
 				__CLASS__,
 				self::_overridden_impl_fn_name( $name, $args )
-			), func_get_args() );
+			), $args );
 		} else {
 			throw new \RuntimeException( 'No applicable implementation for ' . self::_overridden_impl_fn_name( $name, $args ) . ' found in ' . __CLASS__ );
 		}
