@@ -94,7 +94,6 @@ class ClDouble extends ClNumber {
 		return isset( $o->value ) ? $this->value == doubleval( $o->value ) : false;
 	}
 
-
 //	/**
 //	 * @return int
 //	 */
