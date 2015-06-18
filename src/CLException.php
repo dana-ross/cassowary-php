@@ -23,7 +23,7 @@ class CLException extends \RuntimeException {
 	}
 
 	protected static function message_or_default( $message ) {
-		return ! empty( $message ) ? $message : "An error has occured in CL";
+		return ! empty( $message ) ? $message : "An error has occurred in CL";
 	}
 
 }
