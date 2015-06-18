@@ -3,9 +3,9 @@
 class ClPointTest extends \PHPUnit_Framework_TestCase {
 
 	/**
-	 * @covers \DaveRoss\CassowaryConstraintSolver\ClPoint::__construct_clvalue_clvalue
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClPoint::__construct_clvariable_clvariable
 	 */
-	function test_construct_clvalue_clvalue() {
+	function test_construct_clvariable_clvariable() {
 
 		$point = new \DaveRoss\CassowaryConstraintSolver\ClPoint(
 			new \DaveRoss\CassowaryConstraintSolver\ClVariable( 'x', 1.0 ),
@@ -62,6 +62,8 @@ class ClPointTest extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClPoint::setXY
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClPoint::getXValue
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClPoint::getYValue
 	 */
 	function test_setxy() {
 
