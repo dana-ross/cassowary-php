@@ -31,7 +31,7 @@ class ClPoint {
 		$this->y = new ClVariable( $y );
 	}
 
-	public function __construct_double_double_int( $x, $y, $a ) {
+	public function __construct_double_double_integer( $x, $y, $a ) {
 		$this->x = new ClVariable( "x" . $a, $x );
 		$this->y = new ClVariable( "y" . $a, $y );
 	}
