@@ -1,6 +1,6 @@
 <?php
 
-class CLVariableTest extends \PHPUnit_Framework_TestCase {
+class ClVariableTest extends \PHPUnit_Framework_TestCase {
 
 	function test_name() {
 		$clVariable = new \DaveRoss\CassowaryConstraintSolver\ClVariable( 'example' );
