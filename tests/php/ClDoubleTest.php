@@ -40,6 +40,9 @@ class ClDoubleTest extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClDouble::longValue
+	 */
 	function test_long_value() {
 
 		$instance = new \DaveRoss\CassowaryConstraintSolver\ClDouble(5.5);
