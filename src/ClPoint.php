@@ -20,11 +20,9 @@ class ClPoint {
 
 	use \DaveRoss\CassowaryConstraintSolver\OverloadedMethods;
 
-	private /* ClVariable */
-		$x;
+	private $x; /* ClVariable */
 
-	private /* ClVariable */
-		$y;
+	private $y; /* ClVariable */
 
 	public function __construct_double_double( $x, $y ) {
 		$this->x = new ClVariable( $x );
