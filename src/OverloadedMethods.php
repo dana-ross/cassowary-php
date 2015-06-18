@@ -46,7 +46,7 @@ trait OverloadedMethods {
 	}
 
 	public static function _overridden_impl_fn_part( $arg ) {
-		return strtolower( is_object( $arg ) ? get_class( $arg ) : gettype( $arg ) );
+		return strtolower( is_object( $arg ) ? ( new \ReflectionClass( $arg ) )->getShortName() : gettype( $arg ) );
 	}
 
 }
