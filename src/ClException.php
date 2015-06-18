@@ -22,7 +22,7 @@ class ClException extends \RuntimeException {
 		parent::__construct( self::message_or_default( $message ) );
 	}
 
-	protected static function message_or_default( $message ) {
+	public static function message_or_default( $message = null ) {
 		return ! empty( $message ) ? $message : "An error has occurred in CL";
 	}
 

@@ -28,6 +28,11 @@ class ExceptionsTest extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	function test_message_or_default() {
+		$this->assertEquals( 'example', \DaveRoss\CassowaryConstraintSolver\ClException::message_or_default( 'example' ) );
+		$this->assertEquals( "An error has occurred in CL", \DaveRoss\CassowaryConstraintSolver\ClException::message_or_default() );
+	}
+
 	function test_too_difficult_exception() {
 
 		$fn = function () {
