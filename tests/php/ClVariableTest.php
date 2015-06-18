@@ -2,11 +2,19 @@
 
 class ClVariableTest extends \PHPUnit_Framework_TestCase {
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClVariable::__construct_string
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClVariable::__toString
+	 */
 	function test_name() {
 		$clVariable = new \DaveRoss\CassowaryConstraintSolver\ClVariable( 'example' );
 		$this->assertEquals( '[example', substr( $clVariable, 0, 8 ) );
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClVariable::__construct_double
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClVariable::getValue
+	 */
 	function test_value() {
 
 		$clVariable = new \DaveRoss\CassowaryConstraintSolver\ClVariable( 5.0 );
@@ -15,6 +23,9 @@ class ClVariableTest extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClVariable::change_value
+	 */
 	function test_change_value() {
 
 		$clVariable = new \DaveRoss\CassowaryConstraintSolver\ClVariable( 5.0 );
