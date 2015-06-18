@@ -2,6 +2,9 @@
 
 class ClPointTest extends \PHPUnit_Framework_TestCase {
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClPoint::__construct_clvalue_clvalue
+	 */
 	function test_construct_clvalue_clvalue() {
 
 		$point = new \DaveRoss\CassowaryConstraintSolver\ClPoint(
@@ -15,6 +18,9 @@ class ClPointTest extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClPoint::__construct_double_double
+	 */
 	function test_construct_double_double() {
 
 		$point = new \DaveRoss\CassowaryConstraintSolver\ClPoint( 1.0, 2.0 );
@@ -25,7 +31,10 @@ class ClPointTest extends \PHPUnit_Framework_TestCase {
 
 	}
 
-	function test_construct_double_double_int() {
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClPoint::__construct_double_double_integer
+	 */
+	function test_construct_double_double_integer() {
 		$point = new \DaveRoss\CassowaryConstraintSolver\ClPoint( 1.0, 2.0, 5 );
 		$this->assertInternalType( 'string', $point->getX()->name() );
 		$this->assertEquals( 'x5', $point->getX()->name() );
@@ -33,18 +42,27 @@ class ClPointTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals( 'y5', $point->getY()->name() );
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClPoint::getX
+	 */
 	function test_getx() {
 		$point = new \DaveRoss\CassowaryConstraintSolver\ClPoint( 1.0, 2.0 );
 		$this->assertInstanceOf( '\DaveRoss\CassowaryConstraintSolver\ClVariable', $point->getX() );
 		$this->assertEquals( 1.0, $point->getX()->getValue() );
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClPoint::getY
+	 */
 	function test_gety() {
 		$point = new \DaveRoss\CassowaryConstraintSolver\ClPoint( 1.0, 2.0 );
 		$this->assertInstanceOf( '\DaveRoss\CassowaryConstraintSolver\ClVariable', $point->getY() );
 		$this->assertEquals( 2.0, $point->getY()->getValue() );
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClPoint::setXY
+	 */
 	function test_setxy() {
 
 		$point = new \DaveRoss\CassowaryConstraintSolver\ClPoint( 1.0, 2.0 );
