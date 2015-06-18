@@ -14,11 +14,11 @@
  * See the file LICENSE for legal details regarding this software
  */
 
-namespace DaveRoss\CasswaryConstraintSolver;
+namespace DaveRoss\CassowaryConstraintSolver;
 
 class ClLinearExpression extends CL {
 
-	use \DaveRoss\CasswaryConstraintSolver\OverloadedMethods;
+	use \DaveRoss\CassowaryConstraintSolver\OverloadedMethods;
 
 	private /* double */ $_constant;
 	private /* IdentityHashMap<ClAbstractVariable, ClDouble> */ $_terms;

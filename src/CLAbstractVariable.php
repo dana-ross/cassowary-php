@@ -14,11 +14,11 @@
  * See the file LICENSE for legal details regarding this software
  */
 
-namespace DaveRoss\CasswaryConstraintSolver;
+namespace DaveRoss\CassowaryConstraintSolver;
 
 abstract class ClAbstractVariable {
 
-	use \DaveRoss\CasswaryConstraintSolver\OverloadedMethods;
+	use \DaveRoss\CassowaryConstraintSolver\OverloadedMethods;
 
 	protected $_name;
 

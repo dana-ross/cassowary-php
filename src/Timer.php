@@ -14,7 +14,7 @@
 * See the file LICENSE for legal details regarding this software
 */
 
-namespace DaveRoss\CasswaryConstraintSolver;
+namespace DaveRoss\CassowaryConstraintSolver;
 
 /**
  * Timer, adapted from John P. Russo's C++ Timer class.

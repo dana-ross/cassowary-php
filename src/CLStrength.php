@@ -14,11 +14,11 @@
  * See the file LICENSE for legal details regarding this software
  */
 
-namespace DaveRoss\CasswaryConstraintSolver;
+namespace DaveRoss\CassowaryConstraintSolver;
 
 class ClStrength {
 
-	use \DaveRoss\CasswaryConstraintSolver\OverloadedMethods;
+	use \DaveRoss\CassowaryConstraintSolver\OverloadedMethods;
 
 	public static /* ClStrength */
 		$required;

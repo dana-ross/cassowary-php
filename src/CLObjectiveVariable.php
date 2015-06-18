@@ -14,11 +14,11 @@
  * See the file LICENSE for legal details regarding this software
  */
 
-namespace DaveRoss\CasswaryConstraintSolver;
+namespace DaveRoss\CassowaryConstraintSolver;
 
 class ClObjectiveVariable extends ClAbstractVariable {
 
-	use \DaveRoss\CasswaryConstraintSolver\CastTarget;
+	use \DaveRoss\CassowaryConstraintSolver\CastTarget;
 
 	public function __toString() {
 		return "[" . $this->name() . ":obj]";

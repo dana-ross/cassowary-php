@@ -1,6 +1,6 @@
 <?php
 
-namespace DaveRoss\CasswaryConstraintSolver;
+namespace DaveRoss\CassowaryConstraintSolver;
 
 class UnsupportedOperationException extends \Exception {
 }

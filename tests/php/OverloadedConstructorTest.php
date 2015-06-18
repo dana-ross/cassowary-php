@@ -78,7 +78,7 @@ class TestOverloadedMethods extends \PHPUnit_Framework_TestCase {
  */
 class TestOverloadedMethodsA {
 
-	use \DaveRoss\CasswaryConstraintSolver\OverloadedMethods;
+	use \DaveRoss\CassowaryConstraintSolver\OverloadedMethods;
 
 	public $double;
 	public $string;

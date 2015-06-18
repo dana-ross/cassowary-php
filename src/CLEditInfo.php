@@ -14,7 +14,7 @@
  * See the file LICENSE for legal details regarding this software
  */
 
-namespace DaveRoss\CasswaryConstraintSolver;
+namespace DaveRoss\CassowaryConstraintSolver;
 
 /**
  * A privately-used class that just wraps a constraint, its positive and negative error variables, and its prior edit constant. It

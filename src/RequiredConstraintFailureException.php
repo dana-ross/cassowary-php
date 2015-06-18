@@ -14,7 +14,7 @@
 * See the file LICENSE for legal details regarding this software
 */
 
-namespace DaveRoss\CasswaryConstraintSolver;
+namespace DaveRoss\CassowaryConstraintSolver;
 
 class RequiredConstraintFailureException extends CLException {
 

@@ -14,11 +14,11 @@
  * See the file LICENSE for legal details regarding this software
  */
 
-namespace DaveRoss\CasswaryConstraintSolver;
+namespace DaveRoss\CassowaryConstraintSolver;
 
 class ClPoint {
 
-	use \DaveRoss\CasswaryConstraintSolver\OverloadedMethods;
+	use \DaveRoss\CassowaryConstraintSolver\OverloadedMethods;
 
 	private /* ClVariable */
 		$x;

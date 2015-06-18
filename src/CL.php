@@ -17,7 +17,7 @@
 /**
  * The enumerations from ClLinearInequality, and `global' functions that we want easy to access
  */
-namespace DaveRoss\CasswaryConstraintSolver;
+namespace DaveRoss\CassowaryConstraintSolver;
 
 class CL {
 	protected static /* boolean */
