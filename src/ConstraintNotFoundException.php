@@ -16,7 +16,7 @@
 
 namespace DaveRoss\CassowaryConstraintSolver;
 
-class ConstraintNotFoundException extends CLException {
+class ConstraintNotFoundException extends ClException {
 
 	function __construct() {
 		parent::__construct( "Tried to remove a constraint never added to the tableu" );

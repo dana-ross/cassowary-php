@@ -5,7 +5,7 @@ class ExceptionsTest extends \PHPUnit_Framework_TestCase {
 	function test_clexception() {
 
 		$fn = function () {
-			throw new \DaveRoss\CassowaryConstraintSolver\CLException;
+			throw new \DaveRoss\CassowaryConstraintSolver\ClException;
 		};
 
 		try {
@@ -16,7 +16,7 @@ class ExceptionsTest extends \PHPUnit_Framework_TestCase {
 		}
 
 		$fn2 = function () {
-			throw new \DaveRoss\CassowaryConstraintSolver\CLException( 'example' );
+			throw new \DaveRoss\CassowaryConstraintSolver\ClException( 'example' );
 		};
 
 		try {

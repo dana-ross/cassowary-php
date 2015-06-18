@@ -328,11 +328,11 @@ class ClLinearExpression extends CL {
 	 * if this expression is constant -- signal ExCLInternalError in
 	 * that case). Return null if no pivotable variables
 	 * @return ClAbstractVariable
-	 * @throws CLInternalError
+	 * @throws ClInternalError
 	 */
     public final function anyPivotableVariable() {
 		if ($this->isConstant()) {
-			throw new CLInternalError("anyPivotableVariable called on a constant");
+			throw new ClInternalError("anyPivotableVariable called on a constant");
 		}
 
 		foreach($this->_terms->keySet() as $clv) {

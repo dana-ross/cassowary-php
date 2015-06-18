@@ -16,7 +16,7 @@
 
 namespace DaveRoss\CassowaryConstraintSolver;
 
-class CLInternalError extends CLException {
+class ClInternalError extends ClException {
 
 	function __construct( $s ) {
 		super( $s );
