@@ -10,4 +10,4 @@ before_script:
   - composer install
   - sleep 5
 
-#script: "./tests/run_tests.sh"
+script: "./tests/run_tests.sh"
