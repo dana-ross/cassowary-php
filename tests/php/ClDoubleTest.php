@@ -2,6 +2,9 @@
 
 class ClDoubleTest extends \PHPUnit_Framework_TestCase {
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClDouble::__construct_default
+	 */
 	function test_default_constructor() {
 
 		$instance = new \DaveRoss\CassowaryConstraintSolver\ClDouble();
@@ -10,12 +13,18 @@ class ClDoubleTest extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClDouble::__construct_double
+	 */
 	function test_double_constructor() {
 		$instance = new \DaveRoss\CassowaryConstraintSolver\ClDouble(5.5);
 		$this->assertInternalType('double', $instance->value);
 		$this->assertEquals(5.5, $instance->value);
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClDouble::doubleValue
+	 */
 	function test_double_value() {
 
 		$instance = new \DaveRoss\CassowaryConstraintSolver\ClDouble(5.5);
@@ -24,6 +33,9 @@ class ClDoubleTest extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClDouble::floatValue
+	 */
 	function test_float_value() {
 
 		$instance = new \DaveRoss\CassowaryConstraintSolver\ClDouble(5.5);
@@ -32,6 +44,9 @@ class ClDoubleTest extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClDouble::intValue
+	 */
 	function test_int_value() {
 
 		$instance = new \DaveRoss\CassowaryConstraintSolver\ClDouble(5.5);
