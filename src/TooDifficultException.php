@@ -19,7 +19,7 @@ namespace DaveRoss\CassowaryConstraintSolver;
 class TooDifficultException extends CLException {
 
 	function __construct() {
-		super( "The constraints are too difficult to solve" );
+		parent::__construct( "The constraints are too difficult to solve" );
 	}
 
 }
