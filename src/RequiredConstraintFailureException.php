@@ -19,7 +19,7 @@ namespace DaveRoss\CassowaryConstraintSolver;
 class RequiredConstraintFailureException extends CLException {
 
 	function __construct() {
-		super( "A required constraint cannot be satisfied" );
+		parent::__construct( "A required constraint cannot be satisfied" );
 	}
 	
 }
