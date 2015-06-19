@@ -31,7 +31,7 @@ class TestOverloadedMethods extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::__constructor
+	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::__construct
 	 */
 	function test_string_constructor() {
 		$instance = new TestOverloadedMethodsA( 'test' );
@@ -39,7 +39,7 @@ class TestOverloadedMethods extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::__constructor
+	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::__construct
 	 */
 	function test_integer_constructor() {
 		$instance = new TestOverloadedMethodsA( 5 );
@@ -47,7 +47,7 @@ class TestOverloadedMethods extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::__constructor
+	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::__construct
 	 */
 	function test_double_constructor() {
 		$instance = new TestOverloadedMethodsA( 5.0 );
@@ -55,7 +55,7 @@ class TestOverloadedMethods extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::__constructor
+	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::__construct
 	 */
 	function test_invalid_constructor() {
 		$this->setExpectedException( 'RuntimeException' );
@@ -63,7 +63,7 @@ class TestOverloadedMethods extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::__constructor
+	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::__construct
 	 */
 	function test_invalid_method() {
 		$this->setExpectedException('RuntimeException');
