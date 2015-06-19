@@ -26,17 +26,17 @@ abstract class ClAbstractVariable {
 
 	public function __construct_string( $name ) {
 		$this->_name = $name;
-		$this->iVariableNumber ++;
+		self::$iVariableNumber ++;
 	}
 
 	public function __construct_default() {
 		$this->_name = "v" + $this->iVariableNumber;
-		$this->iVariableNumber ++;
+		self::$iVariableNumber ++;
 	}
 
 	public function __construct_long_string( $varnumber, $prefix ) {
 		$this->_name = $prefix + $varnumber;
-		$this->iVariableNumber ++;
+		self::$iVariableNumber ++;
 	}
 
 	/**
