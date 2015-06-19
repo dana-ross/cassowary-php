@@ -18,6 +18,8 @@ namespace DaveRoss\CassowaryConstraintSolver;
 
 class ClSymbolicWeight {
 
+	use \DaveRoss\CassowaryConstraintSolver\OverloadedMethods;
+
 	public static /* ClSymbolicWeight */
 		$clsZero;
 
