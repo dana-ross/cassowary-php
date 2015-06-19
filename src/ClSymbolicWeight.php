@@ -52,7 +52,7 @@ class ClSymbolicWeight {
 	 * @return ClSymbolicWeight
 	 */
 	public function __clone() {
-		return new ClSymbolicWeight( $this->_values );
+		return new ClSymbolicWeight( $this->_values->toArray() );
 	}
 
 	/**
