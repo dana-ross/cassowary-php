@@ -25,6 +25,7 @@ class ClSlackVariable extends ClAbstractVariable {
 	}
 
 	public function __construct_default() {
+		parent::__construct_default();
 	}
 
 	public function __construct_integer_string( $number, $prefix ) {
