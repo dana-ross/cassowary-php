@@ -21,7 +21,7 @@ class ClSlackVariable extends ClAbstractVariable {
 	use \DaveRoss\CassowaryConstraintSolver\OverloadedMethods;
 
 	public function __construct_string( $name ) {
-		parent::__construct_string( name );
+		parent::__construct_string( $name );
 	}
 
 	public function __construct_default() {
