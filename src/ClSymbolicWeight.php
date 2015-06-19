@@ -116,6 +116,7 @@ class ClSymbolicWeight {
 
 	/**
 	 * @param ClSymbolicWeight $cl
+	 *
 	 * @return boolean
 	 */
 	public function lessThan( ClSymbolicWeight $cl ) {
@@ -132,30 +133,18 @@ class ClSymbolicWeight {
 
 	/**
 	 * @param ClSymbolicWeight $cl
+	 *
 	 * @return boolean
 	 */
-    public function lessThanOrEqual( ClSymbolicWeight $cl ) {
-	    for ( $i = 0; $i < count( $this->_values ); $i ++ ) {
-		    if ( $this->_values[ $i ] < $cl->_values[ $i ] ) {
-			    return true;
-		    } else if ( $this->_values[ $i ] > $cl->_values[ $i ] ) {
-			    return false;
-		    }
-	    }
-
-	    return true; // they are equal
-    }
-
-	/**
-	 * @param ClSymbolicWeight $cl
-	 * @return boolean
-	 */
-	public function equal(ClSymbolicWeight $cl) {
-		for ($i = 0; $i < count($this->_values); $i++) {
-			if ($this->_values[$i] != $cl->_values[$i]) {
+	public function lessThanOrEqual( ClSymbolicWeight $cl ) {
+		for ( $i = 0; $i < count( $this->_values ); $i ++ ) {
+			if ( $this->_values[ $i ] < $cl->_values[ $i ] ) {
+				return true;
+			} else if ( $this->_values[ $i ] > $cl->_values[ $i ] ) {
 				return false;
 			}
 		}
+
 		return true; // they are equal
 	}
 
@@ -164,7 +153,22 @@ class ClSymbolicWeight {
 	 *
 	 * @return boolean
 	 */
-	    public function greaterThan( ClSymbolicWeight $cl ) {
+	public function equal( ClSymbolicWeight $cl ) {
+		for ( $i = 0; $i < count( $this->_values ); $i ++ ) {
+			if ( $this->_values[ $i ] != $cl->_values[ $i ] ) {
+				return false;
+			}
+		}
+
+		return true; // they are equal
+	}
+
+	/**
+	 * @param ClSymbolicWeight $cl
+	 *
+	 * @return boolean
+	 */
+	public function greaterThan( ClSymbolicWeight $cl ) {
 		return ! $this->lessThanOrEqual( $cl );
 	}
 
@@ -173,51 +177,53 @@ class ClSymbolicWeight {
 	 *
 	 * @return boolean
 	 */
-	    public function greaterThanOrEqual( ClSymbolicWeight $cl ) {
+	public function greaterThanOrEqual( ClSymbolicWeight $cl ) {
 		return ! $this->lessThan( $cl );
 	}
 
 	/**
 	 * @return boolean
 	 */
-    public function isNegative(){
-        return $this->lessThan( self::$clsZero );
-    }
+	public function isNegative() {
+		return $this->lessThan( self::$clsZero );
+	}
 
 	/**
 	 * @return double
 	 */
-     public function asDouble() {
-		$sum = 0.0;
-        $factor = 1.0;
-        $multiplier = 1000.0;
-        for ($i = count($this->_values) - 1; $i >= 0; $i--) {
-			$sum += $this->_values[$i] * $factor;
-            $factor *= $multiplier;
-        }
-        return $sum;
-    }
+	public function asDouble() {
+		$sum        = 0.0;
+		$factor     = 1.0;
+		$multiplier = 1000.0;
+		for ( $i = count( $this->_values ) - 1; $i >= 0; $i -- ) {
+			$sum += $this->_values[ $i ] * $factor;
+			$factor *= $multiplier;
+		}
+
+		return $sum;
+	}
 
 	/**
 	 * @return String
 	 */
-     public function toString() {
+	public function __toString() {
 		$bstr = "[";
 		for ( $i = 0; $i < count( $this->_values ) - 1; $i ++ ) {
 			$bstr .= $this->_values[ $i ];
 			$bstr .= ",";
 		}
 		$bstr .= $this->_values[ count( $this->_values ) - 1 ];
-        $bstr .= "]";
-        return $bstr;
-    }
+		$bstr .= "]";
+
+		return $bstr;
+	}
 
 	/**
 	 * @return integer
 	 */
-    public function cLevels(){
-        return $this->_values->getSize();
-    }
+	public function cLevels() {
+		return $this->_values->getSize();
+	}
 
 }
 
