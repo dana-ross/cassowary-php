@@ -2,6 +2,9 @@
 
 class ExceptionsTest extends \PHPUnit_Framework_TestCase {
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClException::__construct
+	 */
 	function test_clexception() {
 
 		$fn = function () {
@@ -28,11 +31,17 @@ class ExceptionsTest extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClException::message_or_default
+	 */
 	function test_message_or_default() {
 		$this->assertEquals( 'example', \DaveRoss\CassowaryConstraintSolver\ClException::message_or_default( 'example' ) );
 		$this->assertEquals( "An error has occurred in CL", \DaveRoss\CassowaryConstraintSolver\ClException::message_or_default() );
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\TooDifficultException::__construct
+	 */
 	function test_too_difficult_exception() {
 
 		$fn = function () {
@@ -48,6 +57,9 @@ class ExceptionsTest extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\RequiredConstraintFailureException::__construct
+	 */
 	function test_required_constraint_failure_exception() {
 
 		$fn = function () {
@@ -63,6 +75,9 @@ class ExceptionsTest extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\NotEnoughStaysException::__construct
+	 */
 	function test_not_enough_stays_exception() {
 
 		$fn = function () {
@@ -78,6 +93,9 @@ class ExceptionsTest extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\NonlinearExpressionException::__construct
+	 */
 	function test_nonlinear_expression_exception() {
 
 		$fn = function () {
@@ -93,6 +111,9 @@ class ExceptionsTest extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ConstraintNotFoundException::__construct
+	 */
 	function test_constraint_not_found_exception() {
 
 		$fn = function () {

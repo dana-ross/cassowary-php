@@ -2,6 +2,9 @@
 
 class TestOverloadedMethods extends \PHPUnit_Framework_TestCase {
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::_overridden_impl_fn_name
+	 */
 	function test_constructor_name() {
 
 		$this->assertEquals( '__construct_string', TestOverloadedMethodsA::_overridden_impl_fn_name( '__construct', array( 'test' ) ) );
@@ -27,38 +30,59 @@ class TestOverloadedMethods extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::__constructor
+	 */
 	function test_string_constructor() {
 		$instance = new TestOverloadedMethodsA( 'test' );
 		$this->assertEquals( 'test', $instance->string );
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::__constructor
+	 */
 	function test_integer_constructor() {
 		$instance = new TestOverloadedMethodsA( 5 );
 		$this->assertEquals( 5, $instance->integer );
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::__constructor
+	 */
 	function test_double_constructor() {
 		$instance = new TestOverloadedMethodsA( 5.0 );
 		$this->assertEquals( 5.0, $instance->double );
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::__constructor
+	 */
 	function test_invalid_constructor() {
 		$this->setExpectedException( 'RuntimeException' );
 		new TestOverloadedMethodsA( array() );
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::__constructor
+	 */
 	function test_invalid_method() {
 		$this->setExpectedException('RuntimeException');
 		$testOverloadedMethodsA = new TestOverloadedMethodsA();
 		$testOverloadedMethodsA->example(5.0);
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::__call
+	 */
 	function test_array_method() {
 		$testOverloadedMethodsA = new TestOverloadedMethodsA(5.0);
 		$testOverloadedMethodsA->example(array(5.0));
 		$this->assertInternalType ('array', $testOverloadedMethodsA->array);
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::_overridden_impl_fn_name
+	 */
 	function test_overriden_impl_fn_name() {
 		$this->assertEquals( 'example_double_integer', TestOverloadedMethodsA::_overridden_impl_fn_name( 'example', array(
 			5.5,
