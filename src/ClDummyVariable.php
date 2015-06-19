@@ -18,8 +18,6 @@ namespace DaveRoss\CassowaryConstraintSolver;
 
 class ClDummyVariable extends ClAbstractVariable {
 
-	use \DaveRoss\CassowaryConstraintSolver\CastTarget;
-
 	/**
 	 * @return string
 	 */
