@@ -51,7 +51,7 @@ class ClStrength {
 	 * @return bool
 	 */
 	public function isRequired() {
-		return ( $this == $this->required );
+		return ( $this == self::$required );
 	}
 
 
@@ -75,7 +75,7 @@ class ClStrength {
 
 }
 
-ClStrength::$required = new ClStrength( "<Required>", 1000, 1000, 1000 );
+ClStrength::$required = new ClStrength( "<Required>", 1000.0, 1000.0, 1000.0 );
 ClStrength::$strong   = new ClStrength( "strong", 1.0, 0.0, 0.0 );
 ClStrength::$medium   = new ClStrength( "medium", 0.0, 1.0, 0.0 );
 ClStrength::$weak     = new ClStrength( "weak", 0.0, 0.0, 1.0 );
