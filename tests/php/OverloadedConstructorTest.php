@@ -70,7 +70,7 @@ class TestOverloadedMethods extends \PHPUnit_Framework_TestCase {
 	 */
 	function test_invalid_method() {
 		$this->setExpectedException('RuntimeException');
-		$testOverloadedMethodsA = new TestOverloadedMethodsA();
+		$testOverloadedMethodsA = new TestOverloadedMethodsA(5.0);
 		$testOverloadedMethodsA->example(5.0);
 	}
 
