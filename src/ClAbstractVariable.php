@@ -63,22 +63,22 @@ abstract class ClAbstractVariable {
 	/**
 	 * @return bool
 	 */
-	public abstract function isExternal();
+	abstract public function isExternal();
 
 	/**
 	 * @return bool
 	 */
-	public abstract function isPivotable();
+	abstract public function isPivotable();
 
 	/**
 	 * @return bool
 	 */
-	public abstract function isRestricted();
+	abstract public function isRestricted();
 
 	/**
 	 * @return string
 	 */
-	public abstract function  __toString();
+	abstract public function  __toString();
 
 	/**
 	 * @return int
