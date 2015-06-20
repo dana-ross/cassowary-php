@@ -7,23 +7,26 @@ class TestOverloadedMethods extends \PHPUnit_Framework_TestCase {
 	 */
 	function test_constructor_name() {
 
+		// Valid methods
 		$this->assertEquals( '__construct_string', TestOverloadedMethodsA::_overridden_impl_fn_name( '__construct', array( 'test' ) ) );
 		$this->assertEquals( '__construct_integer', TestOverloadedMethodsA::_overridden_impl_fn_name( '__construct', array( 1 ) ) );
 		$this->assertEquals( '__construct_double', TestOverloadedMethodsA::_overridden_impl_fn_name( '__construct', array( 1.0 ) ) );
-		$this->assertEquals( '__construct_array', TestOverloadedMethodsA::_overridden_impl_fn_name( '__construct', array(
+
+		// Non-existent methods
+		$this->assertEquals( false, TestOverloadedMethodsA::_overridden_impl_fn_name( '__construct', array(
 			array(
 				1,
 				2,
 				3
 			)
 		) ) );
-		$this->assertEquals( '__construct_stdclass', TestOverloadedMethodsA::_overridden_impl_fn_name( '__construct', array( new stdClass() ) ) );
+		$this->assertEquals( false, TestOverloadedMethodsA::_overridden_impl_fn_name( '__construct', array( new stdClass() ) ) );
 
-		$this->assertEquals( '__construct_string_integer', TestOverloadedMethodsA::_overridden_impl_fn_name( '__construct', array(
+		$this->assertEquals( false, TestOverloadedMethodsA::_overridden_impl_fn_name( '__construct', array(
 			'test',
 			5
 		) ) );
-		$this->assertEquals( '__construct_string_stdclass', TestOverloadedMethodsA::_overridden_impl_fn_name( '__construct', array(
+		$this->assertEquals( false, TestOverloadedMethodsA::_overridden_impl_fn_name( '__construct', array(
 			'test',
 			new stdClass()
 		) ) );
@@ -67,7 +70,7 @@ class TestOverloadedMethods extends \PHPUnit_Framework_TestCase {
 	 */
 	function test_invalid_method() {
 		$this->setExpectedException('RuntimeException');
-		$testOverloadedMethodsA = new TestOverloadedMethodsA();
+		$testOverloadedMethodsA = new TestOverloadedMethodsA(5.0);
 		$testOverloadedMethodsA->example(5.0);
 	}
 
@@ -84,11 +87,11 @@ class TestOverloadedMethods extends \PHPUnit_Framework_TestCase {
 	 * @covers \DaveRoss\CassowaryConstraintSolver\OverloadedMethods::_overridden_impl_fn_name
 	 */
 	function test_overriden_impl_fn_name() {
-		$this->assertEquals( 'example_double_integer', TestOverloadedMethodsA::_overridden_impl_fn_name( 'example', array(
+		$this->assertEquals( false, TestOverloadedMethodsA::_overridden_impl_fn_name( 'example', array(
 			5.5,
 			5
 		) ) );
-		$this->assertEquals( 'example_testoverloadedmethodsa_integer', TestOverloadedMethodsA::_overridden_impl_fn_name( 'example', array(
+		$this->assertEquals( false, TestOverloadedMethodsA::_overridden_impl_fn_name( 'example', array(
 			new TestOverloadedMethodsA( 'test' ),
 			5
 		) ) );
