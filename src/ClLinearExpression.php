@@ -20,10 +20,9 @@ class ClLinearExpression extends CL {
 
 	use \DaveRoss\CassowaryConstraintSolver\OverloadedMethods;
 
-	private /* double */
-		$_constant;
-	private /* IdentityHashMap<ClAbstractVariable, ClDouble> */
-		$_terms;
+	private $_constant; /* double */
+
+	private $_terms; /* IdentityHashMap<ClAbstractVariable, ClDouble> */
 
 	public function __construct_clabstractvariable_double_double( $clv, $value, $constant ) {
 
