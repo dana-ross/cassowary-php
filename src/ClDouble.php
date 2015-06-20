@@ -16,7 +16,7 @@
 
 namespace DaveRoss\CassowaryConstraintSolver;
 
-class ClDouble extends ClNumber {
+class ClDouble {
 
 	use \DaveRoss\CassowaryConstraintSolver\OverloadedMethods;
 
