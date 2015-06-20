@@ -243,7 +243,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return ClLinearExpression
 	 */
-	final public function addExpression_cllinearexpression_double( ClLinearExpression $expr, double $n ) {
+	final public function addExpression_cllinearexpression_double( ClLinearExpression $expr, $n ) {
 		$this->incrementConstant( doubleval( $n ) * $expr->constant() );
 
 
