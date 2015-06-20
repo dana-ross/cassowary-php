@@ -3,7 +3,7 @@
     "description": "Cassowary Constraint Solver port for PHP",
     "license": "MIT",
     "require": {
-      "php": ">=5.3"
+      "php": ">=5.5"
     },
     "authors": [
         {
