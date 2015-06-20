@@ -20,23 +20,17 @@ class ClStrength {
 
 	use \DaveRoss\CassowaryConstraintSolver\OverloadedMethods;
 
-	public static /* ClStrength */
-		$required;
+	public static $required; /* ClStrength */
 
-	public static /* ClStrength */
-		$strong;
+	public static $strong; /* ClStrength */
 
-	public static /* ClStrength */
-		$medium;
+	public static $medium; /* ClStrength */
 
-	public static /* ClStrength */
-		$weak;
+	public static $weak; /* ClStrength */
 
-	private /* String */
-		$_name;
+	private $_name; /* String */
 
-	private /* ClSymbolicWeight */
-		$_symbolicWeight;
+	private $_symbolicWeight; /* ClSymbolicWeight */
 
 	public function __construct_string_clsymbolicweight( $name, ClSymbolicWeight $symbolicWeight ) {
 		$this->_name           = $name;
