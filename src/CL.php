@@ -20,14 +20,14 @@
 namespace DaveRoss\CassowaryConstraintSolver;
 
 class CL {
-	protected static /* boolean */
-		$fDebugOn = false;
-	public static /* boolean */
-		$fTraceOn = false; // true;
-	protected static /* boolean */
-		$fTraceAdded = false;
-	protected static /* boolean */
-		$fGC = false;
+
+	protected static $fDebugOn = false; /* boolean */
+
+	public static $fTraceOn = false; // true; /* boolean */
+
+	protected static $fTraceAdded = false; /* boolean */
+
+	protected static $fGC = false; /* boolean */
 
 	const GEQ = 1;
 	const LEQ = 2;
