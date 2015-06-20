@@ -20,8 +20,7 @@ class ClSymbolicWeight {
 
 	use \DaveRoss\CassowaryConstraintSolver\OverloadedMethods;
 
-	public static /* ClSymbolicWeight */
-		$clsZero;
+	public static $clsZero; /* ClSymbolicWeight */
 
 	private $_values;
 
@@ -61,9 +60,9 @@ class ClSymbolicWeight {
 	 * @return ClSymbolicWeight
 	 */
 	public function times( $n ) {
-		$clsw = clone( $this );
-		for ( $i = 0; $i < count( $this->_values ); $i ++ ) {
-			$clsw->_values[ $i ] *= doubleval( $n );
+		$clsw = new ClSymbolicWeight( count( $this->_values ) );
+		foreach ( $this->_values as $index => $value ) {
+			$clsw->_values[ $index ] = $value * doubleval( $n );
 		}
 
 		return $clsw;
@@ -75,10 +74,9 @@ class ClSymbolicWeight {
 	 * @return ClSymbolicWeight
 	 */
 	public function divideBy( $n ) {
-
-		$clsw = clone( $this );
-		for ( $i = 0; $i < count( $this->_values ); $i ++ ) {
-			$clsw->_values[ $i ] /= $n;
+		$clsw = new ClSymbolicWeight( count( $this->_values ) );
+		foreach ( $this->_values as $index => $value ) {
+			$clsw->_values[ $index ] = $value / doubleval( $n );
 		}
 
 		return $clsw;
@@ -90,10 +88,9 @@ class ClSymbolicWeight {
 	 * @return ClSymbolicWeight
 	 */
 	public function add( ClSymbolicWeight $cl ) {
-
-		$clsw = clone( $this );
-		for ( $i = 0; $i < count( $this->_values ); $i ++ ) {
-			$clsw->_values[ $i ] += $cl->_values[ $i ];
+		$clsw = new ClSymbolicWeight( count( $this->_values ) );
+		foreach ( $this->_values as $index => $value ) {
+			$clsw->_values[ $index ] = $value + $cl->_values[ $index ];
 		}
 
 		return $clsw;
@@ -106,9 +103,9 @@ class ClSymbolicWeight {
 	 */
 	public function subtract( ClSymbolicWeight $cl ) {
 
-		$clsw = clone( $this );
-		for ( $i = 0; $i < count( $this->_values ); $i ++ ) {
-			$clsw->_values[ $i ] -= $cl->_values[ $i ];
+		$clsw = new ClSymbolicWeight( count( $this->_values ) );
+		foreach ( $this->_values as $index => $value ) {
+			$clsw->_values[ $index ] = $value - $cl->_values[ $index ];
 		}
 
 		return $clsw;
