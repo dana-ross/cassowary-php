@@ -18,8 +18,6 @@ namespace DaveRoss\CassowaryConstraintSolver;
 
 class ClObjectiveVariable extends ClAbstractVariable {
 
-	use \DaveRoss\CassowaryConstraintSolver\CastTarget;
-
 	public function __toString() {
 		return "[" . $this->name() . ":obj]";
 	}
