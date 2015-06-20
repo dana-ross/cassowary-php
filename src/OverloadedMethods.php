@@ -8,13 +8,16 @@ trait OverloadedMethods {
 
 		if ( 0 === func_num_args() ) {
 			call_user_func( array( __CLASS__, '__construct_default' ) );
-		} else if ( method_exists( __CLASS__, self::_overridden_impl_fn_name( '__construct', func_get_args() ) ) ) {
-			call_user_func_array( array(
-				__CLASS__,
-				self::_overridden_impl_fn_name( '__construct', func_get_args() )
-			), func_get_args() );
 		} else {
-			throw new \RuntimeException( 'No applicable constructor for ' . self::_overridden_impl_fn_name( '__construct', func_get_args() ) . ' found in ' . __CLASS__ );
+			$fn = self::_overridden_impl_fn_name( '__construct', func_get_args() );
+			if ( method_exists( __CLASS__, $fn ) ) {
+				call_user_func_array( array(
+					__CLASS__,
+					$fn
+				), func_get_args() );
+			} else {
+				throw new \RuntimeException( 'No applicable constructor for ' . self::_overridden_impl_fn_name( '__construct', func_get_args() ) . ' found in ' . __CLASS__ );
+			}
 		}
 
 	}
@@ -27,10 +30,11 @@ trait OverloadedMethods {
 	 */
 	public function __call( $name, array $args ) {
 
-		if ( method_exists( __CLASS__, self::_overridden_impl_fn_name( $name, $args ) ) ) {
+		$fn = self::_overridden_impl_fn_name( $name, $args );
+		if ( method_exists( __CLASS__, $fn ) ) {
 			call_user_func_array( array(
 				__CLASS__,
-				self::_overridden_impl_fn_name( $name, $args )
+				$fn
 			), $args );
 		} else {
 			throw new \RuntimeException( 'No applicable implementation for ' . self::_overridden_impl_fn_name( $name, $args ) . ' found in ' . __CLASS__ );
