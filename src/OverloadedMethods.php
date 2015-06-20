@@ -116,7 +116,7 @@ trait OverloadedMethods {
 
 	public static function _overridden_impl_arg_types( $args ) {
 		return array_map( function ( $arg ) {
-			return is_object( $arg ) ? ( new \ReflectionClass( $arg ) )->getName() : gettype( $arg );
+			return is_object( $arg ) ? ( new \ReflectionClass( $arg ) )->name : gettype( $arg );
 		}, $args );
 	}
 
