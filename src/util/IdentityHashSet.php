@@ -5,21 +5,24 @@ namespace DaveRoss\CassowaryConstraintSolver;
 class UnsupportedOperationException extends \Exception {
 }
 
-;
-
+/**
+ * Class IdentityHashSet
+ * @package DaveRoss\CassowaryConstraintSolver
+ * In Java, a Set is like a Map except it can only contain unique values
+ */
 class IdentityHashSet {
 
-	private /* IdentityHashMap */
-		$map;
+	private $map; /* IdentityHashMap */
 
 	function __construct() {
 		$this->map = new IdentityHashMap();
 	}
 
 	/**
+	 * @param object $element
 	 * @return boolean
 	 */
-	public function add( stdClass $element ) {
+	public function add( $element ) {
 		if ( $this->map->containsKey( $element ) ) {
 			return false;
 		} else {
@@ -58,7 +61,7 @@ class IdentityHashSet {
 	 *
 	 * @return boolean
 	 */
-	public function contains( \stdClass $element ) {
+	public function contains( $element ) {
 		return $this->map->containsKey( $element );
 	}
 
@@ -90,11 +93,11 @@ class IdentityHashSet {
 	}
 
 	/**
-	 * @param \stdClass $element
+	 * @param object $element
 	 *
 	 * @return boolean
 	 */
-	public function remove( \stdClass $element ) {
+	public function remove( $element ) {
 		if ( $this->map->containsKey( $element ) ) {
 			$this->map->remove( $element );
 
@@ -157,7 +160,7 @@ class IdentityHashSet {
 	public function __toString() {
 		$buf = "{";
 
-		$i = $this->map->entrySet_iterator();
+		$i = $this->map->keySet_iterator();
 		$buf .= implode( ', ', $i->toArray() );
 
 		$buf .= "}";
