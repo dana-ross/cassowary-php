@@ -9,14 +9,14 @@ namespace DaveRoss\CassowaryConstraintSolver;
  * two keys equal iff $a === $b, instead of comparing their values with the .equals() method.
  * SPL's SplObjectStorage may be a good match for this instead of relying on a custom implementation.
  */
-class IdentityHashMap extends SplObjectStorage {
+class IdentityHashMap extends \SplObjectStorage {
 
 	/**
 	 * @param \stdClass $key
 	 *
 	 * @return bool
 	 */
-	public function containsKey( \stdClass $key ) {
+	public function containsKey( $key ) {
 		return $this->offsetExists( $key );
 	}
 
@@ -24,7 +24,7 @@ class IdentityHashMap extends SplObjectStorage {
 	 * @param \stdClass $key
 	 * @param  mixed    $object
 	 */
-	public function put( \stdClass $key, $object ) {
+	public function put( $key, $object ) {
 		$this->attach( $key, $object );
 	}
 
@@ -49,7 +49,7 @@ class IdentityHashMap extends SplObjectStorage {
 	 */
 	public function keySet_iterator() {
 		$keys = array();
-		foreach ( $this as $key => $value ) {
+		foreach ( $this as $key ) {
 			$keys[] = $key;
 		}
 
@@ -58,8 +58,8 @@ class IdentityHashMap extends SplObjectStorage {
 
 	public function entrySet_iterator() {
 		$entries = array();
-		foreach ( $this as $key => $value ) {
-			$entries[] = $value;
+		foreach ( $this as $key ) {
+			$entries[] = $this[ $key ];
 		}
 
 		return \SplFixedArray::fromArray( $entries );
@@ -68,7 +68,7 @@ class IdentityHashMap extends SplObjectStorage {
 	/**
 	 * @param \stdClass $key
 	 */
-	public function remove( \stdClass $key ) {
+	public function remove( $key ) {
 		$this->detach( $key );
 	}
 
