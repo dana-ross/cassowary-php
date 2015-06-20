@@ -98,7 +98,7 @@ class ClVariable extends ClAbstractVariable {
 	/**
 	 * @return double
 	 */
-	public final function getValue() {
+	final public function getValue() {
 		return doubleval( $this->_value );
 	}
 
@@ -107,7 +107,7 @@ class ClVariable extends ClAbstractVariable {
 	 * in a solver -- instead use addEditVar() and suggestValue() interface
 	 * @return void
 	 */
-	public final function setValue( $value ) {
+	final public function setValue( $value ) {
 		$this->_value = doubleval( $value );
 	}
 

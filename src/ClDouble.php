@@ -33,45 +33,45 @@ class ClDouble {
 	/**
 	 * @return ClDouble
 	 */
-	public final function __clone() {
+	final public function __clone() {
 		return new ClDouble( $this->value );
 	}
 
 	/**
 	 * @return float
 	 */
-	public final function doubleValue() {
+	final public function doubleValue() {
 		return doubleval( $this->value );
 	}
 
 	/**
 	 * @return int
 	 */
-	public final function intValue() {
+	final public function intValue() {
 		return intval( $this->value );
 	}
 
 	/**
 	 * @return int PHP doesn't have a long datatype. ints are 64-bit however
 	 */
-	public final function longValue() {
+	final public function longValue() {
 		return $this->intValue();
 	}
 
 	/**
 	 * @return float
 	 */
-	public final function floatValue() {
+	final public function floatValue() {
 		return floatval( $this->value );
 	}
 
 //@Override
-//public final byte byteValue(){
+//final public byte byteValue(){
 //return ( byte ) value;
 //}
 //
 //@Override
-//public final short shortValue(){
+//final public short shortValue(){
 //return ( short ) value;
 //}
 
@@ -80,24 +80,24 @@ class ClDouble {
 	 *
 	 * @return void
 	 */
-	public final function setValue( $val ) {
+	final public function setValue( $val ) {
 		$this->value = doubleval( $val );
 	}
 
 
-	public final function __toString() {
+	final public function __toString() {
 		return sprintf( '%F', $this->value );
 	}
 
 
-	public final function equals( StdClass $o ) {
+	final public function equals( StdClass $o ) {
 		return isset( $o->value ) ? $this->value == doubleval( $o->value ) : false;
 	}
 
 //	/**
 //	 * @return int
 //	 */
-//public final function hashCode() {
+//final public function hashCode() {
 ////System . err . println( "ClDouble.hashCode() called!" );
 //return (int) java . lang . Double . doubleToLongBits( value );
 //}

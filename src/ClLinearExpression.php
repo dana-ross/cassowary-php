@@ -85,7 +85,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return ClLinearExpression
 	 */
-	public final function times_double( $x ) {
+	final public function times_double( $x ) {
 		$y = clone( $this );
 
 		return $y->multiplyMe( $x );
@@ -97,7 +97,7 @@ class ClLinearExpression extends CL {
 	 * @throws NonlinearExpressionException
 	 * @return ClLinearExpression
 	 */
-	public final function times_cllinearexpression( ClLinearExpression $expr ) {
+	final public function times_cllinearexpression( ClLinearExpression $expr ) {
 		if ( $this->isConstant() ) {
 			return $expr->times_double( $this->_constant );
 		} else if ( ! $expr->isConstant() ) {
@@ -112,7 +112,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return ClLinearExpression
 	 */
-	public final function plus_cllinearexpression( ClLinearExpression $expr ) {
+	final public function plus_cllinearexpression( ClLinearExpression $expr ) {
 		$x = clone( $this );
 
 		return $x->addExpression( $expr, 1.0 );
@@ -124,7 +124,7 @@ class ClLinearExpression extends CL {
 	 * @throws NonlinearExpressionException
 	 * @return ClLinearExpression
 	 */
-	public final function plus_clvariable( ClVariable $var ) {
+	final public function plus_clvariable( ClVariable $var ) {
 		$x = clone( $this );
 
 		return $x->addVariable( $var, 1.0 );
@@ -135,7 +135,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return ClLinearExpression
 	 */
-	public final function minus_cllinearexpression( ClLinearExpression $expr ) {
+	final public function minus_cllinearexpression( ClLinearExpression $expr ) {
 		$x = clone( $this );
 
 		return $x->addExpression( $expr, - 1.0 );
@@ -147,7 +147,7 @@ class ClLinearExpression extends CL {
 	 * @return ClLinearExpression
 	 * @throws NonlinearExpressionException
 	 */
-	public final function minus_clvariable( ClVariable $var ) {
+	final public function minus_clvariable( ClVariable $var ) {
 		$x = clone( $this );
 
 		return $x->addVariable( $var, - 1.0 );
@@ -159,7 +159,7 @@ class ClLinearExpression extends CL {
 	 * @throws NonlinearExpressionException
 	 * @return ClLinearExpression
 	 */
-	public final function divide_double( $x ) {
+	final public function divide_double( $x ) {
 		if ( CL::approx( doubleval( $x ), 0.0 ) ) {
 			throw new NonlinearExpressionException();
 		}
@@ -173,7 +173,7 @@ class ClLinearExpression extends CL {
 	 * @return ClLinearExpression
 	 * @throws NonlinearExpressionException
 	 */
-	public final function divide_cllinearexpression( ClLinearExpression $expr ) {
+	final public function divide_cllinearexpression( ClLinearExpression $expr ) {
 		if ( ! $expr->isConstant() ) {
 			throw new NonlinearExpressionException();
 		}
@@ -192,7 +192,7 @@ class ClLinearExpression extends CL {
 	 * @return ClLinearExpression
 	 * @throws NonlinearExpressionException
 	 */
-	public final function divFrom( ClLinearExpression $expr ) {
+	final public function divFrom( ClLinearExpression $expr ) {
 		if ( ! $this->isConstant() || CL::approx( $this->_constant, 0.0 ) ) {
 			throw new NonlinearExpressionException();
 		}
@@ -210,7 +210,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return ClLinearExpression
 	 */
-	public final function subtractFrom( $expr ) {
+	final public function subtractFrom( $expr ) {
 		return $expr->minus_cllinearexpression( $this );
 	}
 
@@ -226,7 +226,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return ClLinearExpression
 	 */
-	public final function addExpression_cllinearexpression_double_clabstract_variable_cltableau( ClLinearExpression $expr, $n, ClAbstractVariable $subject, ClTableau $solver ) {
+	final public function addExpression_cllinearexpression_double_clabstract_variable_cltableau( ClLinearExpression $expr, $n, ClAbstractVariable $subject, ClTableau $solver ) {
 		$this->incrementConstant( doubleval( $n ) * $expr->constant() );
 
 		foreach ( $expr->_terms->entrySet() as $e ) {
@@ -244,7 +244,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return ClLinearExpression
 	 */
-	public final function addExpression_cllinearexpression_double( ClLinearExpression $expr, double $n ) {
+	final public function addExpression_cllinearexpression_double( ClLinearExpression $expr, double $n ) {
 		$this->incrementConstant( doubleval( $n ) * $expr->constant() );
 
 
@@ -260,7 +260,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return ClLinearExpression
 	 */
-	public final function addExpression( ClLinearExpression $expr ) {
+	final public function addExpression( ClLinearExpression $expr ) {
 		return $this->addExpression( $expr, 1.0 );
 	}
 
@@ -274,7 +274,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return ClLinearExpression
 	 */
-	public final function addVariable_clabstractvariable_double( ClAbstractVariable $v, $c ) {
+	final public function addVariable_clabstractvariable_double( ClAbstractVariable $v, $c ) {
 
 		$coeff = $this->_terms->get( $v );
 		if ( $coeff != null ) {
@@ -298,7 +298,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return ClLinearExpression
 	 */
-	public final function addVariable_clabstractvariable( ClAbstractVariable $v ) {
+	final public function addVariable_clabstractvariable( ClAbstractVariable $v ) {
 		return $this->addVariable( $v, 1.0 );
 	}
 
@@ -308,7 +308,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return ClLinearExpression
 	 */
-	public final function setVariable( ClAbstractVariable $v, $c ) {
+	final public function setVariable( ClAbstractVariable $v, $c ) {
 
 		$coeff = $this->_terms->get( $v );
 		if ( $coeff != null ) {
@@ -333,7 +333,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return ClLinearExpression
 	 */
-	public final function addVariable_clabstractvariable_double_clabstractvariable_cltableau( ClAbstractVariable $v, $c, ClAbstractVariable $subject, ClTableau $solver ) {
+	final public function addVariable_clabstractvariable_double_clabstractvariable_cltableau( ClAbstractVariable $v, $c, ClAbstractVariable $subject, ClTableau $solver ) {
 		// body largely duplicated above
 
 		$coeff = $this->_terms->get( $v );
@@ -362,7 +362,7 @@ class ClLinearExpression extends CL {
 	 * @return ClAbstractVariable
 	 * @throws ClInternalError
 	 */
-	public final function anyPivotableVariable() {
+	final public function anyPivotableVariable() {
 		if ( $this->isConstant() ) {
 			throw new ClInternalError( "anyPivotableVariable called on a constant" );
 		}
@@ -393,7 +393,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return void
 	 */
-	public final function substituteOut( ClAbstractVariable $var, ClLinearExpression $expr, ClAbstractVariable $subject, ClTableau $solver ) {
+	final public function substituteOut( ClAbstractVariable $var, ClLinearExpression $expr, ClAbstractVariable $subject, ClTableau $solver ) {
 
 		$multiplier = $this->_terms->remove( $var )->doubleValue();
 		$this->incrementConstant( $multiplier * $expr->constant() );
@@ -441,7 +441,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return void
 	 */
-	public final function changeSubject( ClAbstractVariable $old_subject, ClAbstractVariable $new_subject ) {
+	final public function changeSubject( ClAbstractVariable $old_subject, ClAbstractVariable $new_subject ) {
 
 		$cld = $this->_terms->get( $old_subject );
 		if ( $cld != null ) {
@@ -475,7 +475,7 @@ class ClLinearExpression extends CL {
 	 * @return double
 	 *
 	 */
-	public final function newSubject( ClAbstractVariable $subject ) {
+	final public function newSubject( ClAbstractVariable $subject ) {
 
 		$coeff      = $this->_terms->remove( $subject );
 		$reciprocal = 1.0 / $coeff->doubleValue();
@@ -494,7 +494,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return double
 	 */
-	public final function coefficientFor( ClAbstractVariable $var ) {
+	final public function coefficientFor( ClAbstractVariable $var ) {
 		$coeff = $this->_terms->get( $var );
 		if ( $coeff != null ) {
 			return $coeff->doubleValue();
@@ -506,7 +506,7 @@ class ClLinearExpression extends CL {
 	/**
 	 * @return double
 	 */
-	public final function constant() {
+	final public function constant() {
 		return $this->_constant;
 	}
 
@@ -515,11 +515,11 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return void
 	 */
-	public final function set_constant( $c ) {
+	final public function set_constant( $c ) {
 		$this->_constant = doubleval( $c );
 	}
 
-	public final function terms() {
+	final public function terms() {
 		return $this->_terms;
 	}
 
@@ -528,18 +528,18 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return void
 	 */
-	public final function incrementConstant( $c ) {
+	final public function incrementConstant( $c ) {
 		$this->_constant += doubleval( $c );
 	}
 
-	public final function isConstant() {
+	final public function isConstant() {
 		return $this->_terms->size() == 0;
 	}
 
 	/**
 	 * @return String
 	 */
-	public final function __toString() {
+	final public function __toString() {
 		$bstr = '';
 		$e    = $this->_terms->keySet();
 
@@ -570,7 +570,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return ClLinearExpression
 	 */
-	public final static function Plus( ClLinearExpression $e1, ClLinearExpression $e2 ) {
+	final public static function Plus( ClLinearExpression $e1, ClLinearExpression $e2 ) {
 		return $e1->plus_cllinearexpression( $e2 );
 	}
 
@@ -580,7 +580,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return ClLinearExpression
 	 */
-	public final static function Minus( ClLinearExpression $e1, ClLinearExpression $e2 ) {
+	final public static function Minus( ClLinearExpression $e1, ClLinearExpression $e2 ) {
 		return $e1->minus_cllinearexpression( $e2 );
 	}
 
@@ -591,7 +591,7 @@ class ClLinearExpression extends CL {
 	 * @return ClLinearExpression
 	 * @throws NonlinearExpressionException
 	 */
-	public final static function Times( ClLinearExpression $e1, ClLinearExpression $e2 ) {
+	final public static function Times( ClLinearExpression $e1, ClLinearExpression $e2 ) {
 		return $e1->times_cllinearexpression( $e2 );
 	}
 
@@ -602,7 +602,7 @@ class ClLinearExpression extends CL {
 	 * @return ClLinearExpression
 	 * @throws NonlinearExpressionException
 	 */
-	public final static function Divide( ClLinearExpression $e1, ClLinearExpression $e2 ) {
+	final public static function Divide( ClLinearExpression $e1, ClLinearExpression $e2 ) {
 		return $e1->divide_cllinearexpression( $e2 );
 	}
 
@@ -612,7 +612,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return boolean
 	 */
-	public final static function FEquals( ClLinearExpression $e1, ClLinearExpression $e2 ) {
+	final public static function FEquals( ClLinearExpression $e1, ClLinearExpression $e2 ) {
 		return $e1 == $e2;
 	}
 
