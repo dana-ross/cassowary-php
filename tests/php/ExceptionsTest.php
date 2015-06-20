@@ -128,4 +128,21 @@ class ExceptionsTest extends \PHPUnit_Framework_TestCase {
 		}
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\UnsupportedOperationException::__construct
+	 */
+	function test_unsupported_operation_exception() {
+
+		$fn = function () {
+			throw new \DaveRoss\CassowaryConstraintSolver\UnsupportedOperationException( 'example' );
+		};
+
+		try {
+			$fn();
+		} catch ( Exception $e ) {
+			$this->assertInstanceOf( '\DaveRoss\CassowaryConstraintSolver\UnsupportedOperationException', $e );
+			$this->assertEquals( "example", $e->getMessage() );
+		}
+	}
+
 }

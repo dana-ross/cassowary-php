@@ -2,9 +2,6 @@
 
 namespace DaveRoss\CassowaryConstraintSolver;
 
-class UnsupportedOperationException extends \Exception {
-}
-
 /**
  * Class IdentityHashSet
  * @package DaveRoss\CassowaryConstraintSolver
