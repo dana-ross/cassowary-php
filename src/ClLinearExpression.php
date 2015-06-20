@@ -229,7 +229,7 @@ class ClLinearExpression extends CL {
 		$this->incrementConstant( doubleval( $n ) * $expr->constant() );
 
 		foreach ( $expr->_terms->entrySet() as $e ) {
-			addVariable( $e->getKey(), $e->getValue()->doubleValue() * doubleval( $n ), $subject, $solver );
+			$this->addVariable( $e->getKey(), $e->getValue()->doubleValue() * doubleval( $n ), $subject, $solver );
 		}
 
 		return $this;
