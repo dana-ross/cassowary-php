@@ -16,13 +16,22 @@
 
 namespace DaveRoss\CassowaryConstraintSolver;
 
+/**
+ * Class ClObjectiveVariable
+ * @package DaveRoss\CassowaryConstraintSolver
+ */
 class ClObjectiveVariable extends ClAbstractVariable {
 
+    /**
+     * Return a string representation of this object
+     * @return string
+     */
 	public function __toString() {
 		return "[" . $this->name() . ":obj]";
 	}
 
 	/**
+     * Check if this is an "external" variable
 	 * @return bool
 	 */
 	public function isExternal() {
@@ -30,6 +39,7 @@ class ClObjectiveVariable extends ClAbstractVariable {
 	}
 
 	/**
+     * Check if this variable is pivotable
 	 * @return bool
 	 */
 	public function isPivotable() {
@@ -38,6 +48,7 @@ class ClObjectiveVariable extends ClAbstractVariable {
 
 
 	/**
+     * Check if this variable is restricted
 	 * @return bool
 	 */
 	public function isRestricted() {
