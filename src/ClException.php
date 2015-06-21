@@ -16,14 +16,25 @@
 
 namespace DaveRoss\CassowaryConstraintSolver;
 
+/**
+ * Class ClException
+ * @package DaveRoss\CassowaryConstraintSolver
+ * Parent class for Cassowary Constraint Solver exceptions
+ */
 class ClException extends \RuntimeException {
 
 	function __construct( $message = null ) {
 		parent::__construct( self::message_or_default( $message ) );
 	}
 
+    /**
+     * Return the error message passed or a default message if passed an empty value
+     * 
+     * @param string $message
+     * @return string
+     */
 	public static function message_or_default( $message = null ) {
-		return ! empty( $message ) ? $message : "An error has occurred in CL";
+		return ( ! empty( $message ) && is_string( $message ) ) ? $message : "An error has occurred in CL";
 	}
 
 }
