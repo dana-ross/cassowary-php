@@ -83,28 +83,26 @@ trait OverloadedMethods {
 	}
 
 	public static function _find_callable_for_arg_types( $called_function, array $remaining_arg_types, array $current_arg_types = array() ) {
-		if(count($remaining_arg_types)) {
+		if ( count( $remaining_arg_types ) ) {
 			$current_arg = array_shift( $remaining_arg_types );
 			if ( is_array( $current_arg ) ) {
 				foreach ( $current_arg as $index => $current_arg_type ) {
 					$fn = self::_find_callable_for_arg_types( $called_function, $remaining_arg_types, array_merge( $current_arg_types, array( $current_arg_type ) ) );
-					if($fn) {
+					if ( $fn ) {
 						return $fn;
 					}
 				}
 			} else {
-				$fn = self::_find_callable_for_arg_types( $called_function, $remaining_arg_types, array_merge( $current_arg_types, array( $current_arg ) ));
-				if($fn) {
+				$fn = self::_find_callable_for_arg_types( $called_function, $remaining_arg_types, array_merge( $current_arg_types, array( $current_arg ) ) );
+				if ( $fn ) {
 					return $fn;
 				}
 			}
-		}
-		else {
-			$method_name = $called_function . '_' . implode( '_', array_map('strtolower', $current_arg_types ));
-			if(method_exists(__CLASS__, $method_name )) {
+		} else {
+			$method_name = $called_function . '_' . implode( '_', array_map( 'strtolower', $current_arg_types ) );
+			if ( method_exists( __CLASS__, $method_name ) ) {
 				return $method_name;
-			}
-			else {
+			} else {
 				return false;
 			}
 		}
