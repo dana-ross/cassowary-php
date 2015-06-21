@@ -26,10 +26,10 @@ class ClLinearExpression extends CL {
 
 	public function __construct_clabstractvariable_double_double( $clv, $value, $constant ) {
 
-		$this->_constant = $constant;
+		$this->_constant = doubleval($constant);
 		$this->_terms    = new IdentityHashMap( 1 );
 		if ( $clv != null ) {
-			$this->_terms->put( $clv, new ClDouble( $value ) );
+			$this->_terms->put( $clv, new ClDouble( doubleval( $value ) ) );
 		}
 
 	}
