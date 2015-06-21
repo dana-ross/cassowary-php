@@ -26,7 +26,7 @@ class ClLinearExpression extends CL {
 
 	public function __construct_clabstractvariable_double_double( $clv, $value, $constant ) {
 
-		$this->_constant = $constant;
+		$this->_constant = doubleval($constant);
 		$this->_terms    = new IdentityHashMap( 1 );
 		if ( $clv != null ) {
 			$this->_terms->put( $clv, new ClDouble( $value ) );
@@ -39,7 +39,7 @@ class ClLinearExpression extends CL {
 	}
 
 	public function __construct_default() {
-		$this->__construct_double( 0 );
+		$this->__construct_double( 0.0 );
 	}
 
 	public function  __construct_clabstractvariable_double( $clv, $value ) {
@@ -47,7 +47,7 @@ class ClLinearExpression extends CL {
 	}
 
 	public function __construct_clabstractvariable( $clv ) {
-		$this->__construct_clabstractvariable_double_double( $clv, 1, 0 );
+		$this->__construct_clabstractvariable_double_double( $clv, 1, 0.0 );
 	}
 
 //    protected ClLinearExpression(double constant, Map<ClAbstractVariable, ClDouble> terms) {
