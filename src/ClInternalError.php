@@ -16,10 +16,15 @@
 
 namespace DaveRoss\CassowaryConstraintSolver;
 
+/**
+ * Class ClInternalError
+ * @package DaveRoss\CassowaryConstraintSolver
+ * An internal Exception from Cassowary Constraint Solver
+ */
 class ClInternalError extends ClException {
 
 	function __construct( $s ) {
-		super( $s );
+		parent::__construct( $s );
 	}
 
 }
