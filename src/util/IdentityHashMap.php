@@ -12,7 +12,8 @@ namespace DaveRoss\CassowaryConstraintSolver;
 class IdentityHashMap extends \SplObjectStorage {
 
 	/**
-	 * @param \stdClass $key
+     * Check if a particular key has been added to this IdentityHashMap
+	 * @param object $key
 	 *
 	 * @return bool
 	 */
@@ -21,7 +22,8 @@ class IdentityHashMap extends \SplObjectStorage {
 	}
 
 	/**
-	 * @param \stdClass $key
+     * Add a key/value pair to the IdentityHashMap
+	 * @param object $key
 	 * @param  mixed    $object
 	 */
 	public function put( $key, $object ) {
@@ -29,6 +31,8 @@ class IdentityHashMap extends \SplObjectStorage {
 	}
 
 	/**
+     * Remove all entries in this IdentityHashMap without invalidating & replacinh
+     * its internal data structures
 	 * @return void
 	 */
 	public function clear() {
@@ -38,6 +42,7 @@ class IdentityHashMap extends \SplObjectStorage {
 	}
 
 	/**
+     * Check if this IdentityHashMap is empty
 	 * @return bool
 	 */
 	public function isEmpty() {
@@ -45,7 +50,8 @@ class IdentityHashMap extends \SplObjectStorage {
 	}
 
 	/**
-	 * @return array|SplFixedArray
+     * Return an array of all keys in this IdentityHashMap
+	 * @return \SplFixedArray
 	 */
 	public function keySet_iterator() {
 		$keys = array();
@@ -56,6 +62,10 @@ class IdentityHashMap extends \SplObjectStorage {
 		return \SplFixedArray::fromArray( $keys );
 	}
 
+    /**
+     * Return an array of all values in this IdentityHashMap
+     * @return \SplFixedArray
+     */
 	public function entrySet_iterator() {
 		$entries = array();
 		foreach ( $this as $key ) {
@@ -66,6 +76,7 @@ class IdentityHashMap extends \SplObjectStorage {
 	}
 
 	/**
+     * Remove a key from the IdentityHashMap and its associated value
 	 * @param \stdClass $key
 	 */
 	public function remove( $key ) {
@@ -73,9 +84,11 @@ class IdentityHashMap extends \SplObjectStorage {
 	}
 
 	/**
-	 * @return mixed
+     * Returns a count of how many entries there are in this IdentityHashMap
+	 * @return integer
 	 */
 	public function size() {
 		return $this->count();
 	}
+
 }

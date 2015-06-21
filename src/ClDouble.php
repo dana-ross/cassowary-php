@@ -31,6 +31,8 @@ class ClDouble {
 	}
 
 	/**
+     * Return a clone of this value
+     * Implements the __clone magic method
 	 * @return ClDouble
 	 */
 	final public function __clone() {
@@ -38,6 +40,7 @@ class ClDouble {
 	}
 
 	/**
+     * Return this object's value as a true (scalar) double
 	 * @return float
 	 */
 	final public function doubleValue() {
@@ -45,6 +48,7 @@ class ClDouble {
 	}
 
 	/**
+     * Return this object's value as an integer
 	 * @return int
 	 */
 	final public function intValue() {
@@ -52,6 +56,7 @@ class ClDouble {
 	}
 
 	/**
+     * Return this object's value as a "long" integer
 	 * @return int PHP doesn't have a long datatype. ints are 64-bit however
 	 */
 	final public function longValue() {
@@ -59,6 +64,7 @@ class ClDouble {
 	}
 
 	/**
+     * REturn this object's value a floating-point number
 	 * @return float
 	 */
 	final public function floatValue() {
@@ -76,6 +82,7 @@ class ClDouble {
 //}
 
 	/**
+     * Set this object's value
 	 * @param double $val
 	 *
 	 * @return void
@@ -84,13 +91,23 @@ class ClDouble {
 		$this->value = doubleval( $val );
 	}
 
-
+    /**
+     * Return a string representation of this object
+     * @return string
+     */
 	final public function __toString() {
 		return sprintf( '%F', $this->value );
 	}
 
-
-	final public function equals( StdClass $o ) {
+    /**
+     * Check if this object's value and another object's value are equal
+     * Value is automatically false if $o isn't an object or doesn't contain
+     * an accessible member named "value"
+     *
+     * @param object $o
+     * @return bool
+     */
+	final public function equals( $o ) {
 		return isset( $o->value ) ? $this->value == doubleval( $o->value ) : false;
 	}
 

@@ -16,8 +16,9 @@ class IdentityHashSet {
 	}
 
 	/**
+     * Add an object
 	 * @param object $element
-	 * @return boolean
+	 * @return boolean true if added, false if the element already exists
 	 */
 	public function add( $element ) {
 		if ( $this->map->containsKey( $element ) ) {
@@ -30,6 +31,7 @@ class IdentityHashSet {
 	}
 
 	/**
+     * Add all elements from an array
 	 * @param array $elements
 	 *
 	 * @return boolean
@@ -47,6 +49,7 @@ class IdentityHashSet {
 	}
 
 	/**
+     * Remove all elements
 	 * @return void
 	 */
 	public function clear() {
@@ -54,6 +57,7 @@ class IdentityHashSet {
 	}
 
 	/**
+     * Check if an element has already been added
 	 * @param \stdClass $element
 	 *
 	 * @return boolean
@@ -63,6 +67,7 @@ class IdentityHashSet {
 	}
 
 	/**
+     * Check if all elements in an array have already been added
 	 * @return boolean
 	 */
 	public function containsAll( array $elements ) {
@@ -76,6 +81,7 @@ class IdentityHashSet {
 	}
 
 	/**
+     * Check if this Set is empty
 	 * @return bool
 	 */
 	public function isEmpty() {
@@ -83,6 +89,7 @@ class IdentityHashSet {
 	}
 
 	/**
+     * Return an array of all elements in the Set
 	 * @return array
 	 */
 	public function iterator() {
@@ -90,6 +97,7 @@ class IdentityHashSet {
 	}
 
 	/**
+     * Remove an element from the Set
 	 * @param object $element
 	 *
 	 * @return boolean
@@ -105,6 +113,7 @@ class IdentityHashSet {
 	}
 
 	/**
+     * Remove all elements in an array from the Set
 	 * @param array $elements
 	 *
 	 * @return bool
@@ -118,6 +127,8 @@ class IdentityHashSet {
 	}
 
 	/**
+     * Replace the current Set with a new one. Elements in the current Set AND the array passed
+     * will still be in the new Set.
 	 * @param array $elements
 	 *
 	 * @return bool
@@ -139,6 +150,7 @@ class IdentityHashSet {
 	}
 
 	/**
+     * Get the number of items in this Set
 	 * @return mixed
 	 */
 	public function size() {
@@ -153,7 +165,11 @@ class IdentityHashSet {
 //		throw new UnsupportedOperationException("Unsupported operation on IdentityHashSet.");
 //	}
 
-
+    /**
+     * Return a string representation of the Set
+     * Implements the __toString magic method
+     * @return string
+     */
 	public function __toString() {
 		$buf = "{";
 

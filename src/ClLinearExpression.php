@@ -29,7 +29,7 @@ class ClLinearExpression extends CL {
 		$this->_constant = doubleval($constant);
 		$this->_terms    = new IdentityHashMap( 1 );
 		if ( $clv != null ) {
-			$this->_terms->put( $clv, new ClDouble( $value ) );
+			$this->_terms->put( $clv, new ClDouble( doubleval( $value ) ) );
 		}
 
 	}
