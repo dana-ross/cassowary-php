@@ -19,6 +19,7 @@ namespace DaveRoss\CassowaryConstraintSolver;
 class ClDummyVariable extends ClAbstractVariable {
 
 	/**
+     * Return a string representation of this variable
 	 * @return string
 	 */
 	public function __toString() {
@@ -26,6 +27,7 @@ class ClDummyVariable extends ClAbstractVariable {
 	}
 
 	/**
+     * Check if this is a "dummy" variable
 	 * @return bool
 	 */
 	public function isDummy() {
@@ -33,6 +35,7 @@ class ClDummyVariable extends ClAbstractVariable {
 	}
 
 	/**
+     * Check if this is an "external" variable
 	 * @return bool
 	 */
 	public function isExternal() {
@@ -40,6 +43,7 @@ class ClDummyVariable extends ClAbstractVariable {
 	}
 
 	/**
+     * Check if this variable is pivotable
 	 * @return bool
 	 */
 	public function isPivotable() {
@@ -47,6 +51,7 @@ class ClDummyVariable extends ClAbstractVariable {
 	}
 
 	/**
+     * Check if this variable is restricted
 	 * @return bool
 	 */
 	public function isRestricted() {
