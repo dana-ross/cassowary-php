@@ -228,7 +228,7 @@ class ClLinearExpression extends CL {
 	final public function addExpression_cllinearexpression_double_clabstract_variable_cltableau( ClLinearExpression $expr, $n, ClAbstractVariable $subject, ClTableau $solver ) {
 		$this->incrementConstant( doubleval( $n ) * $expr->constant() );
 
-		foreach ( $expr->_terms->entrySet() as $e ) {
+		foreach ( $expr->_terms->entrySet_iterator() as $e ) {
 			$this->addVariable( $e->getKey(), $e->getValue()->doubleValue() * doubleval( $n ), $subject, $solver );
 		}
 
@@ -247,7 +247,7 @@ class ClLinearExpression extends CL {
 		$this->incrementConstant( doubleval( $n ) * $expr->constant() );
 
 
-		foreach ( $expr->_terms->entrySet() as $e ) {
+		foreach ( $expr->_terms->entrySet_iterator() as $e ) {
 			$this->addVariable( $e->getKey(), $e->getValue()->doubleValue() * doubleval( $n ) );
 		}
 
@@ -366,7 +366,7 @@ class ClLinearExpression extends CL {
 			throw new ClInternalError( "anyPivotableVariable called on a constant" );
 		}
 
-		foreach ( $this->_terms->keySet() as $clv ) {
+		foreach ( $this->_terms->keySet_iterator() as $clv ) {
 			if ( $clv->isPivotable() ) {
 				return $clv;
 			}
@@ -397,7 +397,7 @@ class ClLinearExpression extends CL {
 		$multiplier = $this->_terms->remove( $var )->doubleValue();
 		$this->incrementConstant( $multiplier * $expr->constant() );
 
-		foreach ( $expr->terms()->entrySet() as $e ) {
+		foreach ( $expr->terms()->entrySet_iterator() as $e ) {
 			$clv         = $e->getKey();
 			$coeff       = $e->getValue()->doubleValue();
 			$d_old_coeff = $this->_terms->get( $clv );
@@ -540,7 +540,7 @@ class ClLinearExpression extends CL {
 	 */
 	final public function __toString() {
 		$bstr = '';
-		$e    = $this->_terms->keySet();
+		$e    = $this->_terms->keySet_iterator();
 
 		if ( ! CL::approx( $this->_constant, 0.0 ) || $this->_terms->size() == 0 ) {
 			$bstr .= $this->_constant;
