@@ -20,11 +20,9 @@ class ClVariable extends ClAbstractVariable {
 
 	use \DaveRoss\CassowaryConstraintSolver\OverloadedMethods;
 
-	private /* double */
-		$_value;
+	private $_value; /* double */
 
-	private /* Object */
-		$_attachedObject;
+	private $_attachedObject; /* Object */
 
 	public function __construct_string_double( $name, $value ) {
 		$this->_name  = $name;
