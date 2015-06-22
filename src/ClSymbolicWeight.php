@@ -117,7 +117,8 @@ class ClSymbolicWeight {
 	 * @return boolean
 	 */
 	public function lessThan( ClSymbolicWeight $cl ) {
-		for ( $i = 0; $i < count( $this->_values ); $i ++ ) {
+		$value_count = count( $this->_values );
+		for ( $i = 0; $i < $value_count; $i ++ ) {
 			if ( $this->_values[ $i ] < $cl->_values[ $i ] ) {
 				return true;
 			} else if ( $this->_values[ $i ] > $cl->_values[ $i ] ) {
@@ -134,7 +135,8 @@ class ClSymbolicWeight {
 	 * @return boolean
 	 */
 	public function lessThanOrEqual( ClSymbolicWeight $cl ) {
-		for ( $i = 0; $i < count( $this->_values ); $i ++ ) {
+		$value_count = count( $this->_values );
+		for ( $i = 0; $i < $value_count; $i ++ ) {
 			if ( $this->_values[ $i ] < $cl->_values[ $i ] ) {
 				return true;
 			} else if ( $this->_values[ $i ] > $cl->_values[ $i ] ) {
@@ -151,7 +153,8 @@ class ClSymbolicWeight {
 	 * @return boolean
 	 */
 	public function equal( ClSymbolicWeight $cl ) {
-		for ( $i = 0; $i < count( $this->_values ); $i ++ ) {
+		$value_count = count( $this->_values );
+		for ( $i = 0; $i < $value_count; $i ++ ) {
 			if ( $this->_values[ $i ] != $cl->_values[ $i ] ) {
 				return false;
 			}
@@ -205,11 +208,12 @@ class ClSymbolicWeight {
 	 */
 	public function __toString() {
 		$bstr = "[";
-		for ( $i = 0; $i < count( $this->_values ) - 1; $i ++ ) {
+		$value_count = count( $this->_values );
+		for ( $i = 0; $i < $value_count - 1; $i ++ ) {
 			$bstr .= $this->_values[ $i ];
 			$bstr .= ",";
 		}
-		$bstr .= $this->_values[ count( $this->_values ) - 1 ];
+		$bstr .= $this->_values[ $value_count - 1 ];
 		$bstr .= "]";
 
 		return $bstr;
