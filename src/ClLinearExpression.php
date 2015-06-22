@@ -50,14 +50,18 @@ class ClLinearExpression extends CL {
 		$this->__construct_clabstractvariable_double_double( $clv, 1, 0.0 );
 	}
 
-//    protected ClLinearExpression(double constant, Map<ClAbstractVariable, ClDouble> terms) {
-//	_constant = constant;
-//	_terms = new IdentityHashMap<ClAbstractVariable, ClDouble>();
-//        // need to unalias the ClDouble-s that we clone (do a deep clone)
-//        for (Map.Entry<ClAbstractVariable, ClDouble> e : terms.entrySet()) {
-//	        _terms.put(e.getKey(), e.getValue().clone());
-//        }
-//    }
+	/**
+	 * @param double          $constant
+	 * @param IdentityHashMap $terms
+	 */
+	protected function __construct_double_identityhashmap( $constant, IdentityHashMap $terms ) {
+		$this->_constant = doubleval( $constant );
+		$this->_terms    = new IdentityHashMap();
+		// need to unalias the ClDouble-s that we clone (do a deep clone)
+		foreach ( $terms->keySet_iterator() as $key ) {
+			$this->_terms->put( $key, clone( $terms[$key] ) );
+		}
+	}
 
 	/**
 	 * @param double $x
