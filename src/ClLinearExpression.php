@@ -558,7 +558,8 @@ class ClLinearExpression extends CL {
 			$bstr .= $coeff->toString() . "*" . $clv->toString();
 		}
 
-		for ( $i = 1; $i < count( $e ); $i ++ ) {
+		$item_count = count( $e );
+		for ( $i = 1; $i < $item_count; $i ++ ) {
 			$clv   = $e[ $i ];
 			$coeff = $this->_terms->get( $clv );
 			$bstr .= " + " . $coeff->toString() . "*" . $clv->toString();
