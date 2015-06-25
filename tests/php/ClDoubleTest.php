@@ -66,4 +66,17 @@ class ClDoubleTest extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClDouble::__clone
+	 */
+	function test_clone() {
+
+		$instance = new \DaveRoss\CassowaryConstraintSolver\ClDouble( 5.5 );
+		$this->assertInstanceOf( '\DaveRoss\CassowaryConstraintSolver\ClDouble', clone( $instance ) );
+		$this->assertNotSame( $instance, clone( $instance ) );
+		$this->assertEquals( $instance, clone( $instance ) );
+
+	}
+}
+
 }
