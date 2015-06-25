@@ -114,34 +114,67 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::times_double
 	 */
 	public function test_times_double() {
-//		$key                = new \DaveRoss\CassowaryConstraintSolver\ClDummyVariable();
-//		$example            = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
-//			$key,
-//			1.0,
-//			2.0
-//		);
-//		$multiplied_example = $example->times( 2.0 );
-//		$this->assertInstanceOf( '\DaveRoss\CassowaryConstraintSolver\ClLinearExpression', $multiplied_example );
-//		$this->assertSame( $example, $multiplied_example );
-//		$this->assertEquals( 1, count( $example->terms()->size() ) );
-//		$this->assertInternalType( 'double', $example->terms()[ $key ]->doubleValue() );
-//		$this->assertEquals( 2.0, $example->terms()[ $key ]->doubleValue() );
+		$key                = new \DaveRoss\CassowaryConstraintSolver\ClDummyVariable();
+		$example            = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
+			$key,
+			1.0,
+			2.0
+		);
+		$multiplied_example = $example->times( 2.0 );
+		$this->assertInstanceOf( '\DaveRoss\CassowaryConstraintSolver\ClLinearExpression', $multiplied_example );
+
+		// $multiplied_example should be a clone
+		$this->assertNotSame( $example, $multiplied_example );
+		$this->assertNotEquals( $example, $multiplied_example );
+
+		$this->assertEquals( 1, count( $example->terms()->size() ) );
+		$this->assertInternalType( 'double', $example->terms()[ $key ]->doubleValue() );
+		$this->assertEquals( 2.0, $example->terms()[ $key ]->doubleValue() );
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::times_cllinearexpression
+	 */
 	public function test_times_cllinearexpression() {
-//
-//		// $this is constant
-//		$example_constant            = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(5.0);
-//		$result1 = $example_constant->times(
-//			new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
-//				new \DaveRoss\CassowaryConstraintSolver\ClDummyVariable(),
-//				1.0,
-//				2.0
-//			)
-//		);
-//
-//		// neither is constant
-//		// $expr is constant
+
+		// $this is constant
+		$key = new \DaveRoss\CassowaryConstraintSolver\ClDummyVariable();
+		$example_constant            = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(5.0);
+		$result1 = $example_constant->times(
+			new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
+				$key,
+				1.0,
+				2.0
+			)
+		);
+		$this->assertInstanceOf( '\DaveRoss\CassowaryConstraintSolver\ClLinearExpression', $result1 );
+		$this->assertEquals( 1, count( $result1->terms()->size() ) );
+		$this->assertInternalType( 'double', $result1->terms()[ $key ]->doubleValue() );
+		$this->assertEquals( 5.0, $result1->terms()[ $key ]->doubleValue() );
+
+		// neither is constant
+		$this->setExpectedException('DaveRoss\CassowaryConstraintSolver\NonlinearExpressionException');
+		$example_not_constant = $example_constant->times(
+			new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
+				$key,
+				1.0,
+				2.0
+			)
+		);
+		$result2 = $example_not_constant->times(
+			new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
+				$key,
+				1.0,
+				2.0
+			)
+		);
+
+		// $expr is constant
+		$result3 = $example_not_constant->times($example_constant);
+		$this->assertInstanceOf( '\DaveRoss\CassowaryConstraintSolver\ClLinearExpression', $result3 );
+		$this->assertEquals( 1, count( $result3->terms()->size() ) );
+		$this->assertInternalType( 'double', $result3->terms()[ $key ]->doubleValue() );
+		$this->assertEquals( 5.0, $result3->terms()[ $key ]->doubleValue() );
 
 	}
 
