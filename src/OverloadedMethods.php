@@ -8,12 +8,12 @@ trait OverloadedMethods {
 
 		if ( 0 === func_num_args() ) {
 			// Default constructor
-			call_user_func( array( __CLASS__, '__construct_default' ) );
+			return call_user_func( array( __CLASS__, '__construct_default' ) );
 		} else {
 			// Overloaded constructor
 			$fn = self::_overridden_impl_fn_name( '__construct', func_get_args() );
 			if ( false !== $fn ) {
-				call_user_func_array( array(
+				return call_user_func_array( array(
 					__CLASS__,
 					$fn
 				), func_get_args() );
@@ -27,6 +27,7 @@ trait OverloadedMethods {
 	/**
 	 * @param string $name
 	 * @param array  $args
+	 * @return mixed
 	 *
 	 * @todo iterate through argument class names with increasing genericness to allow passing a subclass to a method expecting its parent
 	 */
@@ -34,7 +35,7 @@ trait OverloadedMethods {
 
 		$fn = self::_overridden_impl_fn_name( $name, $args );
 		if ( false !== $fn ) {
-			call_user_func_array( array(
+			return call_user_func_array( array(
 				__CLASS__,
 				$fn
 			), $args );
