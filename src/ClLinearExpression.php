@@ -615,6 +615,7 @@ class ClLinearExpression extends CL {
 	 * @param ClLinearExpression $e2
 	 *
 	 * @return boolean
+	 * @todo not sure if this is the actual intent. Objects can contain equal but not the same $_terms object.
 	 */
 	final public static function FEquals( ClLinearExpression $e1, ClLinearExpression $e2 ) {
 		return $e1 == $e2;

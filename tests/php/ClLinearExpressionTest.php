@@ -104,4 +104,58 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals( 2.0, $example->terms()[ $key ]->doubleValue() );
 	}
 
+	public function test_isConstant() {
+
+		$example_constant            = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(5.0);
+		$this->assertInternalType('boolean', $example_constant->isConstant());
+		$this->assertEquals(true, $example_constant->isConstant());
+
+		$example_not_constant            = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
+			new \DaveRoss\CassowaryConstraintSolver\ClDummyVariable(),
+			1.0,
+			2.0
+		);
+		$this->assertInternalType('boolean', $example_not_constant->isConstant());
+		$this->assertEquals(false, $example_not_constant->isConstant());
+
+	}
+
+	public function test_FEquals() {
+
+		$key      = new \DaveRoss\CassowaryConstraintSolver\ClDummyVariable();
+		$example1 = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
+			$key,
+			1.0,
+			2.0
+		);
+
+		$this->assertInternalType( 'boolean', \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::FEquals(
+			$example1,
+			$example1
+		) );
+
+		$this->assertEquals( true, \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::FEquals(
+			$example1,
+			$example1
+		) );
+
+		$example2 = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
+			$key,
+			1.0,
+			2.0
+		);
+
+		// Same values, but different $_terms objects
+
+		$this->assertInternalType( 'boolean', \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::FEquals(
+			$example1,
+			$example2
+		) );
+
+		$this->assertEquals( false, \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::FEquals(
+			$example1,
+			$example2
+		) );
+
+	}
 }
