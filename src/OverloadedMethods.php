@@ -8,12 +8,12 @@ trait OverloadedMethods {
 
 		if ( 0 === func_num_args() ) {
 			// Default constructor
-			return call_user_func( array( __CLASS__, '__construct_default' ) );
+			call_user_func( array( __CLASS__, '__construct_default' ) );
 		} else {
 			// Overloaded constructor
 			$fn = self::_overridden_impl_fn_name( '__construct', func_get_args() );
 			if ( false !== $fn ) {
-				return call_user_func_array( array(
+				call_user_func_array( array(
 					__CLASS__,
 					$fn
 				), func_get_args() );
