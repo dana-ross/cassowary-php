@@ -86,4 +86,13 @@ class ClPointTest extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClPoint::__toString
+	 */
+	function test_toString() {
+		$point = new \DaveRoss\CassowaryConstraintSolver\ClPoint( 1.0, 2.0 );
+		$this->assertInternalType( 'string', $point->__toString() );
+		$this->assertEquals( '([:1], [:2])', $point->__toString() );
+	}
+
 }
