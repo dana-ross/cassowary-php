@@ -50,12 +50,12 @@ class ClVariableTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers \DaveRoss\CassowaryConstraintSolver\ClVariable::set_value
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClVariable::setValue
 	 */
 	function test_set_value() {
 
 		$clVariable = new \DaveRoss\CassowaryConstraintSolver\ClVariable( 5.0 );
-		$clVariable->change_value( 6.0 );
+		$clVariable->setValue( 6.0 );
 		$this->assertInternalType( 'double', $clVariable->getValue() );
 		$this->assertEquals( 6.0, $clVariable->getValue() );
 
