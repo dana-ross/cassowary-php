@@ -77,6 +77,38 @@ class ClDoubleTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals( $instance, clone( $instance ) );
 
 	}
-}
+
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClDouble::setValue
+	 */
+	function test_setval() {
+
+		$instance = new \DaveRoss\CassowaryConstraintSolver\ClDouble( 5.5 );
+		$instance->setValue(6.0);
+		$this->assertEquals(6.0, $instance->doubleValue());
+
+	}
+
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClDouble::__toString
+	 */
+	function test_toString() {
+
+		$instance = new \DaveRoss\CassowaryConstraintSolver\ClDouble( 5.5 );
+		$this->assertInternalType( 'string', $instance->__toString() );
+		$this->assertEquals( '5.5', $instance->__toString() );
+
+	}
+
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClDouble::equals
+	 */
+	function test_equals() {
+
+		$instance = new \DaveRoss\CassowaryConstraintSolver\ClDouble( 5.5 );
+		$this->assertInternalType( 'boolean', $instance->equals( new \DaveRoss\CassowaryConstraintSolver\ClDouble( 5.5 ) ) );
+		$this->assertEquals( true, $instance->equals( new \DaveRoss\CassowaryConstraintSolver\ClDouble( 5.5 ) ) );
+
+	}
 
 }
