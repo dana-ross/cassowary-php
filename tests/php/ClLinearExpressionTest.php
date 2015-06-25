@@ -96,7 +96,7 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 			1.0,
 			2.0
 		);
-		$multiplied_example = $example->multiplyMe( 2.0 );
+		$multiplied_example = $example->times( 2.0 );
 		$this->assertInstanceOf( '\DaveRoss\CassowaryConstraintSolver\ClLinearExpression', $multiplied_example );
 		$this->assertSame( $example, $multiplied_example );
 		$this->assertEquals( 1, count( $example->terms()->size() ) );
