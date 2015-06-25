@@ -595,7 +595,7 @@ class ClLinearExpression extends CL {
 	 * @return ClLinearExpression
 	 * @throws NonlinearExpressionException
 	 */
-	final public static function Times( ClLinearExpression $e1, ClLinearExpression $e2 ) {
+	final public static function Times_cllinearexpression_clLinearexpression( ClLinearExpression $e1, ClLinearExpression $e2 ) {
 		return $e1->times_cllinearexpression( $e2 );
 	}
 
