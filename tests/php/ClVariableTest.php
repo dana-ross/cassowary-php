@@ -12,6 +12,39 @@ class ClVariableTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClVariable::__construct_string_double
+	 */
+	function test_construct_string_double() {
+		$clVariable = new \DaveRoss\CassowaryConstraintSolver\ClVariable( 'example', 1.0 );
+		$this->assertInternalType( 'string', $clVariable->name() );
+		$this->assertEquals( 'example', $clVariable->name() );
+		$this->assertInternalType( 'double', $clVariable->getValue() );
+		$this->assertEquals( 1.0, $clVariable->getValue() );
+	}
+
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClVariable::__construct_integer_string_double
+	 */
+	function test_construct_integer_string_double() {
+		$clVariable = new \DaveRoss\CassowaryConstraintSolver\ClVariable( 5, 'example', 1.0 );
+		$this->assertInternalType( 'string', $clVariable->name() );
+		$this->assertEquals( 'example5', $clVariable->name() );
+		$this->assertInternalType( 'double', $clVariable->getValue() );
+		$this->assertEquals( 1.0, $clVariable->getValue() );
+	}
+
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClVariable::__construct_integer_string
+	 */
+	function test_construct_integer_string() {
+		$clVariable = new \DaveRoss\CassowaryConstraintSolver\ClVariable( 5, 'example' );
+		$this->assertInternalType( 'string', $clVariable->name() );
+		$this->assertEquals( 'example5', $clVariable->name() );
+		$this->assertInternalType( 'double', $clVariable->getValue() );
+		$this->assertEquals( 0.0, $clVariable->getValue() );
+	}
+
+	/**
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClVariable::__construct_string
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClVariable::__toString
 	 */

@@ -50,12 +50,12 @@ class ClVariable extends ClAbstractVariable {
 		$this->_value = 0.0;
 	}
 
-	public function __construct_int_string_double( $number, $prefix, $value ) {
+	public function __construct_integer_string_double( $number, $prefix, $value ) {
 		$this->_name  = $prefix . $number;
 		$this->_value = $value;
 	}
 
-	public function __construct_long_string( $number, $prefix ) {
+	public function __construct_integer_string( $number, $prefix ) {
 		$this->_name  = $prefix . $number;
 		$this->_value = 0.0;
 	}
