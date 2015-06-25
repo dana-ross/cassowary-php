@@ -139,7 +139,7 @@ class IdentityHashSetTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers \DaveRoss\CassowaryConstraintSolver\IdentityHashSet::removeAll
+	 * @covers \DaveRoss\CassowaryConstraintSolver\IdentityHashSet::retainAll
 	 */
 	public function test_retainAll() {
 		$set      = new \DaveRoss\CassowaryConstraintSolver\IdentityHashSet();
