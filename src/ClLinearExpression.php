@@ -261,7 +261,7 @@ class ClLinearExpression extends CL {
 			$this->addVariable( $e->getKey(), $e->getValue()->doubleValue() * doubleval( $n ) );
 		}
 
-		return this;
+		return $this;
 	}
 
 	/**
