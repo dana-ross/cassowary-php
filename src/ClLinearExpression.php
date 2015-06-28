@@ -52,14 +52,20 @@ class ClLinearExpression extends CL {
 
 	/**
 	 * @param double          $constant
-	 * @param IdentityHashMap $terms
+	 * @param IdentityHashMap $terms values are ClDoubles or doubles
 	 */
 	protected function __construct_double_identityhashmap( $constant, IdentityHashMap $terms ) {
 		$this->_constant = doubleval( $constant );
 		$this->_terms    = new IdentityHashMap();
 		// need to unalias the ClDouble-s that we clone (do a deep clone)
 		foreach ( $terms->keySet_iterator() as $key ) {
-			$this->_terms->put( $key, clone( $terms[$key] ) );
+
+			if ( is_object( $terms[ $key ] ) ) {
+				$this->_terms->put( $key, clone( $terms[ $key ] ) );
+			} else {
+				$this->_terms->put( $key, new ClDouble( doubleval( $terms[ $key ] ) ) );
+			}
+
 		}
 	}
 

@@ -75,6 +75,46 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::__construct_clabstractvariable
+	 */
+	public function test_construct_clabstractvariable() {
+		$example = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
+			new \DaveRoss\CassowaryConstraintSolver\ClDummyVariable()
+		);
+		$this->assertInternalType( 'double', $example->constant() );
+		$this->assertEquals( 0.0, $example->constant() );
+		foreach ( $example->terms() as $index => $key ) {
+			// Should only be one item in this array
+			$this->assertEquals( 0, $index );
+			$this->assertInternalType( 'double', $example->terms()[ $key ]->doubleValue() );
+			$this->assertEquals( 1.0, $example->terms()[ $key ]->doubleValue() );
+		}
+	}
+
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::__construct_double_identityhashmap
+	 */
+	public function test_construct_double_identityhashmap() {
+		$map = new \DaveRoss\CassowaryConstraintSolver\IdentityHashMap();
+		$map->put(
+			new \DaveRoss\CassowaryConstraintSolver\ClDouble(1.0),
+			2
+		);
+		$example = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
+			5.0,
+			$map
+		);
+		$this->assertInternalType( 'double', $example->constant() );
+		$this->assertEquals( 5.0, $example->constant() );
+		foreach ( $example->terms() as $index => $key ) {
+			// Should only be one item in this array
+			$this->assertEquals( 0, $index );
+			$this->assertInternalType( 'double', $example->terms()[ $key ]->doubleValue() );
+			$this->assertEquals( 2.0, $example->terms()[ $key ]->doubleValue() );
+		}
+	}
+
+	/**
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::multiplyMe
 	 */
 	public function test_multiplyMe() {
@@ -176,6 +216,13 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 		$this->assertInternalType( 'double', $result3->terms()[ $key ]->doubleValue() );
 		$this->assertEquals( 5.0, $result3->terms()[ $key ]->doubleValue() );
 
+	}
+
+	public function test_plus_cllinearexpression() {
+		$example = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 5.0 );
+		$example->plus(new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(6.0));
+		$this->assertInternalType( 'double', $example->constant() );
+		$this->assertEquals( 7.0, $example->constant() );
 	}
 
 	/**
