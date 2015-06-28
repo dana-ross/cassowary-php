@@ -95,6 +95,8 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::__construct_double_identityhashmap
 	 */
 	public function test_construct_double_identityhashmap() {
+
+		// IdentityHashMap contains a double
 		$map = new \DaveRoss\CassowaryConstraintSolver\IdentityHashMap();
 		$map->put(
 			new \DaveRoss\CassowaryConstraintSolver\ClDouble(1.0),
@@ -111,6 +113,25 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 			$this->assertEquals( 0, $index );
 			$this->assertInternalType( 'double', $example->terms()[ $key ]->doubleValue() );
 			$this->assertEquals( 2.0, $example->terms()[ $key ]->doubleValue() );
+		}
+
+		// IdentityHashMap contains a ClDouble
+		$map2 = new \DaveRoss\CassowaryConstraintSolver\IdentityHashMap();
+		$map2->put(
+			new \DaveRoss\CassowaryConstraintSolver\ClDouble(1.0),
+			new \DaveRoss\CassowaryConstraintSolver\ClDouble(2.0)
+		);
+		$example2 = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
+			5.0,
+			$map2
+		);
+		$this->assertInternalType( 'double', $example2->constant() );
+		$this->assertEquals( 5.0, $example2->constant() );
+		foreach ( $example2->terms() as $index => $key ) {
+			// Should only be one item in this array
+			$this->assertEquals( 0, $index );
+			$this->assertInternalType( 'double', $example2->terms()[ $key ]->doubleValue() );
+			$this->assertEquals( 2.0, $example2->terms()[ $key ]->doubleValue() );
 		}
 	}
 
