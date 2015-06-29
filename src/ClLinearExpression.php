@@ -167,7 +167,7 @@ class ClLinearExpression extends CL {
 	 * @return ClLinearExpression
 	 */
 	final public function divide_double( $x ) {
-		if ( CL::approx( doubleval( $x ), 0.0 ) ) {
+		if ( CL::approx_double_double( doubleval( $x ), 0.0 ) ) {
 			throw new NonlinearExpressionException();
 		}
 
