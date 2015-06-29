@@ -319,6 +319,23 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::divide_cllinearexpression
+	 */
+	public function test_divide_cllinearexpression() {
+
+		$example_constant1 = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 6.0 );
+		$result            = $example_constant1->divide_cllinearexpression( new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 2.0 ) );
+		$this->assertInternalType( 'double', $result->constant() );
+		$this->assertEquals( 3.0, $result->constant() );
+
+		// Divide by a variable value
+		$example_constant2 = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( new \DaveRoss\CassowaryConstraintSolver\ClVariable( 1.0 ) );
+		$this->setExpectedException( '\DaveRoss\CassowaryConstraintSolver\NonlinearExpressionException' );
+		$example_constant2->divide_cllinearexpression( $example_constant2 );
+
+	}
+
+	/**
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::incrementConstant
 	 */
 	public function test_incrementConstant() {
