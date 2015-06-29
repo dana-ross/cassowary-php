@@ -585,7 +585,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return ClLinearExpression
 	 */
-	final public static function Plus( ClLinearExpression $e1, ClLinearExpression $e2 ) {
+	final public static function plus_cllinearexpression_cllinearexpression( ClLinearExpression $e1, ClLinearExpression $e2 ) {
 		return $e1->plus_cllinearexpression( $e2 );
 	}
 
