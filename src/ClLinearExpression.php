@@ -145,8 +145,7 @@ class ClLinearExpression extends CL {
 	 */
 	final public function minus_cllinearexpression( ClLinearExpression $expr ) {
 		$x = clone( $this );
-
-		return $x->addExpression( $expr, - 1.0 );
+		return $x->addExpression_cllinearexpression_double( $expr, -1.0 );
 	}
 
 	/**
