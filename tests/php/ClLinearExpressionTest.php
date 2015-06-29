@@ -336,6 +336,40 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::divFrom
+	 */
+	public function test_divFrom() {
+
+		$example_constant1 = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 3.0 );
+		$result            = $example_constant1->divFrom( new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 6.0 ) );
+		$this->assertInternalType( 'double', $result->constant() );
+		$this->assertEquals( 2.0, $result->constant() );
+
+		// Here's zero. Divide something by it.
+		$example_constant2 = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
+			new \DaveRoss\CassowaryConstraintSolver\ClVariable( 1.0 ),
+			2.0
+		);
+		$example_zero      = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 0.0 );
+		$this->setExpectedException( '\DaveRoss\CassowaryConstraintSolver\NonlinearExpressionException' );
+		$example_constant2->divFrom( $example_zero );
+
+	}
+
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::subtractFrom
+	 */
+	public function test_subtractFrom() {
+
+		$example_constant1 = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 5.0 );
+		$example_constant2 = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 2.0 );
+		$result = $example_constant2->subtractFrom($example_constant1);
+		$this->assertInternalType( 'double', $result->constant() );
+		$this->assertEquals( 3.0, $result->constant() );
+
+	}
+
+	/**
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::incrementConstant
 	 */
 	public function test_incrementConstant() {
