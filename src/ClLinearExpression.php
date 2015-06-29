@@ -200,7 +200,7 @@ class ClLinearExpression extends CL {
 	 * @throws NonlinearExpressionException
 	 */
 	final public function divFrom( ClLinearExpression $expr ) {
-		if ( ! $this->isConstant() || CL::approx( $this->_constant, 0.0 ) ) {
+		if ( ! $this->isConstant() || CL::approx_double_double( $this->_constant, 0.0 ) ) {
 			throw new NonlinearExpressionException();
 		}
 
