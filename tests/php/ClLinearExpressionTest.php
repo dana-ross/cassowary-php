@@ -301,6 +301,17 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 		}
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::divide_double
+	 */
+	public function test_divide_double() {
+		// Divide by zero
+//		$example_constant = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 6.0 );
+//		$this->setExpectedException('NonlinearExpressionException');
+//		$example_constant->divide_double(0);
+	}
+
+	/**
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::incrementConstant
 	 */
 	public function test_incrementConstant() {
