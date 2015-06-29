@@ -239,11 +239,45 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::plus_cllinearexpression
+	 */
 	public function test_plus_cllinearexpression() {
 		$example = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 5.0 );
-		$example->plus(new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(6.0));
-		$this->assertInternalType( 'double', $example->constant() );
-		$this->assertEquals( 7.0, $example->constant() );
+		$result  = $example->plus( new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 6.0 ) );
+		$this->assertInternalType( 'double', $result->constant() );
+		$this->assertEquals( 11.0, $result->constant() );
+	}
+
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::plus_clvariable
+	 */
+	public function test_plus_clvariable() {
+		$key = new \DaveRoss\CassowaryConstraintSolver\ClVariable( 'example', 99.0 );
+
+		$example = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
+			$key,
+			5.0,
+			1.0
+		);
+
+		$result = $example->plus( $key ); // Why did they call this "plus"? All it does is increment!
+		$terms  = $result->terms();
+		foreach ( $terms as $index => $key ) {
+			$this->assertEquals( 0, $index );
+			$this->assertInternalType( 'double', $terms[ $key ]->doubleValue() );
+			$this->assertEquals( 6.0, $terms[ $key ]->doubleValue() );
+		}
+	}
+
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::incrementConstant
+	 */
+	public function test_incrementConstant() {
+		$example_constant = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 5.0 );
+		$example_constant->incrementConstant( 2.0 );
+		$this->assertInternalType( 'boolean', $example_constant->isConstant() );
+		$this->assertEquals( 7.0, $example_constant->constant() );
 	}
 
 	/**
