@@ -284,16 +284,22 @@ class ClLinearExpression extends CL {
 	 */
 	final public function addVariable_clabstractvariable_double( ClAbstractVariable $v, $c ) {
 
-		$coeff = $this->_terms->get( $v );
+		try {
+			$coeff = $this->_terms[ $v ];
+		} catch ( \UnexpectedValueException $e ) {
+			$coeff = null;
+		}
+
 		if ( $coeff != null ) {
 			$new_coefficient = $coeff->doubleValue() + doubleval( $c );
-			if ( CL . approx( $new_coefficient, 0.0 ) ) {
+
+			if ( CL::approx_double_double( $new_coefficient, 0.0 ) ) {
 				$this->_terms->remove( $v );
 			} else {
 				$coeff->setValue( $new_coefficient );
 			}
 		} else {
-			if ( ! CL . approx( doubleval( $c ), 0.0 ) ) {
+			if ( ! CL::approx_double_double( doubleval( $c ), 0.0 ) ) {
 				$this->_terms->put( $v, new ClDouble( doubleval( $c ) ) );
 			}
 		}
