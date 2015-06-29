@@ -615,7 +615,7 @@ class ClLinearExpression extends CL {
 	 * @return ClLinearExpression
 	 * @throws NonlinearExpressionException
 	 */
-	final public static function Divide( ClLinearExpression $e1, ClLinearExpression $e2 ) {
+	final public static function divide_cllinearexpression_cllinearexpression( ClLinearExpression $e1, ClLinearExpression $e2 ) {
 		return $e1->divide_cllinearexpression( $e2 );
 	}
 
