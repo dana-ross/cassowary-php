@@ -271,6 +271,16 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::minus_cllinearexpression
+	 */
+	public function test_minus_cllinearexpression() {
+		$example = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 7.0 );
+		$result  = $example->minus_cllinearexpression( new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 5.0 ) );
+		$this->assertInternalType( 'double', $result->constant() );
+		$this->assertEquals( 2.0, $result->constant() );
+	}
+
+	/**
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::incrementConstant
 	 */
 	public function test_incrementConstant() {
