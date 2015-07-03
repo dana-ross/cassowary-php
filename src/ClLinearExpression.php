@@ -266,7 +266,7 @@ class ClLinearExpression extends CL {
 	 *
 	 * @return ClLinearExpression
 	 */
-	final public function addExpression( ClLinearExpression $expr ) {
+	final public function addExpression_cllinearexpression( ClLinearExpression $expr ) {
 		return $this->addExpression_cllinearexpression_double( $expr, 1.0 );
 	}
 
