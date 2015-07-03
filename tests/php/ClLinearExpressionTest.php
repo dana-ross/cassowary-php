@@ -370,6 +370,66 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::addExpression_cllinearexpression_double_clabstract_variable_cltableau
+	 */
+//	public function test_addExpression_cllinearexpression_double_clabstract_variable_cltableau() {
+//
+//		$key = new \DaveRoss\CassowaryConstraintSolver\ClVariable( 'example', 99.0 );
+//
+//		$example = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
+//			$key,
+//			5.0,
+//			1.0
+//		);
+//
+//		$example->addExpression( $expr, $n, $subject, $solver);
+//
+//	}
+
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::constant
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::set_constant
+	 */
+	public function test_set_constant() {
+
+		$example = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 1.0 );
+
+		// Set with a double
+		$example->set_constant( 99.0 );
+		$this->assertInternalType( 'double', $example->constant() );
+		$this->assertEquals( 99.0, $example->constant() );
+
+		// Set with an integer
+		$example->set_constant( 88 );
+		$this->assertInternalType( 'double', $example->constant() );
+		$this->assertEquals( 88.0, $example->constant() );
+
+		// Set with a double
+		$example->set_constant( 'a' );
+		$this->assertInternalType( 'double', $example->constant() );
+		$this->assertEquals( 0.0, $example->constant() );
+
+	}
+
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::terms
+	 */
+	public function test_terms() {
+
+		$key = new \DaveRoss\CassowaryConstraintSolver\ClVariable( 'example', 99.0 );
+
+		$example = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
+			$key,
+			5.0,
+			1.0
+		);
+
+		$this->assertInstanceOf('DaveRoss\CassowaryConstraintSolver\IdentityHashMap', $example->terms());
+		$this->assertEquals(1, $example->terms()->size());
+
+	}
+
+	/**
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::incrementConstant
 	 */
 	public function test_incrementConstant() {
