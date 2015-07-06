@@ -244,7 +244,7 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 	 */
 	public function test_plus_cllinearexpression() {
 		$example = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 5.0 );
-		$result  = $example->plus( new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 6.0 ) );
+		$result  = $example->plus_cllinearexpression( new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 6.0 ) );
 		$this->assertInternalType( 'double', $result->constant() );
 		$this->assertEquals( 11.0, $result->constant() );
 	}
@@ -261,7 +261,7 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 			1.0
 		);
 
-		$result = $example->plus( $key ); // Why did they call this "plus"? All it does is increment!
+		$result = $example->plus_clvariable( $key ); // Why did they call this "plus"? All it does is increment!
 		$terms  = $result->terms();
 		foreach ( $terms as $index => $key ) {
 			$this->assertEquals( 0, $index );
