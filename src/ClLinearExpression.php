@@ -123,7 +123,7 @@ class ClLinearExpression extends CL {
 	 */
 	final public function plus_cllinearexpression( ClLinearExpression $expr ) {
 		$x = clone( $this );
-		return $x->addExpression( $expr, 1.0 );
+		return $x->addExpression_cllinearexpression_double( $expr, 1.0 );
 	}
 
 	/**
@@ -135,7 +135,7 @@ class ClLinearExpression extends CL {
 	final public function plus_clvariable( ClVariable $var ) {
 		$x = clone( $this );
 
-		return $x->addVariable( $var, 1.0 );
+		return $x->addVariable_clabstractvariable_double( $var, 1.0 );
 	}
 
 	/**
