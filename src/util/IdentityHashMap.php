@@ -91,4 +91,16 @@ class IdentityHashMap extends \SplObjectStorage {
 		return $this->count();
 	}
 
+	/**
+	 * Get the value associated with a key
+	 * java.util.IdentityHashMap has this method built-in
+	 *
+	 * @param object $key
+	 *
+	 * @return mixed|null
+	 */
+	public function get( $key ) {
+		return $this->containsKey( $key ) ? $this[ $key ] : null;
+	}
+
 }
