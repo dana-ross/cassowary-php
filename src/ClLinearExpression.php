@@ -255,7 +255,7 @@ class ClLinearExpression extends CL {
 		$this->incrementConstant( doubleval( $n ) * $expr->constant() );
 
 		foreach ( $expr->_terms->entrySet_iterator() as $e ) {
-			$this->addVariable( $e->getKey(), $e->getValue()->doubleValue() * doubleval( $n ) );
+			$this->addVariable_clabstractvariable_double( $e->getKey(), $e->getValue()->doubleValue() * doubleval( $n ) );
 		}
 
 		return $this;
@@ -311,7 +311,7 @@ class ClLinearExpression extends CL {
 	 * @return ClLinearExpression
 	 */
 	final public function addVariable_clabstractvariable( ClAbstractVariable $v ) {
-		return $this->addVariable( $v, 1.0 );
+		return $this->addVariable_clabstractvariable_double( $v, 1.0 );
 	}
 
 	/**
