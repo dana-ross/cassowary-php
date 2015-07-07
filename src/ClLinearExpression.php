@@ -559,11 +559,6 @@ class ClLinearExpression extends CL {
 		if ( ! CL::approx_double_double( $this->_constant, 0.0 ) || $this->_terms->size() == 0 ) {
 			$bstr .= $this->_constant;
 		} else {
-			// This was in the original Java source, but isn't it redundant given the second half of the "if" condition?
-			//if ( $this->_terms->size() == 0 ) {
-			//	return $bstr;
-			//}
-
 			$clv   = $e[0];
 			$coeff = $this->_terms->get( $clv );
 			$bstr .= $coeff->__toString() . "*" . $clv->__toString();
