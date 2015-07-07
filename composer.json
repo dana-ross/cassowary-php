@@ -17,7 +17,7 @@
     ],
     "autoload": {
       "psr-4": {
-        "DaveRoss\\CassowaryConstraintSolver\\": ["src/", "src/util"]
+        "DaveRoss\\CassowaryConstraintSolver\\": ["src/", "src/util", "src/clconstraint"]
       }
     }
 }
