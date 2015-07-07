@@ -372,6 +372,9 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::addExpression_cllinearexpression_double_clabstract_variable_cltableau
 	 */
+//	/**
+//	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::addExpression_cllinearexpression_double_clabstract_variable_cltableau
+//	 */
 //	public function test_addExpression_cllinearexpression_double_clabstract_variable_cltableau() {
 //
 //		$key = new \DaveRoss\CassowaryConstraintSolver\ClVariable( 'example', 99.0 );
