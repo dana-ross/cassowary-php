@@ -370,8 +370,27 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::addExpression_cllinearexpression_double_clabstract_variable_cltableau
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::anyPivotableVariable
 	 */
+	public function test_anyPivotableVariable() {
+
+		$key = new \DaveRoss\CassowaryConstraintSolver\ClVariable( 'example', 99.0 );
+
+		$example = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
+			$key,
+			5.0,
+			1.0
+		);
+
+		$pivotable = $example->anyPivotableVariable();;
+
+		// Test special handling when anyPivotableVariable() is called on a constant expression
+		$example_constant = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 5.0 );
+		$this->setExpectedException( '\DaveRoss\CassowaryConstraintSolver\ClInternalError' );
+		$example_constant->anyPivotableVariable();
+
+	}
+
 //	/**
 //	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::addExpression_cllinearexpression_double_clabstract_variable_cltableau
 //	 */
