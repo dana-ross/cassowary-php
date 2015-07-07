@@ -136,7 +136,7 @@ class ClLinearEquation extends ClLinearConstraint {
 	 */
 	public function __construct_cllinearexpression_cllinearexpression_clstrength_double( ClLinearExpression $cle1, ClLinearExpression $cle2, ClStrength $strength, $weight ) {
 		parent::__construct_cllinearexpression_clstrength_double( clone( cle1 ), $strength, doubleval( $weight ) );
-		$this->_expression->addExpression( $cle2, - 1.0 );
+		$this->_expression->addExpression_cllinearexpression_double( $cle2, - 1.0 );
 	}
 
 	/**

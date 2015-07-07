@@ -149,9 +149,9 @@ class ClLinearInequality extends ClLinearConstraint {
 		parent::__construct_cllinearexpression_clstrength_double( clone( $cle2 ), $strength, doubleval( $weight ) );
 		if ( $op_enum == CL::GEQ ) {
 			$this->_expression->multiplyMe( - 1.0 );
-			$this->_expression->addExpression( $cle1 );
+			$this->_expression->addExpression_cllinearexpression( $cle1 );
 		} else if ( $op_enum == CL::LEQ ) {
-			$this->_expression->addExpression( $cle1, - 1.0 );
+			$this->_expression->addExpression_cllinearexpression_double( $cle1, - 1.0 );
 		} else {
 			// the operator was invalid
 			throw new CLInternalError( "Invalid operator in ClLinearInequality constructor" );
