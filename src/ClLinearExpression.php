@@ -552,10 +552,11 @@ class ClLinearExpression extends CL {
 	 * @return String
 	 */
 	final public function __toString() {
+
 		$bstr = '';
 		$e    = $this->_terms->keySet_iterator();
 
-		if ( ! CL::approx( $this->_constant, 0.0 ) || $this->_terms->size() == 0 ) {
+		if ( ! CL::approx_double_double( $this->_constant, 0.0 ) || $this->_terms->size() == 0 ) {
 			$bstr .= $this->_constant;
 		} else {
 			if ( $this->_terms->size() == 0 ) {
