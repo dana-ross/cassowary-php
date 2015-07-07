@@ -41,7 +41,7 @@ abstract class ClEditOrStayConstraint extends ClConstraint {
 	 * @param ClStrength $strength
 	 */
 	public function __construct_clvariable_clstrength( ClVariable $var, ClStrength $strength ) {
-		$this->__construct_clvariable_clstrength( $var, $strength, 1.0 );
+		$this->__construct_clvariable_clstrength_double( $var, $strength, 1.0 );
 	}
 
 	/**
