@@ -132,7 +132,7 @@ class ClLinearInequality extends ClLinearConstraint {
 	 * @throws DaveRoss\CassowaryConstraintSolver\CLInternalError
 	 */
 	public function __construct_clvariable_integer_double( ClVariable $clv, $op_enum, $val ) {
-		$this->__construct_clvariable_integer_double_clstrength_double( $clv, $op_enum, doubleval( val ), ClStrength::$required, 1.0 );
+		$this->__construct_clvariable_integer_double_clstrength_double( $clv, $op_enum, doubleval( $val ), ClStrength::$required, 1.0 );
 	}
 
 	/**
