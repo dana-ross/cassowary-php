@@ -391,6 +391,34 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::__toString
+	 */
+	public function test_toString() {
+
+		// Zero
+		$example_zero = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 0.0 );
+		$this->assertInternalType( 'string', $example_zero->__toString() );
+		$this->assertEquals( '0.0', $example_zero->__toString() );
+
+		// Nonzero, constant
+		$example_constant = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 5.5 );
+		$this->assertInternalType( 'string', $example_constant->__toString() );
+		$this->assertEquals( '5.5', $example_constant->__toString() );
+
+		// Nonzero, variable
+		$key = new \DaveRoss\CassowaryConstraintSolver\ClVariable( 'example', 99.0 );
+		$example = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression(
+			$key,
+			5.0,
+			1.0
+		);
+
+		$this->assertInternalType( 'string', $example->__toString() );
+		$this->assertEquals( '1 + 5.000000*[example:99]', $example->__toString() );
+
+	}
+
 //	/**
 //	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearExpression::addExpression_cllinearexpression_double_clabstract_variable_cltableau
 //	 */
