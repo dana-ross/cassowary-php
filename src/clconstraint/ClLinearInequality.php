@@ -57,9 +57,9 @@ class ClLinearInequality extends ClLinearConstraint {
 		parent::__construct_cllinearexpression_clstrength_double( new ClLinearExpression( $clv2 ), $strength, doubleval( $weight ) );
 		if ( $op_enum == CL::GEQ ) {
 			$this->_expression->multiplyMe( - 1.0 );
-			$this->_expression->addVariable( $clv1 );
+			$this->_expression->addVariable_clabstractvariable( $clv1 );
 		} else if ( $op_enum == CL::LEQ ) {
-			$this->_expression->addVariable( $clv1, - 1.0 );
+			$this->_expression->addVariable_clabstractvariable_double( $clv1, - 1.0 );
 		} else {
 			// the operator was invalid
 			throw new CLInternalError( "Invalid operator in ClLinearInequality constructor" );
@@ -103,9 +103,9 @@ class ClLinearInequality extends ClLinearConstraint {
 
 		if ( $op_enum == CL::GEQ ) {
 			$this->_expression->multiplyMe( - 1.0 );
-			$this->_expression->addVariable( $clv );
+			$this->_expression->addVariable_clabstractvariable( $clv );
 		} else if ( $op_enum == CL::LEQ ) {
-			$this->_expression->addVariable( $clv, - 1.0 );
+			$this->_expression->addVariable_clabstractvariable_double( $clv, - 1.0 );
 		} else {
 			// the operator was invalid
 			throw new CLInternalError( "Invalid operator in ClLinearInequality constructor" );
@@ -194,9 +194,9 @@ class ClLinearInequality extends ClLinearConstraint {
 		parent::__construct_cllinearexpression_clstrength_double( clone( $cle ), $strength, doubleval( $weight ) );
 		if ( $op_enum == CL::GEQ ) {
 			$this->_expression->multiplyMe( - 1.0 );
-			$this->_expression->addVariable( $clv );
+			$this->_expression->addVariable_clabstractvariable( $clv );
 		} else if ( $op_enum == CL::LEQ ) {
-			$this->_expression->addVariable( $clv, - 1.0 );
+			$this->_expression->addVariable_clabstractvariable_double( $clv, - 1.0 );
 		} else {
 			// the operator was invalid
 			throw new CLInternalError( "Invalid operator in ClLinearInequality constructor" );
@@ -239,9 +239,9 @@ class ClLinearInequality extends ClLinearConstraint {
 		parent::__construct_cllinearexpression_clstrength_double( clone( $cle ), $strength, doubleval( $weight ) );
 		if ( $op_enum == CL::LEQ ) {
 			$this->_expression->multiplyMe( - 1.0 );
-			$this->_expression->addVariable( $clv );
+			$this->_expression->addVariable_clabstractvariable( $clv );
 		} else if ( $op_enum == CL::GEQ ) {
-			$this->_expression->addVariable( $clv, - 1.0 );
+			$this->_expression->addVariable_clabstractvariable_double( $clv, - 1.0 );
 		} else {
 			// the operator was invalid
 			throw new CLInternalError( "Invalid operator in ClLinearInequality constructor" );

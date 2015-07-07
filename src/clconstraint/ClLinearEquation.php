@@ -52,7 +52,7 @@ class ClLinearEquation extends ClLinearConstraint {
 	 */
 	public function __construct_clabstractvariable_cllinearexpression_clstrength_double( ClAbstractVariable $clv, ClLinearExpression $cle, ClStrength $strength, $weight ) {
 		parent::__construct_cllinearexpression_clstrength_double( $cle, $strength, doubleval( $weight ) );
-		$this->_expression->addVariable( $clv, - 1.0 );
+		$this->_expression->addVariable_clabstractvariable_double( $clv, - 1.0 );
 	}
 
 	/**
@@ -80,7 +80,7 @@ class ClLinearEquation extends ClLinearConstraint {
 	 */
 	public function __construct_clabstractvariable_double_clstrength_double( ClAbstractVariable $clv, $val, ClStrength $strength, $weight ) {
 		parent::__construct_cllinearexpression_clstrength_double( new ClLinearExpression( $val ), $strength, doubleval( $weight ) );
-		$this->_expression->addVariable( $clv, - 1.0 );
+		$this->_expression->addVariable_clabstractvariable_double( $clv, - 1.0 );
 	}
 
 	/**
@@ -108,7 +108,7 @@ class ClLinearEquation extends ClLinearConstraint {
 	 */
 	public function __construct_cllinearexpression_clabstractvariable_clstrength_double( ClLinearExpression $cle, ClAbstractVariable $clv, ClStrength $strength, $weight ) {
 		parent::__construct_cllinearexpression_clstrength_double( clone( $cle ), $strength, doubleval( $weight ) );
-		$this->_expression->addVariable( $clv, - 1.0 );
+		$this->_expression->addVariable_clabstractvariable_double( $clv, - 1.0 );
 	}
 
 	/**
