@@ -3,9 +3,9 @@
 class ClConstraintTest extends PHPUnit_Framework_TestCase {
 
 	/**
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::__construct_clstrength_double
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::strength
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::weight
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::__construct_clstrength_double
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::strength
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::weight
 	 */
 	public function test_construct_clstrength_double() {
 
@@ -18,9 +18,9 @@ class ClConstraintTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::__construct_clstrength
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::strength
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::weight
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::__construct_clstrength
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::strength
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::weight
 	 */
 	public function test_construct_clstrength() {
 
@@ -33,9 +33,9 @@ class ClConstraintTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::__construct_default
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::strength
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::weight
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::__construct_default
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::strength
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::weight
 	 */
 	public function test_construct_default() {
 
@@ -48,7 +48,7 @@ class ClConstraintTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::isEditConstraint
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::isEditConstraint
 	 */
 	public function test_isEditConstraint() {
 
@@ -59,7 +59,7 @@ class ClConstraintTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::isInequality
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::isInequality
 	 */
 	public function test_isInequality() {
 
@@ -70,7 +70,7 @@ class ClConstraintTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::isRequired
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::isRequired
 	 */
 	public function test_isRequired() {
 
@@ -85,7 +85,7 @@ class ClConstraintTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::isInequality
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::isInequality
 	 */
 	public function test_isStayConstraint() {
 
@@ -96,7 +96,7 @@ class ClConstraintTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::__toString
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::__toString
 	 */
 	public function test_toString() {
 
@@ -107,8 +107,8 @@ class ClConstraintTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::setAttachedObject
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::getAttachedObject
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::setAttachedObject
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::getAttachedObject
 	 */
 	public function test_setAttachedObject() {
 
@@ -121,8 +121,8 @@ class ClConstraintTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::changeStrength
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::addedTo
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::changeStrength
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::addedTo
 	 */
 	public function test_changeStrength() {
 
@@ -142,7 +142,7 @@ class ClConstraintTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::addedTo
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::addedTo
 	 * @todo this really tests side-effects of calling addedTo(). ClConstraint needs a getter added to see $_times_added
 	 *       after parity with the Java version is confirmed
 	 */
@@ -156,7 +156,7 @@ class ClConstraintTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::removedFrom
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::removedFrom
 	 * @todo this really tests side-effects of calling removedFrom(). ClConstraint needs a getter added to see $_times_added
 	 *       after parity with the Java version is confirmed
 	 */

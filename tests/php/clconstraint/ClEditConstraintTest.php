@@ -3,9 +3,9 @@
 class ClEditConstraintTest extends PHPUnit_Framework_TestCase {
 
 	/**
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClEditConstraint::__construct_clstrength_double
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::strength
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::weight
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClEditConstraint::__construct_clstrength_double
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::strength
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::weight
 	 */
 	public function test_construct_clstrength_double() {
 
@@ -18,9 +18,9 @@ class ClEditConstraintTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClEditConstraint::__construct_clstrength
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::strength
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::weight
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClEditConstraint::__construct_clstrength
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::strength
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::weight
 	 */
 	public function test_construct_clstrength() {
 
@@ -33,9 +33,9 @@ class ClEditConstraintTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClEditConstraint::__construct_default
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::strength
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClConstraint::weight
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClEditConstraint::__construct_default
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::strength
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::weight
 	 */
 	public function test_construct_default() {
 
@@ -48,7 +48,7 @@ class ClEditConstraintTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClEditConstraint::isEditConstraint
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClEditConstraint::isEditConstraint
 	 */
 	public function test_isEditConstraint() {
 
@@ -59,7 +59,7 @@ class ClEditConstraintTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers DaveRoss\CassowaryConstraintSolver\ClEditConstraint::__toString
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClEditConstraint::__toString
 	 */
 	public function test_toString() {
 
