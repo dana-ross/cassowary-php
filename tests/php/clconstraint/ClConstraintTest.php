@@ -85,7 +85,7 @@ class ClConstraintTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::isInequality
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::isStayConstraint
 	 */
 	public function test_isStayConstraint() {
 
