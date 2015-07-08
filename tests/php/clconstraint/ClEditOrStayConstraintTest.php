@@ -2,6 +2,9 @@
 
 class ClEditOrStayConstraintTest extends PHPUnit_Framework_TestCase {
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClEditOrStayConstraint::__construct_clvariable_clstrength_double
+	 */
 	public function test_construct_clvariable_clstrength_double() {
 
 		$var        = new \DaveRoss\CassowaryConstraintSolver\ClVariable( 'example', 5.0 );
@@ -19,6 +22,9 @@ class ClEditOrStayConstraintTest extends PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClEditOrStayConstraint::__construct_clvariable_clstrength
+	 */
 	public function test_construct_clvariable_clstrength() {
 
 		$var        = new \DaveRoss\CassowaryConstraintSolver\ClVariable( 'example', 5.0 );
@@ -34,6 +40,9 @@ class ClEditOrStayConstraintTest extends PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClEditOrStayConstraint::__construct_clvariable
+	 */
 	public function test_construct_clvariable() {
 
 		$var        = new \DaveRoss\CassowaryConstraintSolver\ClVariable( 'example', 5.0 );
