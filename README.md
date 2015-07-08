@@ -2,3 +2,11 @@
 Cassowary Constraint Solver ported to PHP from the [optimized Java version](https://github.com/pellucidanalytics/cassowary-java)
 
 (Work in progress)
+
+## License
+
+[LGPL 2.1](http://opensource.org/licenses/LGPL-2.1)
+
+As this is a derivitive of the Java port, it inherits the license.
+
+See [why I contribute to open source software](https://davidmichaelross.com/blog/contribute-open-source-software/).
