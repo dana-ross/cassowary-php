@@ -3,6 +3,12 @@ Cassowary Constraint Solver ported to PHP from the [optimized Java version](http
 
 (Work in progress)
 
+## Goals
+
+1. Complete port the optimized Java implementation
+2. Extensive unit tests (at least 75% coverage) with those test eventually back-ported to Java
+3. Web site with documentation and example code
+
 ## License
 
 [LGPL 2.1](http://opensource.org/licenses/LGPL-2.1)
