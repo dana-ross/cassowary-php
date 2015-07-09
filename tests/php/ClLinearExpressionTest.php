@@ -169,6 +169,9 @@ class ClLinearExpressionTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals( 1, count( $example->terms()->size() ) );
 		$this->assertInternalType( 'double', $example->terms()[ $key ]->doubleValue() );
 		$this->assertEquals( 1.0, $example->terms()[ $key ]->doubleValue() );
+		$this->assertInternalType( 'double', $example->constant() );
+		$this->assertEquals( 2.0, $example->constant() );
+
 	}
 
 	/**
