@@ -8,7 +8,7 @@ class ClLinearConstraintTest extends PHPUnit_Framework_TestCase {
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::weight
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearConstraint::expression
 	 */
-	public function test_construct_cllinearexpression_cllinearexpression_clstrength_double() {
+	public function test_construct_cllinearexpression_clstrength_double() {
 
 		$expression = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 5.0 );
 		$constraint = new \DaveRoss\CassowaryConstraintSolver\ClLinearConstraint( $expression, \DaveRoss\CassowaryConstraintSolver\ClStrength::$medium, 5.0 );
