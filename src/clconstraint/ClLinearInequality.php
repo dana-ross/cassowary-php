@@ -108,7 +108,7 @@ class ClLinearInequality extends ClLinearConstraint {
 			$this->_expression->addVariable_clabstractvariable_double( $clv, - 1.0 );
 		} else {
 			// the operator was invalid
-			throw new CLInternalError( "Invalid operator in ClLinearInequality constructor" );
+			throw new DaveRoss\CassowaryConstraintSolver\CLInternalError( "Invalid operator in ClLinearInequality constructor" );
 		}
 	}
 
@@ -154,7 +154,7 @@ class ClLinearInequality extends ClLinearConstraint {
 			$this->_expression->addExpression_cllinearexpression_double( $cle1, - 1.0 );
 		} else {
 			// the operator was invalid
-			throw new CLInternalError( "Invalid operator in ClLinearInequality constructor" );
+			throw new DaveRoss\CassowaryConstraintSolver\CLInternalError( "Invalid operator in ClLinearInequality constructor" );
 		}
 	}
 
