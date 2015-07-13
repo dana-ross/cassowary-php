@@ -63,6 +63,9 @@ class ClLinearEquationTest extends PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearEquation::__construct_clabstractvariable_cllinearexpression_clstrength_double
+	 */
 	public function test_construct_clabstractvariable_cllinearexpression_clstrength_double() {
 
 		$constraint = new \DaveRoss\CassowaryConstraintSolver\ClLinearEquation(
@@ -81,6 +84,9 @@ class ClLinearEquationTest extends PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearEquation::__construct_clabstractvariable_cllinearexpression
+	 */
 	public function test_construct_clabstractvariable_cllinearexpression() {
 
 		$constraint = new \DaveRoss\CassowaryConstraintSolver\ClLinearEquation(
@@ -97,6 +103,9 @@ class ClLinearEquationTest extends PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearEquation::__construct_clabstractvariable_double_clstrength_double
+	 */
 	public function test_construct_clabstractvariable_double_clstrength_double() {
 
 		$constraint = new \DaveRoss\CassowaryConstraintSolver\ClLinearEquation(
@@ -106,11 +115,11 @@ class ClLinearEquationTest extends PHPUnit_Framework_TestCase {
 			4.0
 		);
 
-		$this->assertEquals(4.0, $constraint->weight());
-		$this->assertSame(\DaveRoss\CassowaryConstraintSolver\ClStrength::$weak, $constraint->strength());
+		$this->assertEquals( 4.0, $constraint->weight() );
+		$this->assertSame( \DaveRoss\CassowaryConstraintSolver\ClStrength::$weak, $constraint->strength() );
 
 		$expression = $constraint->expression();
-		$this->assertEquals(2.0, $expression->constant());
+		$this->assertEquals( 2.0, $expression->constant() );
 
 		$terms = $constraint->expression()->terms();
 		$this->assertEquals( 1, $terms->keySet_iterator()->getSize() );
@@ -121,6 +130,9 @@ class ClLinearEquationTest extends PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearEquation::__construct_clabstractvariable_double_clstrength
+	 */
 	public function test_construct_clabstractvariable_double_clstrength() {
 
 		$constraint = new \DaveRoss\CassowaryConstraintSolver\ClLinearEquation(
@@ -129,11 +141,11 @@ class ClLinearEquationTest extends PHPUnit_Framework_TestCase {
 			\DaveRoss\CassowaryConstraintSolver\ClStrength::$weak
 		);
 
-		$this->assertEquals(1.0, $constraint->weight());
-		$this->assertSame(\DaveRoss\CassowaryConstraintSolver\ClStrength::$weak, $constraint->strength());
+		$this->assertEquals( 1.0, $constraint->weight() );
+		$this->assertSame( \DaveRoss\CassowaryConstraintSolver\ClStrength::$weak, $constraint->strength() );
 
 		$expression = $constraint->expression();
-		$this->assertEquals(2.0, $expression->constant());
+		$this->assertEquals( 2.0, $expression->constant() );
 
 		$terms = $constraint->expression()->terms();
 		$this->assertEquals( 1, $terms->keySet_iterator()->getSize() );
@@ -144,6 +156,9 @@ class ClLinearEquationTest extends PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearEquation::__construct_clabstractvariable_double
+	 */
 	public function test_construct_clabstractvariable_double() {
 
 		$constraint = new \DaveRoss\CassowaryConstraintSolver\ClLinearEquation(
@@ -151,11 +166,11 @@ class ClLinearEquationTest extends PHPUnit_Framework_TestCase {
 			2.0
 		);
 
-		$this->assertEquals(1.0, $constraint->weight());
-		$this->assertSame(\DaveRoss\CassowaryConstraintSolver\ClStrength::$required, $constraint->strength());
+		$this->assertEquals( 1.0, $constraint->weight() );
+		$this->assertSame( \DaveRoss\CassowaryConstraintSolver\ClStrength::$required, $constraint->strength() );
 
 		$expression = $constraint->expression();
-		$this->assertEquals(2.0, $expression->constant());
+		$this->assertEquals( 2.0, $expression->constant() );
 
 		$terms = $constraint->expression()->terms();
 		$this->assertEquals( 1, $terms->keySet_iterator()->getSize() );
@@ -166,6 +181,9 @@ class ClLinearEquationTest extends PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearEquation::__construct_cllinearexpression_clabstractvariable_clstrength_double
+	 */
 	public function test_construct_cllinearexpression_clabstractvariable_clstrength_double() {
 
 		$constraint = new \DaveRoss\CassowaryConstraintSolver\ClLinearEquation(
@@ -175,11 +193,11 @@ class ClLinearEquationTest extends PHPUnit_Framework_TestCase {
 			2.0
 		);
 
-		$this->assertEquals(2.0, $constraint->weight());
-		$this->assertSame(\DaveRoss\CassowaryConstraintSolver\ClStrength::$medium, $constraint->strength());
+		$this->assertEquals( 2.0, $constraint->weight() );
+		$this->assertSame( \DaveRoss\CassowaryConstraintSolver\ClStrength::$medium, $constraint->strength() );
 
 		$expression = $constraint->expression();
-		$this->assertEquals(5.0, $expression->constant());
+		$this->assertEquals( 5.0, $expression->constant() );
 
 		$terms = $constraint->expression()->terms();
 		$this->assertEquals( 1, $terms->keySet_iterator()->getSize() );
@@ -190,6 +208,9 @@ class ClLinearEquationTest extends PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearEquation::__construct_cllinearexpression_clabstractvariable_clstrength
+	 */
 	public function test_construct_cllinearexpression_clabstractvariable_clstrength() {
 
 		$constraint = new \DaveRoss\CassowaryConstraintSolver\ClLinearEquation(
@@ -198,11 +219,11 @@ class ClLinearEquationTest extends PHPUnit_Framework_TestCase {
 			\DaveRoss\CassowaryConstraintSolver\ClStrength::$medium
 		);
 
-		$this->assertEquals(1.0, $constraint->weight());
-		$this->assertSame(\DaveRoss\CassowaryConstraintSolver\ClStrength::$medium, $constraint->strength());
+		$this->assertEquals( 1.0, $constraint->weight() );
+		$this->assertSame( \DaveRoss\CassowaryConstraintSolver\ClStrength::$medium, $constraint->strength() );
 
 		$expression = $constraint->expression();
-		$this->assertEquals(5.0, $expression->constant());
+		$this->assertEquals( 5.0, $expression->constant() );
 
 		$terms = $constraint->expression()->terms();
 		$this->assertEquals( 1, $terms->keySet_iterator()->getSize() );
@@ -213,6 +234,9 @@ class ClLinearEquationTest extends PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearEquation::__construct_cllinearexpression_clabstractvariable
+	 */
 	public function test_construct_cllinearexpression_clabstractvariable() {
 
 		$constraint = new \DaveRoss\CassowaryConstraintSolver\ClLinearEquation(
@@ -220,11 +244,11 @@ class ClLinearEquationTest extends PHPUnit_Framework_TestCase {
 			new \DaveRoss\CassowaryConstraintSolver\ClObjectiveVariable( 'example' )
 		);
 
-		$this->assertEquals(1.0, $constraint->weight());
-		$this->assertSame(\DaveRoss\CassowaryConstraintSolver\ClStrength::$required, $constraint->strength());
+		$this->assertEquals( 1.0, $constraint->weight() );
+		$this->assertSame( \DaveRoss\CassowaryConstraintSolver\ClStrength::$required, $constraint->strength() );
 
 		$expression = $constraint->expression();
-		$this->assertEquals(5.0, $expression->constant());
+		$this->assertEquals( 5.0, $expression->constant() );
 
 		$terms = $constraint->expression()->terms();
 		$this->assertEquals( 1, $terms->keySet_iterator()->getSize() );
@@ -235,6 +259,86 @@ class ClLinearEquationTest extends PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearEquation::__construct_cllinearexpression_cllinearexpression_clstrength_double
+	 */
+	public function test_construct_cllinearexpression_cllinearexpression_clstrength_double() {
+
+		$var1  = new \DaveRoss\CassowaryConstraintSolver\ClObjectiveVariable( 'exampleA' );
+		$expr1 = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( $var1, 5.0, 7.0 );
+		$var2  = new \DaveRoss\CassowaryConstraintSolver\ClObjectiveVariable( 'exampleB' );
+		$expr2 = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( $var2, 13.0, 17.0 );
+
+		$constraint = new \DaveRoss\CassowaryConstraintSolver\ClLinearEquation(
+			$expr1,
+			$expr2,
+			\DaveRoss\CassowaryConstraintSolver\ClStrength::$medium,
+			9.0
+		);
+
+		$this->assertSame( \DaveRoss\CassowaryConstraintSolver\ClStrength::$medium, $constraint->strength() );
+		$this->assertEquals( 9.0, $constraint->weight() );
+
+		$terms = $constraint->expression()->terms()->keySet_iterator();
+		$this->assertInstanceOf( '\DaveRoss\CassowaryConstraintSolver\ClObjectiveVariable', $terms[0] );
+		$this->assertSame( $var1, $terms[0] );
+		$this->assertInstanceOf( '\DaveRoss\CassowaryConstraintSolver\ClObjectiveVariable', $terms[1] );
+		$this->assertSame( $var2, $terms[1] );
+
+	}
+
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearEquation::__construct_cllinearexpression_cllinearexpression_clstrength
+	 */
+	public function test_construct_cllinearexpression_cllinearexpression_clstrength() {
+
+		$var1  = new \DaveRoss\CassowaryConstraintSolver\ClObjectiveVariable( 'exampleA' );
+		$expr1 = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( $var1, 5.0, 7.0 );
+		$var2  = new \DaveRoss\CassowaryConstraintSolver\ClObjectiveVariable( 'exampleB' );
+		$expr2 = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( $var2, 13.0, 17.0 );
+
+		$constraint = new \DaveRoss\CassowaryConstraintSolver\ClLinearEquation(
+			$expr1,
+			$expr2,
+			\DaveRoss\CassowaryConstraintSolver\ClStrength::$medium
+		);
+
+		$this->assertSame( \DaveRoss\CassowaryConstraintSolver\ClStrength::$medium, $constraint->strength() );
+		$this->assertEquals( 1.0, $constraint->weight() );
+
+		$terms = $constraint->expression()->terms()->keySet_iterator();
+		$this->assertInstanceOf( '\DaveRoss\CassowaryConstraintSolver\ClObjectiveVariable', $terms[0] );
+		$this->assertSame( $var1, $terms[0] );
+		$this->assertInstanceOf( '\DaveRoss\CassowaryConstraintSolver\ClObjectiveVariable', $terms[1] );
+		$this->assertSame( $var2, $terms[1] );
+
+	}
+
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearEquation::__construct_cllinearexpression_cllinearexpression
+	 */
+	public function test_construct_cllinearexpression_cllinearexpression() {
+
+		$var1  = new \DaveRoss\CassowaryConstraintSolver\ClObjectiveVariable( 'exampleA' );
+		$expr1 = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( $var1, 5.0, 7.0 );
+		$var2  = new \DaveRoss\CassowaryConstraintSolver\ClObjectiveVariable( 'exampleB' );
+		$expr2 = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( $var2, 13.0, 17.0 );
+
+		$constraint = new \DaveRoss\CassowaryConstraintSolver\ClLinearEquation(
+			$expr1,
+			$expr2
+		);
+
+		$this->assertSame( \DaveRoss\CassowaryConstraintSolver\ClStrength::$required, $constraint->strength() );
+		$this->assertEquals( 1.0, $constraint->weight() );
+
+		$terms = $constraint->expression()->terms()->keySet_iterator();
+		$this->assertInstanceOf( '\DaveRoss\CassowaryConstraintSolver\ClObjectiveVariable', $terms[0] );
+		$this->assertSame( $var1, $terms[0] );
+		$this->assertInstanceOf( '\DaveRoss\CassowaryConstraintSolver\ClObjectiveVariable', $terms[1] );
+		$this->assertSame( $var2, $terms[1] );
+
+	}
 
 	/**
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearEquation::__toString
