@@ -284,7 +284,7 @@ class CL {
 	 * @return boolean
 	 */
 	public static function approx_clvariable_double( ClVariable $clv, $b ) {
-		return approx( $clv->getValue(), doubleval( $b ) );
+		return self::approx_double_double( $clv->getValue(), doubleval( $b ) );
 	}
 
 	/**
@@ -294,7 +294,7 @@ class CL {
 	 * @return boolean
 	 */
 	static function approx_double_clvariable( $a, ClVariable $clv ) {
-		return approx( doubleval( $a ), $clv->getValue() );
+		return self::approx_double_double( doubleval( $a ), $clv->getValue() );
 	}
 
 }
