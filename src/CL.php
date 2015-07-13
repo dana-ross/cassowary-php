@@ -293,7 +293,7 @@ class CL {
 	 *
 	 * @return boolean
 	 */
-	static function approx_double_clvariable( $a, ClVariable $clv ) {
+	public static function approx_double_clvariable( $a, ClVariable $clv ) {
 		return self::approx_double_double( doubleval( $a ), $clv->getValue() );
 	}
 
