@@ -254,8 +254,9 @@ class ClLinearExpression extends CL {
 	final public function addExpression_cllinearexpression_double( ClLinearExpression $expr, $n ) {
 		$this->incrementConstant( doubleval( $n ) * $expr->constant() );
 
-		foreach ( $expr->_terms->entrySet_iterator() as $e ) {
-			$this->addVariable_clabstractvariable_double( $e->getKey(), $e->getValue()->doubleValue() * doubleval( $n ) );
+		foreach ( $expr->_terms->keySet_iterator() as $key ) {
+			$value = $expr->_terms[$key];
+			$this->addVariable_clabstractvariable_double( $key, $value->doubleValue() * doubleval( $n ) );
 		}
 
 		return $this;
