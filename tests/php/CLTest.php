@@ -3,6 +3,42 @@
 class CLTest extends PHPUnit_Framework_TestCase {
 
 	/**
+	 * @covers DaveRoss\CassowaryConstraintSolver\CL::debugprint
+	 */
+	public function test_debugprint() {
+		ob_start();
+		CLTestImpl::debugprint( 'example' );
+		$this->assertEquals( 'example' . "\n", ob_get_clean() );
+	}
+
+	/**
+	 * @covers DaveRoss\CassowaryConstraintSolver\CL::traceprint
+	 */
+	public function test_traceprint() {
+		ob_start();
+		CLTestImpl::traceprint( 'example' );
+		$this->assertEquals( 'example' . "\n", ob_get_clean() );
+	}
+
+	/**
+	 * @covers DaveRoss\CassowaryConstraintSolver\CL::fnenterprint
+	 */
+	public function test_fnenterprint() {
+		ob_start();
+		CLTestImpl::fnenterprint( 'example' );
+		$this->assertEquals( '* example', ob_get_clean() );
+	}
+
+	/**
+	 * @covers DaveRoss\CassowaryConstraintSolver\CL::fnexitprint
+	 */
+	public function test_fnexitprint() {
+		ob_start();
+		CLTestImpl::fnexitprint( 'example' );
+		$this->assertEquals( '- example', ob_get_clean() );
+	}
+
+	/**
 	 * @covers DaveRoss\CassowaryConstraintSolver\CL::approx_double_double
 	 */
 	public function test_approx_double_double() {
@@ -114,6 +150,26 @@ class CLTest extends PHPUnit_Framework_TestCase {
 		$this->assertInternalType( 'boolean', DaveRoss\CassowaryConstraintSolver\CL::approx_double_clvariable( 1.0, new DaveRoss\CassowaryConstraintSolver\ClVariable( 1.0000001 ) ) );
 		$this->assertFalse( DaveRoss\CassowaryConstraintSolver\CL::approx_double_clvariable( 1.0, new DaveRoss\CassowaryConstraintSolver\ClVariable( 1.0000001 ) ) );
 
+	}
+
+}
+
+class CLTestImpl extends DaveRoss\CassowaryConstraintSolver\CL {
+
+	public static function debugprint( $s ) {
+		parent::debugprint( $s );
+	}
+
+	public static function traceprint( $s ) {
+		parent::traceprint( $s );
+	}
+
+	public static function fnenterprint( $s ) {
+		parent::fnenterprint( $s );
+	}
+
+	public static function fnexitprint( $s ) {
+		parent::fnexitprint( $s );
 	}
 
 }
