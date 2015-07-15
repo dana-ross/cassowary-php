@@ -67,6 +67,17 @@ class ClDoubleTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClDouble::shortValue
+	 */
+	function test_short_value() {
+
+		$instance = new \DaveRoss\CassowaryConstraintSolver\ClDouble(5.5);
+		$this->assertInternalType('integer', $instance->shortValue());
+		$this->assertEquals(5, $instance->shortValue());
+
+	}
+
+	/**
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClDouble::__clone
 	 */
 	function test_clone() {
