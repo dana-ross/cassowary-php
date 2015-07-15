@@ -75,7 +75,7 @@ class ClDouble {
 	 * @return integer
 	 */
 	final public function shortValue() {
-		return intval( $this->value );
+		return $this->longValue();
 	}
 
 	/**
