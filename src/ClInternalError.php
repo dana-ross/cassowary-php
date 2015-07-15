@@ -23,7 +23,7 @@ namespace DaveRoss\CassowaryConstraintSolver;
  */
 class ClInternalError extends ClException {
 
-	function __construct( $s ) {
+	public function __construct( $s ) {
 		parent::__construct( $s );
 	}
 
