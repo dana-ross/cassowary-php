@@ -123,6 +123,7 @@ class ClLinearExpression extends CL {
 	 */
 	final public function plus_cllinearexpression( ClLinearExpression $expr ) {
 		$x = clone( $this );
+
 		return $x->addExpression_cllinearexpression_double( $expr, 1.0 );
 	}
 
@@ -145,7 +146,8 @@ class ClLinearExpression extends CL {
 	 */
 	final public function minus_cllinearexpression( ClLinearExpression $expr ) {
 		$x = clone( $this );
-		return $x->addExpression_cllinearexpression_double( $expr, -1.0 );
+
+		return $x->addExpression_cllinearexpression_double( $expr, - 1.0 );
 	}
 
 	/**
@@ -255,7 +257,7 @@ class ClLinearExpression extends CL {
 		$this->incrementConstant( doubleval( $n ) * $expr->constant() );
 
 		foreach ( $expr->_terms->keySet_iterator() as $key ) {
-			$value = $expr->_terms[$key];
+			$value = $expr->_terms[ $key ];
 			$this->addVariable_clabstractvariable_double( $key, $value->doubleValue() * doubleval( $n ) );
 		}
 
