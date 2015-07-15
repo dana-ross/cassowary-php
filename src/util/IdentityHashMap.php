@@ -12,7 +12,8 @@ namespace DaveRoss\CassowaryConstraintSolver;
 class IdentityHashMap extends \SplObjectStorage {
 
 	/**
-     * Check if a particular key has been added to this IdentityHashMap
+	 * Check if a particular key has been added to this IdentityHashMap
+	 *
 	 * @param object $key
 	 *
 	 * @return bool
@@ -22,17 +23,18 @@ class IdentityHashMap extends \SplObjectStorage {
 	}
 
 	/**
-     * Add a key/value pair to the IdentityHashMap
+	 * Add a key/value pair to the IdentityHashMap
+	 *
 	 * @param object $key
-	 * @param  mixed    $object
+	 * @param  mixed $object
 	 */
 	public function put( $key, $object ) {
 		$this->attach( $key, $object );
 	}
 
 	/**
-     * Remove all entries in this IdentityHashMap without invalidating & replacinh
-     * its internal data structures
+	 * Remove all entries in this IdentityHashMap without invalidating & replacinh
+	 * its internal data structures
 	 * @return void
 	 */
 	public function clear() {
@@ -42,7 +44,7 @@ class IdentityHashMap extends \SplObjectStorage {
 	}
 
 	/**
-     * Check if this IdentityHashMap is empty
+	 * Check if this IdentityHashMap is empty
 	 * @return bool
 	 */
 	public function isEmpty() {
@@ -50,7 +52,7 @@ class IdentityHashMap extends \SplObjectStorage {
 	}
 
 	/**
-     * Return an array of all keys in this IdentityHashMap
+	 * Return an array of all keys in this IdentityHashMap
 	 * @return \SplFixedArray
 	 */
 	public function keySet_iterator() {
@@ -62,10 +64,10 @@ class IdentityHashMap extends \SplObjectStorage {
 		return \SplFixedArray::fromArray( $keys );
 	}
 
-    /**
-     * Return an array of all values in this IdentityHashMap
-     * @return \SplFixedArray
-     */
+	/**
+	 * Return an array of all values in this IdentityHashMap
+	 * @return \SplFixedArray
+	 */
 	public function entrySet_iterator() {
 		$entries = array();
 		foreach ( $this as $key ) {
@@ -76,8 +78,10 @@ class IdentityHashMap extends \SplObjectStorage {
 	}
 
 	/**
-     * Remove a key from the IdentityHashMap and its associated value
+	 * Remove a key from the IdentityHashMap and its associated value
+	 *
 	 * @param object $key
+	 *
 	 * @return mixed the previous value associated with key, or null if there was no mapping for key. (A null return can also indicate that the map previously associated null with key.)
 	 */
 	public function remove( $key ) {
@@ -88,7 +92,7 @@ class IdentityHashMap extends \SplObjectStorage {
 	}
 
 	/**
-     * Returns a count of how many entries there are in this IdentityHashMap
+	 * Returns a count of how many entries there are in this IdentityHashMap
 	 * @return integer
 	 */
 	public function size() {
@@ -105,6 +109,28 @@ class IdentityHashMap extends \SplObjectStorage {
 	 */
 	public function get( $key ) {
 		return $this->containsKey( $key ) ? $this[ $key ] : null;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function __toString() {
+		// Returns a string representation of this map. The string representation consists of a list of key-value
+		//mappings in the order returned by the map's entrySet view's iterator, enclosed in braces ("{}"). Adjacent
+		//mappings are separated by the characters ", " (comma and space). Each key-value mapping is rendered as the
+		//key followed by an equals sign ("=") followed by the associated value. Keys and values are converted to
+		// strings as by String.valueOf(Object).
+		$output = '{';
+		$keys   = $this->keySet_iterator();
+		foreach ( $keys as $key_index => $key ) {
+			if ( 0 < $key_index ) {
+				$output .= ', ';
+			}
+			$output .= $key . '=' . $this[ $key ];
+		}
+		$output .= '}';
+
+		return $output;
 	}
 
 }
