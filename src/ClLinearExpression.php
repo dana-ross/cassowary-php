@@ -359,7 +359,7 @@ class ClLinearExpression extends CL {
 				$coeff->setValue( $new_coefficient );
 			}
 		} else {
-			if ( ! CL . approx( doubleval( $c ), 0.0 ) ) {
+			if ( ! CL::approx_double_double( doubleval( $c ), 0.0 ) ) {
 				$this->_terms->put( $v, new ClDouble( doubleval( c ) ) );
 				$solver->noteAddedVariable( $v, $subject );
 			}
@@ -418,7 +418,7 @@ class ClLinearExpression extends CL {
 			if ( $d_old_coeff != null ) {
 				$old_coeff = $d_old_coeff->doubleValue();
 				$newCoeff  = $old_coeff + $multiplier * $coeff;
-				if ( CL::approx( $newCoeff, 0.0 ) ) {
+				if ( CL::approx_double_double( $newCoeff, 0.0 ) ) {
 					$solver->noteRemovedVariable( $clv, $subject );
 					$this->_terms->remove( $clv );
 				} else {
