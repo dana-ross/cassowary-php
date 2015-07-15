@@ -138,7 +138,7 @@ abstract class ClConstraint {
 	 *
 	 * @return void
 	 */
-	public function addedTo( ClSimplexSolver $solver = null ) {
+	public function addedTo( /* ClSimplexSolver $solver = null */ ) {
 		$this->_times_added += 1;
 	}
 
