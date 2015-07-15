@@ -99,7 +99,7 @@ class ClSymbolicWeightTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers \DaveRoss\CassowaryConstraintSolver\ClSymbolicWeight::lessThan
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClSymbolicWeight::lessThanOrEqual
 	 */
 	public function test_lessThanOrEqual() {
 		$weight = new \DaveRoss\CassowaryConstraintSolver\ClSymbolicWeight( 10.0, 9.0, 8.0 );
@@ -166,7 +166,7 @@ class ClSymbolicWeightTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers \DaveRoss\CassowaryConstraintSolver\ClSymbolicWeight::lessThan
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClSymbolicWeight::greaterThanOrEqual
 	 */
 	public function test_greaterThanOrEqual() {
 		$weight = new \DaveRoss\CassowaryConstraintSolver\ClSymbolicWeight( 10.0, 9.0, 8.0 );
