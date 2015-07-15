@@ -3,7 +3,7 @@
 class ClLinearConstraintTest extends PHPUnit_Framework_TestCase {
 
 	/**
-	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearConstraint::__construct_clstrength_double
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearConstraint::__construct_cllinearexpression_clstrength_double
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::strength
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClConstraint::weight
 	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearConstraint::expression
