@@ -78,9 +78,13 @@ class IdentityHashMap extends \SplObjectStorage {
 	/**
      * Remove a key from the IdentityHashMap and its associated value
 	 * @param object $key
+	 * @return mixed the previous value associated with key, or null if there was no mapping for key. (A null return can also indicate that the map previously associated null with key.)
 	 */
 	public function remove( $key ) {
+		$old_value = $this[ $key ];
 		$this->detach( $key );
+
+		return $old_value;
 	}
 
 	/**

@@ -80,9 +80,11 @@ class IdentityHashMapTest extends PHPUnit_Framework_TestCase {
 		$hash_map->put( $key, 2.0 );
 		$this->assertInternalType( 'boolean', $hash_map->containsKey( $key ) );
 		$this->assertEquals( true, $hash_map->containsKey( $key ) );
-		$hash_map->remove( $key );
+		$old_value = $hash_map->remove( $key );
 		$this->assertInternalType( 'boolean', $hash_map->containsKey( $key ) );
 		$this->assertEquals( false, $hash_map->containsKey( $key ) );
+		$this->assertInternalType( 'double', $old_value );
+		$this->assertEquals( 2.0, $old_value );
 	}
 
 	/**
