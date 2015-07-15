@@ -148,6 +148,10 @@ class ClLinearEquation extends ClLinearConstraint {
 		$this->__construct_cllinearexpression_cllinearexpression_clstrength_double( $cle1, $cle2, $strength, 1.0 );
 	}
 
+	/**
+	 * @param ClLinearExpression $cle1
+	 * @param ClLinearExpression $cle2
+	 */
 	public function __construct_cllinearexpression_cllinearexpression( ClLinearExpression $cle1, ClLinearExpression $cle2 ) {
 		$this->__construct_cllinearexpression_cllinearexpression_clstrength_double( $cle1, $cle2, ClStrength::$required, 1.0 );
 	}
@@ -158,4 +162,5 @@ class ClLinearEquation extends ClLinearConstraint {
 	public function __toString() {
 		return parent::__toString() . " = 0 )";
 	}
+
 }
