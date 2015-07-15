@@ -23,15 +23,15 @@ namespace DaveRoss\CassowaryConstraintSolver;
  */
 class ClEditInfo {
 
-	private $cn; /* ClConstraint */
+	protected $cn; /* ClConstraint */
 
-	private $clvEditPlus; /* ClSlackVariable */
+	protected $clvEditPlus; /* ClSlackVariable */
 
-	private $clvEditMinus; /* ClSlackVariable */
+	protected $clvEditMinus; /* ClSlackVariable */
 
-	private $prevEditConstant; /* double */
+	protected $prevEditConstant; /* double */
 
-	private $i; /* int */
+	protected $i; /* int */
 
 
 	/**
