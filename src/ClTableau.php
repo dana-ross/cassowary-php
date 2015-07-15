@@ -105,7 +105,7 @@ class ClTableau extends CL {
 	public function __toString() {
 
 		$bstr = "Tableau:\n";
-		foreach ( $this->_rows->keySet() as $clv ) {
+		foreach ( $this->_rows->keySet_iterator() as $clv ) {
 			$expr = $this->_rows->get( $clv );
 			$bstr .= $clv->__toString();
 			$bstr .= " <==> ";
@@ -164,7 +164,7 @@ class ClTableau extends CL {
 		// have that variable in their expression
 		$this->_rows->put( $var, $expr );
 
-		foreach ( $expr->terms()->keySet() as $clv ) {
+		foreach ( $expr->terms()->keySet_iterator() as $clv ) {
 			$this->insertColVar( $clv, $var );
 			if ( $clv->isExternal() && $clv instanceof ClVariable ) {
 				$this->_externalParametricVars->add( $clv );
@@ -220,7 +220,7 @@ class ClTableau extends CL {
 		// For each variable in this expression, update
 		// the column mapping and remove the variable from the list
 		// of rows it is known to be in
-		foreach ( $expr->terms()->keySet() as $clv ) {
+		foreach ( $expr->terms()->keySet_iterator() as $clv ) {
 			$varset = $this->_columns->get( $clv );
 			if ( $varset != null ) {
 				$varset->remove( $var );
