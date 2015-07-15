@@ -134,8 +134,6 @@ abstract class ClConstraint {
 	}
 
 	/**
-	 * @param ClSimplexSolver $solver
-	 *
 	 * @return void
 	 */
 	public function addedTo( /* ClSimplexSolver $solver = null */ ) {
@@ -143,8 +141,6 @@ abstract class ClConstraint {
 	}
 
 	/**
-	 * @param ClSimplexSolver $solver
-	 *
 	 * @return void
 	 */
 	public function removedFrom( /* ClSimplexSolver $solver = null */ ) {
