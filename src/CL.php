@@ -75,7 +75,7 @@ class CL {
 	 * @return ClLinearExpression
 	 */
 	public static function Plus_cllinearexpression_cllinearexpression( ClLinearExpression $e1, ClLinearExpression $e2 ) {
-		return $e1->plus_cllinearexpression_cllinearexpression( $e2 );
+		return $e1->plus_cllinearexpression( $e2 );
 	}
 
 	/**
