@@ -4,7 +4,7 @@ namespace DaveRoss\CassowaryConstraintSolver;
 
 trait OverloadedMethods {
 
-	function __construct() {
+	public function __construct() {
 
 		if ( 0 === func_num_args() ) {
 			// Default constructor
