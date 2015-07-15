@@ -88,7 +88,7 @@ class ClEditInfo {
 	 * @param double $prevEditConstant_
 	 */
 	public function SetPrevEditConstant( $prevEditConstant_ ) {
-		$this->prevEditConstant = doubleval( prevEditConstant_ );
+		$this->prevEditConstant = doubleval( $prevEditConstant_ );
 	}
 
 }
