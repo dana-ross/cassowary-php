@@ -161,10 +161,6 @@ class IdentityHashSet {
 		throw new UnsupportedOperationException( "Unsupported operation on IdentityHashSet." );
 	}
 
-//	public <T> T[] toArray(T[] dummy) {
-//		throw new UnsupportedOperationException("Unsupported operation on IdentityHashSet.");
-//	}
-
     /**
      * Return a string representation of the Set
      * Implements the __toString magic method
