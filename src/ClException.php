@@ -23,7 +23,7 @@ namespace DaveRoss\CassowaryConstraintSolver;
  */
 class ClException extends \RuntimeException {
 
-	function __construct( $message = null ) {
+	public function __construct( $message = null ) {
 		parent::__construct( self::message_or_default( $message ) );
 	}
 
