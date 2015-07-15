@@ -210,7 +210,7 @@ class ClTableau extends CL {
 	 * @return ClLinearExpression
 	 * @throws ClInternalError
 	 */
-	protected final function removeRow( ClAbstractVariable $var ) {
+	final protected function removeRow( ClAbstractVariable $var ) {
 
 		$expr = $this->_rows->get( $var );
 		if ( $expr === null ) {
