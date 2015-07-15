@@ -71,15 +71,12 @@ class ClDouble {
 		return floatval( $this->value );
 	}
 
-//@Override
-//final public byte byteValue(){
-//return ( byte ) value;
-//}
-//
-//@Override
-//final public short shortValue(){
-//return ( short ) value;
-//}
+	/**
+	 * @return integer
+	 */
+	final public function shortValue() {
+		return intval( $this->value );
+	}
 
 	/**
      * Set this object's value
