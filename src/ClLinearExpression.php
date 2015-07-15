@@ -352,7 +352,7 @@ class ClLinearExpression extends CL {
 		$coeff = $this->_terms->get( $v );
 		if ( $coeff != null ) {
 			$new_coefficient = $coeff->doubleValue() + doubleval( c );
-			if ( CL . approx( $new_coefficient, 0.0 ) ) {
+			if ( CL::approx_double_double( $new_coefficient, 0.0 ) ) {
 				$solver->noteRemovedVariable( $v, $subject );
 				$this->_terms->remove( $v );
 			} else {
