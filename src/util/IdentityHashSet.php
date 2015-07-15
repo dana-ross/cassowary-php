@@ -11,7 +11,7 @@ class IdentityHashSet {
 
 	private $map; /* IdentityHashMap */
 
-	function __construct() {
+	public function __construct() {
 		$this->map = new IdentityHashMap();
 	}
 
