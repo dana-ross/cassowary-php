@@ -43,7 +43,7 @@ class ClTableau extends CL {
 	 * ctr is protected, since this only supports an ADT for
 	 * the ClSimplexSolved class
 	 */
-	protected function ClTableau() {
+	protected function __construct() {
 		$this->_columns                = new IdentityHashMap();
 		$this->_rows                   = new IdentityHashMap();
 		$this->_infeasibleRows         = new IdentityHashSet();
