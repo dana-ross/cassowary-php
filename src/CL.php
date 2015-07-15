@@ -75,7 +75,7 @@ class CL {
 	 * @return ClLinearExpression
 	 */
 	public static function Plus_cllinearexpression_cllinearexpression( ClLinearExpression $e1, ClLinearExpression $e2 ) {
-		return $e1->plus( $e2 );
+		return $e1->plus_cllinearexpression_cllinearexpression( $e2 );
 	}
 
 	/**
@@ -85,7 +85,7 @@ class CL {
 	 * @return ClLinearExpression
 	 */
 	public static function Plus_cllinearexpression_double( ClLinearExpression $e1, $e2 ) {
-		return $e1->plus( new ClLinearExpression( doubleval( $e2 ) ) );
+		return $e1->plus_cllinearexpression( new ClLinearExpression( doubleval( $e2 ) ) );
 	}
 
 	/**
@@ -95,7 +95,7 @@ class CL {
 	 * @return ClLinearExpression
 	 */
 	public static function Plus_double_cllinearexpression( $e1, ClLinearExpression $e2 ) {
-		return ( new ClLinearExpression( doubleval( $e1 ) ) )->plus( $e2 );
+		return ( new ClLinearExpression( doubleval( $e1 ) ) )->plus_cllinearexpression( $e2 );
 	}
 
 	/**
@@ -105,7 +105,7 @@ class CL {
 	 * @return ClLinearExpression
 	 */
 	public static function Plus_clvariable_cllinearexpression( ClVariable $e1, ClLinearExpression $e2 ) {
-		return ( new ClLinearExpression( $e1 ) )->plus( $e2 );
+		return ( new ClLinearExpression( $e1 ) )->plus_cllinearexpression( $e2 );
 	}
 
 	/**
@@ -115,7 +115,7 @@ class CL {
 	 * @return ClLinearExpression
 	 */
 	public static function Plus_cllinearexpression_clvariable( ClLinearExpression $e1, ClVariable $e2 ) {
-		return $e1->plus( new ClLinearExpression( $e2 ) );
+		return $e1->plus_cllinearexpression( new ClLinearExpression( $e2 ) );
 	}
 
 	/**
@@ -125,7 +125,7 @@ class CL {
 	 * @return ClLinearExpression
 	 */
 	public static function Plus_clvariable_double( ClVariable $e1, $e2 ) {
-		return ( new ClLinearExpression( $e1 ) )->plus( new ClLinearExpression( doubleval( $e2 ) ) );
+		return ( new ClLinearExpression( $e1 ) )->plus_cllinearexpression( new ClLinearExpression( doubleval( $e2 ) ) );
 	}
 
 	/**
@@ -135,7 +135,7 @@ class CL {
 	 * @return ClLinearExpression
 	 */
 	public static function Plus_double_clvariable( $e1, ClVariable $e2 ) {
-		return ( new ClLinearExpression( doubleval( $e1 ) ) )->plus( new ClLinearExpression( $e2 ) );
+		return ( new ClLinearExpression( doubleval( $e1 ) ) )->plus_cllinearexpression( new ClLinearExpression( $e2 ) );
 	}
 
 	/**
@@ -145,7 +145,7 @@ class CL {
 	 * @return ClLinearExpression
 	 */
 	public static function Minus_cllinearexpression_cllinearexpression( ClLinearExpression $e1, ClLinearExpression $e2 ) {
-		return $e1->minus( $e2 );
+		return $e1->minus_cllinearexpression( $e2 );
 	}
 
 	/**
@@ -155,7 +155,7 @@ class CL {
 	 * @return ClLinearExpression
 	 */
 	public static function Minus_double_cllinearexpression( $e1, ClLinearExpression $e2 ) {
-		return ( new ClLinearExpression( doubleval( $e1 ) ) )->minus( $e2 );
+		return ( new ClLinearExpression( doubleval( $e1 ) ) )->minus_cllinearexpression( $e2 );
 	}
 
 	/**
@@ -165,7 +165,7 @@ class CL {
 	 * @return ClLinearExpression
 	 */
 	public static function Minus_cllinearexpression_double( ClLinearExpression $e1, $e2 ) {
-		return $e1->minus( new ClLinearExpression( doubleval( $e2 ) ) );
+		return $e1->minus_cllinearexpression( new ClLinearExpression( doubleval( $e2 ) ) );
 	}
 
 	/**
@@ -176,7 +176,7 @@ class CL {
 	 * @throws NonlinearExpressionException
 	 */
 	public static function Times_cllinearexpression_cllinearexpression( ClLinearExpression $e1, ClLinearExpression $e2 ) {
-		return $e1->times( $e2 );
+		return $e1->times_cllinearexpression( $e2 );
 	}
 
 	/**
@@ -187,7 +187,7 @@ class CL {
 	 * @throws NonlinearExpressionException
 	 */
 	public static function Times_cllinearexpression_clvariable( ClLinearExpression $e1, ClVariable $e2 ) {
-		return $e1->times( new ClLinearExpression( $e2 ) );
+		return $e1->times_cllinearexpression( new ClLinearExpression( $e2 ) );
 	}
 
 	/**
@@ -198,7 +198,7 @@ class CL {
 	 * @throws NonlinearExpressionException
 	 */
 	public static function Times_clvariable_cllinearexpression( ClVariable $e1, ClLinearExpression $e2 ) {
-		return ( new ClLinearExpression( $e1 ) )->times( $e2 );
+		return ( new ClLinearExpression( $e1 ) )->times_cllinearexpression( $e2 );
 	}
 
 	/**
@@ -209,7 +209,7 @@ class CL {
 	 * @throws NonlinearExpressionException
 	 */
 	public static function Times_cllinearexpression_double( ClLinearExpression $e1, $e2 ) {
-		return $e1->times( new ClLinearExpression( doubleval( $e2 ) ) );
+		return $e1->times_cllinearexpression( new ClLinearExpression( doubleval( $e2 ) ) );
 	}
 
 	/**
@@ -220,7 +220,7 @@ class CL {
 	 * @throws NonlinearExpressionException
 	 */
 	public static function Times_double_cllinearexpression( $e1, ClLinearExpression $e2 ) {
-		return ( new ClLinearExpression( doubleval( $e1 ) ) )->times( $e2 );
+		return ( new ClLinearExpression( doubleval( $e1 ) ) )->times_cllinearexpression( $e2 );
 	}
 
 	/**
@@ -253,7 +253,7 @@ class CL {
 	 * @throws throws NonlinearExpressionException
 	 */
 	public static function Divide( ClLinearExpression $e1, ClLinearExpression $e2 ) {
-		return $e1->divide( $e2 );
+		return $e1->divide_cllinearexpression( $e2 );
 	}
 
 	/**
