@@ -5,7 +5,7 @@ php:
 #  - "5.4" # has problems with constructors in traits
   - "5.5"
   - "7" # pre-release
-  - "hhvm"
+  - "hhvm" # hhvm
 
 before_script:
   - composer install
