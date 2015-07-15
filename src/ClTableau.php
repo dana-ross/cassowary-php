@@ -214,7 +214,7 @@ class ClTableau extends CL {
 
 		$expr = $this->_rows->get( $var );
 		if ( $expr === null ) {
-			throw new ClInternalError;
+			throw new ClInternalError('In ' . __FUNCTION__ . ', $expr cannot be null');
 		}
 
 		// For each variable in this expression, update
