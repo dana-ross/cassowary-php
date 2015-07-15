@@ -41,7 +41,7 @@ class ClEditInfo {
 	 * @param double          $prevEditConstant_
 	 * @param int             $i_
 	 */
-	function __construct( ClConstraint $cn_, ClSlackVariable $eplus_, ClSlackVariable $eminus_, $prevEditConstant_, $i_ ) {
+	public function __construct( ClConstraint $cn_, ClSlackVariable $eplus_, ClSlackVariable $eminus_, $prevEditConstant_, $i_ ) {
 		$this->cn               = $cn_;
 		$this->clvEditPlus      = $eplus_;
 		$this->clvEditMinus     = $eminus_;
