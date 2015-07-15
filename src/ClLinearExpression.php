@@ -622,10 +622,10 @@ class ClLinearExpression extends CL {
 	 * @param ClLinearExpression $e2
 	 *
 	 * @return boolean
-	 * @todo not sure if this is the actual intent. Objects can contain equal but not the same $_terms object.
+	 * @see http://stackoverflow.com/a/13387787/2779360 "== compares object references, it checks to see if the two operands point to the same object (not equivalent objects, the same object)."
 	 */
 	final public static function FEquals( ClLinearExpression $e1, ClLinearExpression $e2 ) {
-		return $e1->_constant == $e2->_constant && $e1->_terms == $e2->_terms;
+		return $e1 === $e2;
 	}
 
 }
