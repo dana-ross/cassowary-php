@@ -110,13 +110,5 @@ class ClDouble {
 	final public function equals( $o ) {
 		return isset( $o->value ) ? $this->value == doubleval( $o->value ) : false;
 	}
-
-//	/**
-//	 * @return int
-//	 */
-//final public function hashCode() {
-////System . err . println( "ClDouble.hashCode() called!" );
-//return (int) java . lang . Double . doubleToLongBits( value );
-//}
-
+	
 }
