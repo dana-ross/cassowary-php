@@ -5,7 +5,7 @@ Cassowary Constraint Solver ported to PHP from the [optimized Java version](http
 
 ## Goals
 
-1. Complete port the optimized Java implementation
+1. Complete port of the optimized Java implementation
 2. Extensive unit tests (at least 75% coverage) with those tests eventually back-ported to Java
 3. Web site with documentation and example code
 
