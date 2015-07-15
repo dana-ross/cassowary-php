@@ -77,7 +77,7 @@ class IdentityHashMap extends \SplObjectStorage {
 
 	/**
      * Remove a key from the IdentityHashMap and its associated value
-	 * @param \stdClass $key
+	 * @param object $key
 	 */
 	public function remove( $key ) {
 		$this->detach( $key );
