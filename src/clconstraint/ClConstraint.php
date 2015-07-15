@@ -147,7 +147,7 @@ abstract class ClConstraint {
 	 *
 	 * @return void
 	 */
-	public function removedFrom( ClSimplexSolver $solver = null ) {
+	public function removedFrom( /* ClSimplexSolver $solver = null */ ) {
 		$this->_times_added -= 1;
 	}
 
