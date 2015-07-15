@@ -325,7 +325,7 @@ class ClLinearExpression extends CL {
 
 		$coeff = $this->_terms->get( $v );
 		if ( $coeff != null ) {
-			$this->coeff->setValue( doubleval( $c ) );
+			$coeff->setValue( doubleval( $c ) );
 		} else {
 			$this->_terms->put( $v, new ClDouble( doubleval( $c ) ) );
 		}
