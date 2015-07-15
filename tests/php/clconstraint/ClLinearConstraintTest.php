@@ -61,4 +61,15 @@ class ClLinearConstraintTest extends PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * @covers \DaveRoss\CassowaryConstraintSolver\ClLinearConstraint::expressions
+	 */
+	public function test_expression() {
+
+		$expression = new \DaveRoss\CassowaryConstraintSolver\ClLinearExpression( 5.0 );
+		$constraint = new \DaveRoss\CassowaryConstraintSolver\ClLinearConstraint( $expression );
+		$this->assertInstanceOf( '\DaveRoss\CassowaryConstraintSolver\ClLinearExpression', $constraint->expression() );
+		$this->assertSame( $expression, $constraint->expression() );
+
+	}
 }
