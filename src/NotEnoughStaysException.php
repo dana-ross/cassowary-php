@@ -17,7 +17,7 @@
 namespace DaveRoss\CassowaryConstraintSolver;
 
 class NotEnoughStaysException extends ClException {
-	function __construct() {
+	public function __construct() {
 		parent::__construct( "There are not enough stays to give specific values to every variable" );
 	}
 }

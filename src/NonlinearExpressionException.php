@@ -18,7 +18,7 @@ namespace DaveRoss\CassowaryConstraintSolver;
 
 class NonlinearExpressionException extends ClException {
 
-	function __construct() {
+	public function __construct() {
 		parent::__construct( "The resulting expression would be nonlinear" );
 	}
 

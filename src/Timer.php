@@ -25,7 +25,7 @@ class Timer {
 	protected $elapsedMs;
 	protected $startReading;
 
-	function __construct() {
+	public function __construct() {
 		$this->timerIsRunning = false; // Start not yet called.
 		$this->elapsedMs      = 0; // No time on timer object yet.
 	}
